@@ -56,31 +56,31 @@ class Astra_WP_Editor_CSS {
 		$heading_h5_font_size = astra_get_option( 'font-size-h5' );
 		$heading_h6_font_size = astra_get_option( 'font-size-h6' );
 
-		$link_color        = astra_get_option( 'link-color', $theme_color );
-		$link_h_color      = astra_get_option( 'link-h-color' );
+		$link_color   = astra_get_option( 'link-color', $theme_color );
+		$link_h_color = astra_get_option( 'link-h-color' );
 
 		/**
 		 * Button theme compatibility.
 		 */
-		$btn_color         = astra_get_option( 'button-color' );
-		$btn_bg_color      = astra_get_option( 'button-bg-color', '', $theme_color );
-		$btn_h_color       = astra_get_option( 'button-h-color' );
-		$btn_bg_h_color    = astra_get_option( 'button-bg-h-color', '', $link_h_color );
-		$btn_border_radius = astra_get_option( 'button-radius' );
-		$theme_btn_padding = astra_get_option( 'theme-button-padding' );
-		$btn_border_size 	= astra_get_option( 'theme-button-border-group-border-size' );
-		$btn_border_color   = astra_get_option( 'theme-button-border-group-border-color' );
-		$btn_border_h_color = astra_get_option( 'theme-button-border-group-border-h-color' );
+		$btn_color                = astra_get_option( 'button-color' );
+		$btn_bg_color             = astra_get_option( 'button-bg-color', '', $theme_color );
+		$btn_h_color              = astra_get_option( 'button-h-color' );
+		$btn_bg_h_color           = astra_get_option( 'button-bg-h-color', '', $link_h_color );
+		$btn_border_radius        = astra_get_option( 'button-radius' );
+		$theme_btn_padding        = astra_get_option( 'theme-button-padding' );
+		$btn_border_size          = astra_get_option( 'theme-button-border-group-border-size' );
+		$btn_border_color         = astra_get_option( 'theme-button-border-group-border-color' );
+		$btn_border_h_color       = astra_get_option( 'theme-button-border-group-border-h-color' );
 		$theme_btn_font_family    = astra_get_option( 'font-family-button' );
 		$theme_btn_font_size      = astra_get_option( 'font-size-button' );
 		$theme_btn_font_weight    = astra_get_option( 'font-weight-button' );
 		$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
 		$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
 		$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
-		$theme_btn_top_border    = ( isset( $btn_border_size['top'] ) && ( '' !== $btn_border_size['top'] && '0' !== $btn_border_size['top'] ) ) ? astra_get_css_value( $btn_border_size['top'], 'px' ) : '';
-		$theme_btn_right_border  = ( isset( $btn_border_size['right'] ) && ( '' !== $btn_border_size['right'] && '0' !== $btn_border_size['right'] ) ) ? astra_get_css_value( $btn_border_size['right'], 'px' ) : '';
-		$theme_btn_left_border   = ( isset( $btn_border_size['left'] ) && ( '' !== $btn_border_size['left'] && '0' !== $btn_border_size['left'] ) ) ? astra_get_css_value( $btn_border_size['left'], 'px' ) : '';
-		$theme_btn_bottom_border = ( isset( $btn_border_size['bottom'] ) && ( '' !== $btn_border_size['bottom'] && '0' !== $btn_border_size['bottom'] ) ) ? astra_get_css_value( $btn_border_size['bottom'], 'px' ) : '';
+		$theme_btn_top_border     = ( isset( $btn_border_size['top'] ) && ( '' !== $btn_border_size['top'] && '0' !== $btn_border_size['top'] ) ) ? astra_get_css_value( $btn_border_size['top'], 'px' ) : '';
+		$theme_btn_right_border   = ( isset( $btn_border_size['right'] ) && ( '' !== $btn_border_size['right'] && '0' !== $btn_border_size['right'] ) ) ? astra_get_css_value( $btn_border_size['right'], 'px' ) : '';
+		$theme_btn_left_border    = ( isset( $btn_border_size['left'] ) && ( '' !== $btn_border_size['left'] && '0' !== $btn_border_size['left'] ) ) ? astra_get_css_value( $btn_border_size['left'], 'px' ) : '';
+		$theme_btn_bottom_border  = ( isset( $btn_border_size['bottom'] ) && ( '' !== $btn_border_size['bottom'] && '0' !== $btn_border_size['bottom'] ) ) ? astra_get_css_value( $btn_border_size['bottom'], 'px' ) : '';
 
 		/**
 		 * Headings typography.
@@ -135,7 +135,6 @@ class Astra_WP_Editor_CSS {
 		}
 		if ( 'inherit' === $h2_font_weight && 'inherit' === $headings_font_weight ) {
 			$h2_font_weight = 'normal';
-			error_log( $h2_font_weight );
 		}
 		if ( '' == $h2_text_transform ) {
 			$h2_text_transform = $headings_text_transform;
@@ -214,8 +213,8 @@ class Astra_WP_Editor_CSS {
 			$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 		}
 
-		$site_background          = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
-		$content_background       = astra_get_option( 'content-bg-obj-responsive' );
+		$site_background    = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
+		$content_background = astra_get_option( 'content-bg-obj-responsive' );
 
 		$background_style_data = astra_get_responsive_background_obj( $site_background, 'desktop' );
 		if ( empty( $background_style_data ) ) {
@@ -229,25 +228,24 @@ class Astra_WP_Editor_CSS {
 
 		$css         = ':root{ --ast-content-width-size: 910px }';
 		$desktop_css = array(
-			':root' => Astra_Global_Palette::generate_global_palette_style(),
-			'html'  => array(
+			':root'                            => Astra_Global_Palette::generate_global_palette_style(),
+			'html'                             => array(
 				'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 			),
 
-			/* Default block width */
 			/* Wide-width block width */
-			'.wp-block[data-align="wide"]'            => array(
+			'.wp-block[data-align="wide"]'     => array(
 				'max-width' => astra_get_css_value( $site_content_width, 'px' ),
 			),
 			/* Full-width block width */
-			'.wp-block[data-align="full"]'            => array(
+			'.wp-block[data-align="full"]'     => array(
 				'max-width' => 'none',
 			),
 
-			'.editor-styles-wrapper a'            => array(
+			'.editor-styles-wrapper a'         => array(
 				'color' => esc_attr( $link_color ),
 			),
-			'.block-editor-block-list__block'         => array(
+			'.block-editor-block-list__block'  => array(
 				'color' => esc_attr( $text_color ),
 			),
 
@@ -262,15 +260,15 @@ class Astra_WP_Editor_CSS {
 			'#editor .edit-post-visual-editor' => $background_style_data,
 			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'desktop' ),
 
-			'.editor-styles-wrapper' => array(
+			'.editor-styles-wrapper'           => array(
 				'font-family'    => astra_get_font_family( $body_font_family ),
 				'font-weight'    => esc_attr( $body_font_weight ),
 				'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
 				'line-height'    => esc_attr( $body_line_height ),
 				'text-transform' => esc_attr( $body_text_transform ),
 			),
-			'.editor-styles-wrapper p' => array(
-				'margin-bottom'  => astra_get_css_value( $para_margin_bottom, 'em' ),
+			'.editor-styles-wrapper p'         => array(
+				'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 			),
 			'.editor-styles-wrapper .editor-post-title__input' => array(
 				'font-size' => astra_responsive_font( $single_post_title_font_size, 'desktop', 30 ),
@@ -279,47 +277,47 @@ class Astra_WP_Editor_CSS {
 				'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
 				'text-transform' => esc_attr( $headings_text_transform ),
-				'line-height' => esc_attr( $headings_line_height ),
-				'color' => esc_attr( $heading_base_color ),
+				'line-height'    => esc_attr( $headings_line_height ),
+				'color'          => esc_attr( $heading_base_color ),
 			),
 
 			// Headings H1 - H6 typography.
-			'.editor-styles-wrapper h1' => array(
+			'.editor-styles-wrapper h1'        => array(
 				'font-size'      => astra_responsive_font( $heading_h1_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h1_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h1_font_weight, 'font' ),
 				'line-height'    => esc_attr( $h1_line_height ),
 				'text-transform' => esc_attr( $h1_text_transform ),
 			),
-			'.editor-styles-wrapper h2' => array(
+			'.editor-styles-wrapper h2'        => array(
 				'font-size'      => astra_responsive_font( $heading_h2_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h2_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h2_font_weight, 'font' ),
 				'line-height'    => esc_attr( $h2_line_height ),
 				'text-transform' => esc_attr( $h2_text_transform ),
 			),
-			'.editor-styles-wrapper h3' => array(
+			'.editor-styles-wrapper h3'        => array(
 				'font-size'      => astra_responsive_font( $heading_h3_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
 				'line-height'    => esc_attr( $h3_line_height ),
 				'text-transform' => esc_attr( $h3_text_transform ),
 			),
-			'.editor-styles-wrapper h4' => array(
+			'.editor-styles-wrapper h4'        => array(
 				'font-size'      => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
 				'line-height'    => esc_attr( $h4_line_height ),
 				'text-transform' => esc_attr( $h4_text_transform ),
 			),
-			'.editor-styles-wrapper h5' => array(
+			'.editor-styles-wrapper h5'        => array(
 				'font-size'      => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h5_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h5_font_weight, 'font' ),
 				'line-height'    => esc_attr( $h5_line_height ),
 				'text-transform' => esc_attr( $h5_text_transform ),
 			),
-			'.editor-styles-wrapper h6' => array(
+			'.editor-styles-wrapper h6'        => array(
 				'font-size'      => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h6_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
@@ -377,22 +375,22 @@ class Astra_WP_Editor_CSS {
 				'font-size' => astra_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
 			),
 			// Heading H1 - H6 font size.
-			'.editor-styles-wrapper h1' => array(
+			'.editor-styles-wrapper h1'        => array(
 				'font-size' => astra_responsive_font( $heading_h1_font_size, 'tablet', 30 ),
 			),
-			'.editor-styles-wrapper h2' => array(
+			'.editor-styles-wrapper h2'        => array(
 				'font-size' => astra_responsive_font( $heading_h2_font_size, 'tablet', 25 ),
 			),
-			'.editor-styles-wrapper h3' => array(
+			'.editor-styles-wrapper h3'        => array(
 				'font-size' => astra_responsive_font( $heading_h3_font_size, 'tablet', 20 ),
 			),
-			'.editor-styles-wrapper h4' => array(
+			'.editor-styles-wrapper h4'        => array(
 				'font-size' => astra_responsive_font( $heading_h4_font_size, 'tablet' ),
 			),
-			'.editor-styles-wrapper h5' => array(
+			'.editor-styles-wrapper h5'        => array(
 				'font-size' => astra_responsive_font( $heading_h5_font_size, 'tablet' ),
 			),
-			'.editor-styles-wrapper h6' => array(
+			'.editor-styles-wrapper h6'        => array(
 				'font-size' => astra_responsive_font( $heading_h6_font_size, 'tablet' ),
 			),
 			'#editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $site_background, 'tablet' ),
@@ -404,22 +402,22 @@ class Astra_WP_Editor_CSS {
 				'font-size' => astra_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
 			),
 			// Heading H1 - H6 font size.
-			'.editor-styles-wrapper h1' => array(
+			'.editor-styles-wrapper h1'        => array(
 				'font-size' => astra_responsive_font( $heading_h1_font_size, 'mobile', 30 ),
 			),
-			'.editor-styles-wrapper h2' => array(
+			'.editor-styles-wrapper h2'        => array(
 				'font-size' => astra_responsive_font( $heading_h2_font_size, 'mobile', 25 ),
 			),
-			'.editor-styles-wrapper h3' => array(
+			'.editor-styles-wrapper h3'        => array(
 				'font-size' => astra_responsive_font( $heading_h3_font_size, 'mobile', 20 ),
 			),
-			'.editor-styles-wrapper h4' => array(
+			'.editor-styles-wrapper h4'        => array(
 				'font-size' => astra_responsive_font( $heading_h4_font_size, 'mobile' ),
 			),
-			'.editor-styles-wrapper h5' => array(
+			'.editor-styles-wrapper h5'        => array(
 				'font-size' => astra_responsive_font( $heading_h5_font_size, 'mobile' ),
 			),
-			'.editor-styles-wrapper h6' => array(
+			'.editor-styles-wrapper h6'        => array(
 				'font-size' => astra_responsive_font( $heading_h6_font_size, 'mobile' ),
 			),
 			'#editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $site_background, 'mobile' ),

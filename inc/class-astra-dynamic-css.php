@@ -952,8 +952,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 			}
 
-			if( false === $load_new_block_editor_compatibility ) {
-
+			if ( false === $load_new_block_editor_compatibility ) {
 				/*
 				* Fix the wide width issue in gutenberg
 				* check if the current user is existing user or new user.
@@ -1013,15 +1012,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 									array(
 										// With container - Sidebar.
 										'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-group.alignwide, .ast-separate-container.ast-left-sidebar .entry-content .wp-block-group.alignwide, .ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignwide, .ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignwide' => array(
-											'margin-left'   => '-20px',
-											'margin-right'  => '-20px',
-											'padding-left'  => '20px',
+											'margin-left'  => '-20px',
+											'margin-right' => '-20px',
+											'padding-left' => '20px',
 											'padding-right' => '20px',
 										),
 										'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-group.alignfull, .ast-separate-container.ast-left-sidebar .entry-content .wp-block-group.alignfull, .ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignfull, .ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignfull' => array(
-											'margin-left'   => '-6.67em',
-											'margin-right'  => '-6.67em',
-											'padding-left'  => '6.67em',
+											'margin-left'  => '-6.67em',
+											'margin-right' => '-6.67em',
+											'padding-left' => '6.67em',
 											'padding-right' => '6.67em',
 										),
 									),
@@ -1034,7 +1033,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 									array(
 										// Without container - Sidebar.
 										'.ast-plain-container.ast-right-sidebar .entry-content .wp-block-group.alignwide, .ast-plain-container.ast-left-sidebar .entry-content .wp-block-group.alignwide, .ast-plain-container.ast-right-sidebar .entry-content .wp-block-group.alignfull, .ast-plain-container.ast-left-sidebar .entry-content .wp-block-group.alignfull' => array(
-											'padding-left'  => '20px',
+											'padding-left' => '20px',
 											'padding-right' => '20px',
 										),
 									),
@@ -1047,7 +1046,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 									array(
 										'.ast-page-builder-template.ast-left-sidebar .entry-content .wp-block-cover.alignwide, .ast-page-builder-template.ast-right-sidebar .entry-content .wp-block-cover.alignwide, .ast-page-builder-template.ast-left-sidebar .entry-content .wp-block-cover.alignfull, .ast-page-builder-template.ast-right-sidebar .entry-content .wp-block-cover.alignful' => array(
 											'padding-right' => '0',
-											'padding-left'  => '0',
+											'padding-left' => '0',
 										),
 									),
 									'1200'
@@ -1067,15 +1066,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 									array(
 										// With container - No Sidebar.
 										'.ast-no-sidebar.ast-separate-container .entry-content .wp-block-group.alignwide, .ast-no-sidebar.ast-separate-container .entry-content .wp-block-cover.alignwide' => array(
-											'margin-left'   => '-20px',
-											'margin-right'  => '-20px',
-											'padding-left'  => '20px',
+											'margin-left'  => '-20px',
+											'margin-right' => '-20px',
+											'padding-left' => '20px',
 											'padding-right' => '20px',
 										),
 										'.ast-no-sidebar.ast-separate-container .entry-content .wp-block-cover.alignfull, .ast-no-sidebar.ast-separate-container .entry-content .wp-block-group.alignfull' => array(
-											'margin-left'   => '-6.67em',
-											'margin-right'  => '-6.67em',
-											'padding-left'  => '6.67em',
+											'margin-left'  => '-6.67em',
+											'margin-right' => '-6.67em',
+											'padding-left' => '6.67em',
 											'padding-right' => '6.67em',
 										),
 									),
@@ -1100,7 +1099,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 									array(
 										'.ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-cover.alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-cover.alignfull' => array(
 											'padding-right' => '0',
-											'padding-left'  => '0',
+											'padding-left' => '0',
 										),
 									),
 									'1200'
@@ -1122,26 +1121,26 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				if ( self::gutenberg_core_blocks_css_comp() ) {
 					$desktop_screen_gb_css = array(
 						// Group block, Columns block, Gallery block, Table block & has-text-align-center selector compatibility Desktop CSS.
-						'.wp-block-columns'                  => array(
+						'.wp-block-columns'         => array(
 							'margin-bottom' => 'unset',
 						),
-						'.wp-block-image.size-full'          => array(
+						'.wp-block-image.size-full' => array(
 							'margin' => '2rem 0',
 						),
 						'.wp-block-separator.has-background' => array(
 							'padding' => '0',
 						),
-						'.wp-block-gallery'                  => array(
+						'.wp-block-gallery'         => array(
 							'margin-bottom' => '1.6em',
 						),
-						'.wp-block-group'                    => array(
+						'.wp-block-group'           => array(
 							'padding-top'    => '4em',
 							'padding-bottom' => '4em',
 						),
 						'.wp-block-group__inner-container .wp-block-columns:last-child, .wp-block-group__inner-container :last-child, .wp-block-table table' => array(
 							'margin-bottom' => '0',
 						),
-						'.blocks-gallery-grid'               => array(
+						'.blocks-gallery-grid'      => array(
 							'width' => '100%',
 						),
 						'.wp-block-navigation-link__content' => array(
@@ -1150,7 +1149,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'.wp-block-group .wp-block-group .has-text-align-center, .wp-block-group .wp-block-column .has-text-align-center' => array(
 							'max-width' => '100%',
 						),
-						'.has-text-align-center'             => array(
+						'.has-text-align-center'    => array(
 							'margin' => '0 auto',
 						),
 					);
@@ -1175,10 +1174,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 					$middle_screen_max_gb_css = array(
 						// Group & Column block (max-width:1200px) CSS.
-						'.wp-block-group'                     => array(
+						'.wp-block-group'                 => array(
 							'padding' => '3em',
 						),
-						'.wp-block-group .wp-block-group'     => array(
+						'.wp-block-group .wp-block-group' => array(
 							'padding' => '1.5em',
 						),
 						'.wp-block-columns, .wp-block-column' => array(
@@ -1310,7 +1309,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				/* Parse CSS from array() -> All media CSS */
 				$parse_css .= astra_parse_css( $outline_button_css );
 
-				if( false === $load_new_block_editor_compatibility ) {
+				if ( false === $load_new_block_editor_compatibility ) {
 
 					if ( ! astra_button_default_padding_updated() ) {
 						// Tablet CSS.
@@ -1860,11 +1859,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					}
 
 					$selector = '.wp-block-button .wp-block-button__link';
-					if( true === $load_new_block_editor_compatibility ) {
+					if ( true === $load_new_block_editor_compatibility ) {
 						$selector = $selector . ', .wp-block-search .wp-block-search__button, body .wp-block-file .wp-block-file__button';
 					}
 
-					$global_button_page_builder_desktop[$selector] = array(
+					$global_button_page_builder_desktop[ $selector ] = array(
 						'border-style'        => 'solid',
 						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : $default_border_size,
 						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : $default_border_size,
@@ -1880,10 +1879,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
-						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
-						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
-						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
-						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
+						'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
+						'padding-right'       => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
+						'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
+						'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 					);
 
 					$global_button_page_builder_tablet = array(
@@ -2248,7 +2247,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 			$parse_css             .= astra_parse_css( $separate_container_css );
 
-			if( false === $load_new_block_editor_compatibility ) {
+			if ( false === $load_new_block_editor_compatibility ) {
 				/**
 				 * Added new compatibility & layout designs for core block layouts.
 				 * - Compatibility for alignwide, alignfull, default width.

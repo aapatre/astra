@@ -372,7 +372,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$rtl = '-rtl';
 			}
 
-			$js_uri  = ASTRA_THEME_URI . 'inc/assets/js/block-editor-script.js';
+			$js_uri = ASTRA_THEME_URI . 'inc/assets/js/block-editor-script.js';
 			wp_enqueue_script( 'astra-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
 
 			$astra_global_palette_instance = new Astra_Global_Palette();
@@ -393,7 +393,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			// Render fonts in Gutenberg layout.
 			Astra_Fonts::render_fonts();
 
-			if( false === astra_get_option( 'enable-brand-new-editor-experience', true ) ) {
+			if ( false === astra_get_option( 'enable-brand-new-editor-experience', true ) ) {
 				$css_uri = ASTRA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . '.css';
 				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				wp_enqueue_style( 'astra-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );

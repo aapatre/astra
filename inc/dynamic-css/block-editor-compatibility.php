@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( true === astra_get_option( 'enable-brand-new-editor-experience', true ) ) {
+if ( true === astra_get_option( 'enable-brand-new-editor-experience', true ) ) {
 	add_filter( 'astra_dynamic_theme_css', 'astra_load_modern_block_editor_ui' );
 } else {
 	add_filter( 'astra_dynamic_theme_css', 'astra_block_editor_compatibility_css' );
@@ -21,7 +21,7 @@ if( true === astra_get_option( 'enable-brand-new-editor-experience', true ) ) {
  *
  * @since 3.6.5
  */
-function get_block_editor_required_css() {
+function astra_get_block_editor_required_css() {
 	return '
 		blockquote {
 			padding: 0 1.2em 1.2em;
@@ -112,7 +112,7 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 		/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$is_site_rtl = is_rtl();
 
-		$editor_improvement_css = get_block_editor_required_css();
+		$editor_improvement_css = astra_get_block_editor_required_css();
 
 		if ( $is_site_rtl ) {
 			$editor_improvement_css .= '
@@ -165,7 +165,7 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
  * @since x.x.x
  */
 function astra_load_modern_block_editor_ui( $dynamic_css ) {
-	$dynamic_css .= get_block_editor_required_css();
+	$dynamic_css .= astra_get_block_editor_required_css();
 	$dynamic_css .= '.wp-block-search {
 		margin-bottom: 20px;
 	}
@@ -206,7 +206,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			'margin-top'    => '0',
 			'margin-bottom' => '0',
 			'padding'       => '6em 4em',
-		)
+		),
 	);
 
 	/* Parse CSS from array -> min-width(tablet-breakpoint) */
