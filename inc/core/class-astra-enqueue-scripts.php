@@ -126,6 +126,25 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		}
 
 		/**
+		 * Get CSS stylesheet name based on some rulesets.
+		 *
+		 * @since x.x.x
+		 * @return string CSS file name.
+		 */
+		public static function get_stylesheet() {
+			$modern_block_design_ui = astra_get_option( 'enable-brand-new-editor-experience', true );
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				$css_file = Astra_Builder_Helper::apply_flex_based_css() ? 'main' : 'frontend'; // Old compatibility.
+				$css_file = ( true === $modern_block_design_ui ) ? 'main-css' : $css_file; // Considered here 'is-flex-based-css' is true.
+			} else {
+				$css_file = Astra_Builder_Helper::apply_flex_based_css() ? 'style-flex' : 'style'; // Old compatibility.
+				$css_file = ( true === $modern_block_design_ui ) ? 'style-css' : $css_file; // Considered here 'is-flex-based-css' is true.
+			}
+
+			return $css_file;
+		}
+
+		/**
 		 * List of all assets.
 		 *
 		 * @return array assets array.
@@ -139,7 +158,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				),
 				// handle => location ( in /assets/css/ ) ( without .css ext).
 				'css' => array(
-					'astra-theme-css' => Astra_Builder_Helper::apply_flex_based_css() ? 'style-flex' : 'style',
+					'astra-theme-css' => self::get_stylesheet(),
 				),
 			);
 
@@ -152,7 +171,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					),
 					// handle => location ( in /assets/css/ ) ( without .css ext).
 					'css' => array(
-						'astra-theme-css' => Astra_Builder_Helper::apply_flex_based_css() ? 'main' : 'frontend',
+						'astra-theme-css' => self::get_stylesheet(),
 					),
 				);
 

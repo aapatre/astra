@@ -18,10 +18,11 @@ html {
 
 .edit-post-visual-editor {
     // Import CSS for the headings in the block editor.
-    @import "../elements/elements";
     @import "../site/site-normalize/site-normalize.scss";
 }
-
+/**
+ * Editor core layout supportive CSS.
+ */
 .edit-post-visual-editor__post-title-wrapper {
 	position: relative;
     max-width: var(--ast-content-width-size);
@@ -43,54 +44,23 @@ html {
 		top: 0;
 	}
 }
-
 .editor-post-title__input {
 	outline: 1px solid var(--wp-admin-theme-color) !important;
 	padding: 10px;
 }
-
-.edit-post-visual-editor p,
-.block-editor-block-list__block p,
-.editor-default-block-appender textarea.editor-default-block-appender__content {
-    font-size: 15px;
-    font-size: 1rem;
+.editor-styles-wrapper.block-editor-writing-flow {
+    padding-bottom: 0 !important;
 }
-
-.edit-post-visual-editor {
-    .block-editor-block-list__block {
-    	// Remove default Guteberg negative margin.
-    	.editor-block-list__block-edit {
-    		margin-left: 0;
-    		margin-right: 0;
-    	}
-    	>.editor-block-mover {
-    		left: -50px;
-    		top: -5px;
-    	}
-    }
+.editor-styles-wrapper [CLASS*="wp-container"] > * {
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
-.editor-default-block-appender__content {
-    margin-top: 32px;
+.ast-separate-container .edit-post-visual-editor {
+	padding: 20px;
 }
-
-// Custom block stylings.
-.wp-block-latest-posts.is-grid {
-    list-style: none;
-}
-
-.wp-block-latest-posts {
-    margin-left: 0;
-    li {
-        list-style: none;
-    }
-}
-
-.mce-widget i {
-    font-style: normal;
-}
-
-// Edit with elementor button unstyled.
+/**
+ * Page builder triggers support.
+ */
 #elementor-editor-button {
     @include button($button-color);
     font-size: 14px;
@@ -110,25 +80,119 @@ html {
         color: white;
     }
 }
-
 .editor-media-placeholder,
 .fl-builder-layout-launch-view {
     button {
         margin: 2px;
     }
 }
-
-// Edit with BB button styling.
 .fl-builder-layout-launch-view {
     .is-primary.is-primary {
         color: white;
     }
 }
-
+/**
+ * Modern Gutenberg editor improved UI/UX.
+ */
+.wp-block-separator:not(.is-style-wide) {
+    width: 100px;
+	margin: 0 auto;
+}
+.wp-block-group, .wp-block-cover, .wp-block-columns.has-background {
+    padding-top: 4em;
+    padding-bottom: 4em;
+	margin-top: 28px;
+    margin-bottom: 28px;
+}
+.wp-block-group.has-background, .wp-block-columns.has-background {
+    padding-left: 4em;
+    padding-right: 4em;
+}
+.wp-block-search {
+    margin-bottom: 20px;
+}
+.wp-block-file__content-wrapper {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.wp-block[data-align="wide"],
+.wp-block[data-align="full"] {
+	> .wp-block-group,
+	> .wp-block-cover,
+	> .wp-block-columns {
+		padding: 6em 4em;
+	}
+}
+blockquote {
+    border-left: 5px solid rgba(0, 0, 0, 0.05);
+	padding: 0 1.2em 1.2em;
+}
+.wp-block-pullquote blockquote:before {
+	content: "\201D";
+	font-family: "Helvetica",sans-serif;
+	display: flex;
+	transform: rotate( 180deg );
+	font-size: 6rem;
+	font-style: normal;
+	line-height: 1;
+	font-weight: bold;
+	align-items: center;
+	justify-content: center;
+}
+.wp-block-spacer .components-resizable-box__container {
+    background: #f5f5f5;
+}
+.components-resizable-box__container.block-library-spacer__resize-container:before {
+    content: attr(data-spaceheight);
+    font-size: 18px;
+    font-weight: 500;
+    color: #858585;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+.block-editor-block-list__layout .block-editor-block-list__block:hover {
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus) var(--wp-admin-theme-color);
+}
+.block-editor-block-list__layout .wp-block.block-editor-block-list__block:not([contenteditable]):focus {
+	box-shadow: none;
+}
+.edit-post-visual-editor .components-button {
+	color: #1e1e1e;
+}
+.edit-post-visual-editor .components-button.is-pressed {
+	color: #ffffff;
+}
+.editor-styles-wrapper p {
+	line-height: 1.85714285714286;
+}
+.ast-theme-block-color-name {
+	mix-blend-mode: difference;
+}
+.wp-block .wp-block-categories__list {
+	padding: 0;
+}
+.wp-block ol, .wp-block ul {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.wp-block-latest-comments .wp-block-latest-comments {
+	margin-left: 0;
+}
+.wp-block-quote.is-style-large cite {
+	text-align: left;
+}
+.components-color-palette__custom-color {
+	text-align: left;
+	padding-left: 5px;
+}
 /**
  * Woocommerce Gutenberg Blocks Product Grid CSS Compatibility.
  */
-.wc-block-grid {
+ .wc-block-grid {
 	.wc-block-grid__products {
 		.wc-block-grid__product {
 			text-align: left;
@@ -138,7 +202,6 @@ html {
 				display: inline-block;
 				position: relative;
 			}
-
 			a{
 				img{
 					width: 100%;
@@ -173,7 +236,6 @@ html {
 					background-color: rgba(255, 255, 255, 1);
 				}
 			}
-
 			.woocommerce-loop-category__title {
 				bottom: 1.8em;
 				font-size: 0.9em;
@@ -181,7 +243,6 @@ html {
 					font-size: .7em;
 				}
 			}
-
 			.price {
 				line-height: 1.3;
 				font-weight: 700;
@@ -191,7 +252,6 @@ html {
 					display: initial;
 				}
 			}
-
 			.wp-block-button__link {
 				margin-top: .5em;
 				margin-bottom: .5em;
@@ -237,110 +297,4 @@ html {
 			}
 		}
     }
-}
-
-/**
- * Modern Gutenberg editor improved UI/UX.
- */
-.wp-block-group, .wp-block-cover, .wp-block-columns.has-background {
-    padding-top: 4em;
-    padding-bottom: 4em;
-	margin-top: 28px;
-    margin-bottom: 28px;
-}
-.wp-block-group.has-background, .wp-block-columns.has-background {
-    padding-left: 4em;
-    padding-right: 4em;
-}
-
-
-
-
-/**
- * Gutenberg editor improving UI/UX.
- */
-.edit-post-visual-editor ul.block-editor-block-list__block,
-.edit-post-visual-editor ol.block-editor-block-list__block {
-    margin-left: 20px;
-}
-.block-editor-block-list__block.wp-block.wp-social-link {
-    font-size: inherit;
-}
-.edit-post-visual-editor .block-editor-block-list__block.wp-social-link {
-	padding: 0;
-}
-.wp-block ol, .wp-block ul {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-.edit-post-visual-editor .wp-block.wp-block-shortcode {
-    padding: 20px;
-}
-.wp-block-spacer .components-resizable-box__container {
-    background: #f5f5f5;
-}
-.components-resizable-box__container.block-library-spacer__resize-container:before {
-    content: attr(data-spaceheight);
-    font-size: 18px;
-    font-weight: 500;
-    color: #858585;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%,-50%);
-}
-.edit-post-visual-editor pre.wp-block, .edit-post-visual-editor .wp-block.wp-block-query-title {
-    padding-left: 20px;
-}
-.block-editor-block-list__layout .block-editor-block-list__block.wp-block-button:not(:first-child) {
-	padding-left: 0;
-	padding-right: 0;
-}
-.block-editor-block-list__empty-block-inserter .block-editor-inserter__toggle.components-button.has-icon {
-	margin: 6px -2px 0 0;
-	border-radius: 0;
-}
-.block-editor-block-list__layout .block-editor-block-list__block:hover {
-	box-shadow: 0 0 0 var(--wp-admin-border-width-focus) var(--wp-admin-theme-color);
-	border-radius: 5px;
-}
-.block-editor-block-list__layout .wp-block.block-editor-block-list__block:not([contenteditable]):focus {
-	box-shadow: none;
-}
-.edit-post-visual-editor .components-button {
-	color: #1e1e1e;
-}
-.edit-post-visual-editor .components-button.is-pressed {
-	color: #ffffff;
-}
-.components-dropdown__content .components-popover__content {
-	min-width: 290px;
-}
-.components-color-palette__custom-color-dropdown-content .components-popover__content {
-	min-width: auto;
-}
-.wp-block-buttons > .wp-block.wp-block-button {
-	padding-right: 0;
-}
-.wp-block .wp-block-categories__list {
-	padding-left: 0;
-}
-.wp-block-latest-comments .wp-block-latest-comments {
-    margin-left: 0;
-}
-.wp-block-quote.is-style-large cite {
-    text-align: left;
-}
-.editor-styles-wrapper p {
-	line-height: 1.85714285714286;
-}
-.wp-block-paragraph.has-background {
-    padding: 1.25em 2.375em;
-}
-.ast-theme-block-color-name {
-	mix-blend-mode: difference;
-}
-.components-color-palette__custom-color {
-	text-align: left;
-	padding-left: 5px;
 }

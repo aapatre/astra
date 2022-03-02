@@ -52,45 +52,6 @@ function astra_onload_function() {
 				}
 			});
 		}
-
-		// Title visibility with new editor compatibility update.
-		var titleVisibilityTrigger = '';
-		if( 'disabled' === wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-post-title'] ) {
-			titleVisibilityTrigger = '<span class="dashicons dashicons-visibility title-visibility"></span>';
-			var titleBlock = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
-			titleBlock.classList.toggle( 'invisible' );
-		} else {
-			titleVisibilityTrigger = '<span class="dashicons dashicons-hidden title-visibility"></span>';
-		}
-
-		document.querySelector( '.edit-post-visual-editor__post-title-wrapper' ).insertAdjacentHTML( 'beforeend', titleVisibilityTrigger );
-
-		document.querySelector( '.title-visibility' ).addEventListener( 'click',function() {
-			var titleBlock = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
-			titleBlock.classList.toggle( 'invisible' );
-
-			if( this.classList.contains( 'dashicons-visibility' ) ) {
-				this.classList.add( 'dashicons-hidden' );
-				this.classList.remove( 'dashicons-visibility' );
-				wp.data.dispatch( 'core/editor' ).editPost(
-					{
-						meta: {
-							'site-post-title': '',
-						}
-					}
-					);
-				} else {
-					this.classList.add( 'dashicons-visibility' );
-					this.classList.remove( 'dashicons-hidden' );
-					wp.data.dispatch( 'core/editor' ).editPost(
-						{
-							meta: {
-							'site-post-title': 'disabled',
-						}
-					}
-				);
-			}
-		});
 	}
 
 	wp.data.subscribe(function () {
@@ -118,6 +79,49 @@ function astra_onload_function() {
 
 				block.querySelector( '.components-resizable-box__container' ).setAttribute( 'data-spaceheight', height + 'px' );
 			}
+
+			// Title visibility with new editor compatibility update.
+			var titleVisibility = document.querySelector( '.title-visibility' );
+			if( null === titleVisibility ) {
+				var titleVisibilityTrigger = '';
+				if( 'disabled' === wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-post-title'] ) {
+					titleVisibilityTrigger = '<span class="dashicons dashicons-visibility title-visibility"></span>';
+					var titleBlock = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
+					titleBlock.classList.toggle( 'invisible' );
+				} else {
+					titleVisibilityTrigger = '<span class="dashicons dashicons-hidden title-visibility"></span>';
+				}
+
+				document.querySelector( '.edit-post-visual-editor__post-title-wrapper' ).insertAdjacentHTML( 'beforeend', titleVisibilityTrigger );
+
+				document.querySelector( '.title-visibility' ).addEventListener( 'click', function() {
+					var titleBlock = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
+					titleBlock.classList.toggle( 'invisible' );
+
+					if( this.classList.contains( 'dashicons-visibility' ) ) {
+						this.classList.add( 'dashicons-hidden' );
+						this.classList.remove( 'dashicons-visibility' );
+						wp.data.dispatch( 'core/editor' ).editPost(
+							{
+								meta: {
+									'site-post-title': '',
+								}
+							}
+							);
+						} else {
+							this.classList.add( 'dashicons-visibility' );
+							this.classList.remove( 'dashicons-hidden' );
+							wp.data.dispatch( 'core/editor' ).editPost(
+								{
+									meta: {
+									'site-post-title': 'disabled',
+								}
+							}
+						);
+					}
+				});
+			}
+
 		}, 1 );
 	});
 }

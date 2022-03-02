@@ -10,7 +10,51 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_filter( 'astra_dynamic_theme_css', 'astra_block_editor_compatibility_css' );
+if( true === astra_get_option( 'enable-brand-new-editor-experience', true ) ) {
+	add_filter( 'astra_dynamic_theme_css', 'astra_load_modern_block_editor_ui' );
+} else {
+	add_filter( 'astra_dynamic_theme_css', 'astra_block_editor_compatibility_css' );
+}
+
+/**
+ * This is new compatibillity CSS added at time 'improve-gb-editor-ui'. So requiring this for new setup as well that's why making it common.
+ *
+ * @since 3.6.5
+ */
+function get_block_editor_required_css() {
+	return '
+		blockquote {
+			padding: 0 1.2em 1.2em;
+		}
+		.wp-block-file {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		.wp-block-pullquote {
+			border: none;
+		}
+		.wp-block-pullquote blockquote::before {
+			content: "\201D";
+			font-family: "Helvetica",sans-serif;
+			display: flex;
+			transform: rotate( 180deg );
+			font-size: 6rem;
+			font-style: normal;
+			line-height: 1;
+			font-weight: bold;
+			align-items: center;
+			justify-content: center;
+		}
+		figure.wp-block-pullquote.is-style-solid-color blockquote {
+			max-width: 100%;
+			text-align: inherit;
+		}
+		.wp-block-button__link {
+			border: 2px solid currentColor;
+		}';
+}
 
 /**
  * Astra WordPress compatibility - Dynamic CSS.
@@ -29,7 +73,7 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 		.wp-block-site-tagline {
 			margin-top: 20px;
 		}
-        form.wp-block-search .wp-block-search__input, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper {
+        form.wp-block-search .wp-block-search__input, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper {
             border-color: #eaeaea;
 			background: #fafafa;
         }
@@ -68,47 +112,16 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 		/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$is_site_rtl = is_rtl();
 
-		$editor_improvement_css = '
-		body .wp-block-file .wp-block-file__button {
-			text-decoration: none;
-		}
-		blockquote {
-			padding: 0 1.2em 1.2em;
-		}
-		.wp-block-file {
-			display: flex;
-			align-items: center;
-			flex-wrap: wrap;
-			justify-content: space-between;
-		}
-		.wp-block-pullquote {
-			border: none;
-		}
-		.wp-block-pullquote blockquote::before {
-			content: "\201D";
-			font-family: "Helvetica",sans-serif;
-			display: flex;
-			transform: rotate( 180deg );
-			font-size: 6rem;
-			font-style: normal;
-			line-height: 1;
-			font-weight: bold;
-			align-items: center;
-			justify-content: center;
-		}
-		figure.wp-block-pullquote.is-style-solid-color blockquote {
-			max-width: 100%;
-			text-align: inherit;
-		}
-		ul.wp-block-categories-list.wp-block-categories, ul.wp-block-archives-list.wp-block-archives {
-			list-style-type: none;
-		}
-		.wp-block-button__link {
-			border: 2px solid currentColor;
-		}';
+		$editor_improvement_css = get_block_editor_required_css();
 
 		if ( $is_site_rtl ) {
 			$editor_improvement_css .= '
+			body .wp-block-file .wp-block-file__button {
+				text-decoration: none;
+			}
+			ul.wp-block-categories-list.wp-block-categories, ul.wp-block-archives-list.wp-block-archives {
+				list-style-type: none;
+			}
 			ul, ol {
 				margin-right: 20px;
 			}
@@ -117,6 +130,12 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 			}';
 		} else {
 			$editor_improvement_css .= '
+			body .wp-block-file .wp-block-file__button {
+				text-decoration: none;
+			}
+			ul.wp-block-categories-list.wp-block-categories, ul.wp-block-archives-list.wp-block-archives {
+				list-style-type: none;
+			}
 			ul, ol {
 				margin-left: 20px;
 			}
@@ -133,6 +152,103 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 	}
 
 	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $editor_improvement_css );
+
+	return $dynamic_css;
+}
+
+/**
+ * Astra block editor 2.0 Spectra compatibility - Dynamic CSS.
+ *
+ * @param string $dynamic_css Dynamic CSS.
+ * @return string $dynamic_css Dynamic CSS.
+ *
+ * @since x.x.x
+ */
+function astra_load_modern_block_editor_ui( $dynamic_css ) {
+	$dynamic_css .= get_block_editor_required_css();
+	$dynamic_css .= '.wp-block-search {
+		margin-bottom: 20px;
+	}
+	.wp-block-site-tagline {
+		margin-top: 20px;
+	}
+	.wp-block-loginout p label {
+		display: block;
+	}
+	.wp-block-loginout p:not(.login-remember):not(.login-submit) input {
+		width: 100%;
+	}
+	.wp-block-loginout input:focus {
+		border-color: transparent;
+	}
+	.wp-block-loginout input:focus {
+		outline: thin dotted;
+	}
+	.wp-block-group {
+		padding-top: 4em;
+		padding-bottom: 4em;
+	}
+	.entry-content .wp-block-cover, .wp-block-group.has-background, .wp-block-columns.has-background {
+		padding: 4em;
+	}
+	.wp-block-media-text.alignfull .wp-block-media-text__content, .wp-block-media-text.has-background .wp-block-media-text__content {
+		padding: 0 8%;
+	}
+	.wp-block-loginout .login-remember input {
+		width: 1.1rem;
+		height: 1.1rem;
+		margin: 0 5px 4px 0;
+		vertical-align: middle;
+	}';
+
+	$box_bg_obj          = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
+
+	$background_style_data = astra_get_responsive_background_obj( $box_bg_obj, 'desktop' );
+	if ( empty( $background_style_data ) ) {
+		$background_style_data = array(
+			'background-color' => '#ffffff',
+		);
+	}
+
+	$desktop_css = array(
+		'.ast-separate-container .edit-post-visual-editor' => $background_style_data,
+	);
+
+	/* Parse CSS from array -> Desktop CSS */
+	$dynamic_css .= astra_parse_css( $desktop_css );
+
+	$min_width_tablet_css = array(
+		'.wp-block-group.alignwide.has-background, .wp-block-group.alignfull.has-background, .wp-block-cover.alignwide, .wp-block-cover.alignfull, .wp-block-columns.has-background.alignwide, .wp-block-columns.has-background.alignfull' => array(
+			'margin-top'    => '0',
+			'margin-bottom' => '0',
+			'padding'       => '6em 4em',
+		)
+	);
+
+	/* Parse CSS from array -> min-width(tablet-breakpoint) */
+	$dynamic_css .= astra_parse_css( $min_width_tablet_css, astra_get_tablet_breakpoint() );
+
+	$tablet_css = array(
+		'.wp-block-group.has-background, .wp-block-cover, .wp-block-columns.has-background' => array(
+			'padding'       => '4em',
+			'margin-top'    => '0',
+			'margin-bottom' => '0',
+		),
+		'.ast-separate-container #editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $box_bg_obj, 'tablet' ),
+	);
+
+	/* Parse CSS from array -> max-width(tablet-breakpoint) */
+	$dynamic_css .= astra_parse_css( $tablet_css, '', astra_get_tablet_breakpoint() );
+
+	$mobile_css = array(
+		'.entry-content .wp-block-group, .entry-content .wp-block-cover, .entry-content .wp-block-columns.has-background' => array(
+			'padding' => '2em',
+		),
+		'.ast-separate-container #editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $box_bg_obj, 'mobile' ),
+	);
+
+	/* Parse CSS from array -> max-width(mobile-breakpoint) */
+	$dynamic_css .= astra_parse_css( $mobile_css, '', astra_get_mobile_breakpoint() );
 
 	return $dynamic_css;
 }
