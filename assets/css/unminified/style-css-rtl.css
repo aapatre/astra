@@ -2769,6 +2769,13 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   /* Alignment while using the column block */
 }
 
+.ast-no-sidebar .entry-content .alignfull {
+  margin-right: calc(-50vw + 50%);
+  margin-left: calc(-50vw + 50%);
+  max-width: 100vw;
+  width: 100vw;
+}
+
 .ast-no-sidebar .entry-content .alignfull .alignfull,
 .ast-no-sidebar .entry-content .alignfull .alignwide {
   width: 100%;
@@ -2813,7 +2820,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin-left: 20px;
 }
 
-.entry-content > .alignwide {
+.entry-content .alignwide {
   max-width: 1200px;
   margin: 0 auto;
 }

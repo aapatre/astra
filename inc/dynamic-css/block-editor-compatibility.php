@@ -201,22 +201,6 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		vertical-align: middle;
 	}';
 
-	$box_bg_obj          = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
-
-	$background_style_data = astra_get_responsive_background_obj( $box_bg_obj, 'desktop' );
-	if ( empty( $background_style_data ) ) {
-		$background_style_data = array(
-			'background-color' => '#ffffff',
-		);
-	}
-
-	$desktop_css = array(
-		'.ast-separate-container .edit-post-visual-editor' => $background_style_data,
-	);
-
-	/* Parse CSS from array -> Desktop CSS */
-	$dynamic_css .= astra_parse_css( $desktop_css );
-
 	$min_width_tablet_css = array(
 		'.wp-block-group.alignwide.has-background, .wp-block-group.alignfull.has-background, .wp-block-cover.alignwide, .wp-block-cover.alignfull, .wp-block-columns.has-background.alignwide, .wp-block-columns.has-background.alignfull' => array(
 			'margin-top'    => '0',
@@ -234,7 +218,6 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			'margin-top'    => '0',
 			'margin-bottom' => '0',
 		),
-		'.ast-separate-container #editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $box_bg_obj, 'tablet' ),
 	);
 
 	/* Parse CSS from array -> max-width(tablet-breakpoint) */
@@ -244,7 +227,6 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		'.entry-content .wp-block-group, .entry-content .wp-block-cover, .entry-content .wp-block-columns.has-background' => array(
 			'padding' => '2em',
 		),
-		'.ast-separate-container #editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $box_bg_obj, 'mobile' ),
 	);
 
 	/* Parse CSS from array -> max-width(mobile-breakpoint) */

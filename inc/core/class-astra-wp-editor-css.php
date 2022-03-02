@@ -47,7 +47,6 @@ class Astra_WP_Editor_CSS {
 		$body_font_size      = astra_get_option( 'font-size-body' );
 		$body_line_height    = astra_get_option( 'body-line-height' );
 		$body_text_transform = astra_get_option( 'body-text-transform' );
-		$box_bg_obj          = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
 		$text_color          = astra_get_option( 'text-color' );
 
 		$heading_h1_font_size = astra_get_option( 'font-size-h1' );
@@ -215,6 +214,16 @@ class Astra_WP_Editor_CSS {
 			$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 		}
 
+		$site_background          = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
+		$content_background       = astra_get_option( 'content-bg-obj-responsive' );
+
+		$background_style_data = astra_get_responsive_background_obj( $site_background, 'desktop' );
+		if ( empty( $background_style_data ) ) {
+			$background_style_data = array(
+				'background-color' => '#ffffff',
+			);
+		}
+
 		// check the selection color in-case of empty/no theme color.
 		$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
@@ -250,7 +259,8 @@ class Astra_WP_Editor_CSS {
 				'color' => esc_attr( $selection_text_color ),
 			),
 
-			'#editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $box_bg_obj, 'desktop' ),
+			'#editor .edit-post-visual-editor' => $background_style_data,
+			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'desktop' ),
 
 			'.editor-styles-wrapper' => array(
 				'font-family'    => astra_get_font_family( $body_font_family ),
@@ -385,7 +395,8 @@ class Astra_WP_Editor_CSS {
 			'.editor-styles-wrapper h6' => array(
 				'font-size' => astra_responsive_font( $heading_h6_font_size, 'tablet' ),
 			),
-			'#editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $box_bg_obj, 'tablet' ),
+			'#editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $site_background, 'tablet' ),
+			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'tablet' ),
 		);
 
 		$mobile_css = array(
@@ -411,7 +422,8 @@ class Astra_WP_Editor_CSS {
 			'.editor-styles-wrapper h6' => array(
 				'font-size' => astra_responsive_font( $heading_h6_font_size, 'mobile' ),
 			),
-			'#editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $box_bg_obj, 'mobile' ),
+			'#editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $site_background, 'mobile' ),
+			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'mobile' ),
 		);
 
 		$css .= astra_parse_css( $desktop_css );

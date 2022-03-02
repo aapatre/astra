@@ -17,7 +17,9 @@ class Astra_Gutenberg {
 	 * Constructor
 	 */
 	public function __construct() {
-		add_filter( 'render_block', array( $this, 'restore_group_inner_container' ), 10, 2 );
+		if( false === astra_get_option( 'enable-brand-new-editor-experience', true ) ) {
+			add_filter( 'render_block', array( $this, 'restore_group_inner_container' ), 10, 2 );
+		}
 	}
 
 	/**
