@@ -2,8 +2,8 @@
 .ast-no-sidebar {
 	.entry-content {
 		.alignfull {
-			margin-left: calc(-50vw + 50% );
-			margin-right: calc(-50vw + 50% );
+			margin-left: calc( -50vw + 50% );
+			margin-right: calc( -50vw + 50% );
 			max-width: 100vw;
 			width: 100vw;
 			.alignfull,
@@ -57,7 +57,7 @@
 			margin-right: 20px;
 		}
 	}
-	.alignwide {
+	> .alignwide {
 		max-width: 1200px;
 		margin: 0 auto;
 	}

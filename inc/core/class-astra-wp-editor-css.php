@@ -37,7 +37,7 @@ class Astra_WP_Editor_CSS {
 		$headings_line_height        = astra_get_option( 'headings-line-height' );
 		$single_post_title_font_size = astra_get_option( 'font-size-entry-title' );
 		$body_font_family            = astra_body_font_family();
-		$para_margin_bottom          = astra_get_option( 'para-margin-bottom' );
+		$para_margin_bottom          = astra_get_option( 'para-margin-bottom', '1.6' );
 		$theme_color                 = astra_get_option( 'theme-color' );
 		$heading_base_color          = astra_get_option( 'heading-base-color' );
 
@@ -267,7 +267,7 @@ class Astra_WP_Editor_CSS {
 				'line-height'    => esc_attr( $body_line_height ),
 				'text-transform' => esc_attr( $body_text_transform ),
 			),
-			'.editor-styles-wrapper p'         => array(
+			'.edit-post-visual-editor .editor-styles-wrapper p' => array(
 				'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 			),
 			'.editor-styles-wrapper .editor-post-title__input' => array(
