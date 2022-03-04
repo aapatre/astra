@@ -79,8 +79,8 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'control'    => 'ast-selector',
 					'priority'   => 25,
 					'choices'    => array(
-						'horizontal' => __( 'Horizontal', 'astra-addon' ),
-						'vertical'   => __( 'Vertical', 'astra-addon' ),
+						'horizontal' => __( 'Inline', 'astra-addon' ),
+						'vertical'   => __( 'Stack', 'astra-addon' ),
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,

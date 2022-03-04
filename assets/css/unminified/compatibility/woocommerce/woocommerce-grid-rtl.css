@@ -1141,6 +1141,7 @@ p.demo_store a,
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 0;
+  padding-right: 0;
   display: block;
 }
 
@@ -1153,9 +1154,6 @@ p.demo_store a,
   min-width: 75%;
   display: inline-block;
   width: 100%;
-  margin-left: 0;
-  padding-top: .5em;
-  padding-bottom: .5em;
 }
 
 .woocommerce div.product form.cart .variations td.label {
@@ -1385,7 +1383,6 @@ p.demo_store a,
 
 .woocommerce .woocommerce-ordering select {
   vertical-align: top;
-  padding: .5em;
 }
 
 .woocommerce nav.woocommerce-pagination ul {
@@ -2961,9 +2958,17 @@ p.demo_store a,
 .woocommerce select, .woocommerce .select2-container .select2-selection--single,
 .woocommerce-page select,
 .woocommerce-page .select2-container .select2-selection--single {
-  padding: .75em;
-  border: 1px solid #dddddd;
-  border-radius: 0px;
+  padding: 0.75em;
+  line-height: normal;
+  padding-left: 2em;
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='13' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.5.379L20.621 2.5 10.5 12.621.379 2.5 2.5.379l8 8z' fill='%234F5D6D' fill-rule='nonzero'/%3E%3C/svg%3E");
+  background-repeat: no-repeat, repeat;
+  background-size: .5em auto, 100%;
+  background-position: left .8em top 50%, 100% 0;
+  appearance: none;
+  appearance: none;
+  background-color: var(--ast-global-color-5);
+  border-radius: 3px;
   box-shadow: none;
 }
 
