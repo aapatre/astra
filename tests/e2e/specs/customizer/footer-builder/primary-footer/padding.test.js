@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Below footer padding setting in customizer', () => {
+describe( 'Primary footer padding setting in customizer', () => {
 	it( 'padding should apply correctly', async () => {
 		const primaryFooterPadding = {
 			'section-primary-footer-builder-padding': {
