@@ -15,7 +15,7 @@ describe( 'Primary footer vertical alignment setting in customizer', () => {
 					},
 					primary_2: {
 						0: 'copyright',
-					}
+					},
 				},
 			},
 		};
