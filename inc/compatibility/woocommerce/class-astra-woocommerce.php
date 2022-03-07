@@ -1278,7 +1278,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
-				$css_global_button_tablet['.woocommerce ul.products::not(.elementor-grid), .woocommerce-page ul.products'] = array(
+				$css_global_button_tablet['.woocommerce ul.products:not(.elementor-grid), .woocommerce-page ul.products'] = array(
 					'grid-template-columns' => 'repeat(3, minmax(0, 1fr))',
 				);
 
