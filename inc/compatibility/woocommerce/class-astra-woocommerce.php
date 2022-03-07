@@ -1278,7 +1278,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
-				$css_global_button_tablet['.woocommerce ul.products:not(.elementor-grid), .woocommerce-page ul.products'] = array(
+				$css_global_button_tablet['.woocommerce ul.products, .woocommerce-page ul.products'] = array(
 					'grid-template-columns' => 'repeat(3, minmax(0, 1fr))',
 				);
 
@@ -1393,7 +1393,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$archive_mobile_grid = $this->get_grid_column_count( 'archive', 'mobile' );
 				$single_mobile_grid  = $this->get_grid_column_count( 'single', 'mobile' );
 
-				$css_global_button_mobile[ '.woocommerce ul.products:not(.elementor-grid), .woocommerce-page ul.products, .woocommerce.mobile-columns-' . $archive_mobile_grid . ' ul.products, .woocommerce-page.mobile-columns-' . $archive_mobile_grid . ' ul.products' ] = array(
+				$css_global_button_mobile[ '.woocommerce ul.products, .woocommerce-page ul.products, .woocommerce.mobile-columns-' . $archive_mobile_grid . ' ul.products, .woocommerce-page.mobile-columns-' . $archive_mobile_grid . ' ul.products' ] = array(
 					'grid-template-columns' => 'repeat(' . $archive_mobile_grid . ', minmax(0, 1fr))',
 				);
 				$css_global_button_mobile[ '.woocommerce.mobile-rel-up-columns-' . $single_mobile_grid . ' ul.products' ] = array(
