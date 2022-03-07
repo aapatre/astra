@@ -131,7 +131,6 @@
 
 	ul.products {
 		display: grid;
-		grid-template-columns:  repeat(4, 1fr);
 		column-gap: 20px;
 		li.product {
 			display: flex;
@@ -143,7 +142,9 @@
 	}
 
 	//Set Custom Grids Only Without Elementor.
-	ul.products {
+	ul.products:not(.elementor-grid) {
+
+		grid-template-columns:  repeat(4, 1fr);
 
 		&.columns-1 {
 			grid-template-columns:  repeat(1, minmax(0, 1fr));
