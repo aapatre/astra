@@ -1023,6 +1023,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'component_limit'         => Astra_Builder_Helper::$component_limit,
 					'is_site_rtl'             => is_rtl(),
 					'defaults'                => $this->get_control_defaults(),
+					'isWP_5_9'                => astra_wp_version_compare( '5.8.99', '>=' ),
 					'astraRegenerateFonts'    => wp_create_nonce( 'astra-regenerate-local-fonts' ),
 					'initialFlushText'        => __( 'Flush Local Font Files', 'astra' ),
 					'successFlushed'          => __( 'Successfully Flushed', 'astra' ),
@@ -1428,6 +1429,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'site_layout'                          => astra_get_option( 'site-layout' ),
 				'has_block_editor_support'             => Astra_Dynamic_CSS::is_block_editor_support_enabled(),
 				'updated_gb_outline_button_patterns'   => astra_button_default_padding_updated(),
+				'apply_content_bg_fullwidth_layouts'   => astra_get_option( 'apply-content-background-fullwidth-layouts', true ),
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );

@@ -1409,7 +1409,7 @@ hr {
 
 .ast-button,
 .button,
-button:not(.components-button),
+button,
 input,
 select,
 textarea {
@@ -3613,6 +3613,14 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 .wp-block-gallery,
 .blocks-gallery-grid {
   margin: 0;
+}
+
+.wp-block-separator {
+  max-width: 100px;
+}
+
+.wp-block-separator.is-style-wide, .wp-block-separator.is-style-dots {
+  max-width: none;
 }
 
 .entry-content .has-2-columns .wp-block-column:first-child {
