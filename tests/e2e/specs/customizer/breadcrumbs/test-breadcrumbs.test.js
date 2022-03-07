@@ -1,5 +1,6 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
+import { publishPost } from '../../../utils/publish-post';
 import { responsiveFontSize } from '../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 describe( 'breadcrumb Typography settings in the customizer', () => {
@@ -69,11 +70,16 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 			},
 		};
 		await setCustomize( breadcrumbTypography );
-		await createNewPost( {
-			postType: 'page',
-			title: 'breadcrumb',
-		} );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'breadcrumb',
+			} );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/breadcrumb' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -95,7 +101,9 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
 				breadcrumbTypography[ 'breadcrumb-font-size' ].tablet,
-			) }${ breadcrumbTypography[ 'breadcrumb-font-size' ][ 'tablet-unit' ] }`,
+			) }${
+				breadcrumbTypography[ 'breadcrumb-font-size' ][ 'tablet-unit' ]
+			}`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
@@ -104,7 +112,9 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
 				breadcrumbTypography[ 'breadcrumb-font-size' ].mobile,
-			) }${ breadcrumbTypography[ 'breadcrumb-font-size' ][ 'mobile-unit' ] }`,
+			) }${
+				breadcrumbTypography[ 'breadcrumb-font-size' ][ 'mobile-unit' ]
+			}`,
 		);
 
 		await setBrowserViewport( 'large' );
@@ -161,7 +171,8 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper',
 			property: 'background-color',
-		} ).cssValueToBe( `${ breadcrumbTypography[ 'breadcrumb-bg-color' ].desktop }`,
+		} ).cssValueToBe(
+			`${ breadcrumbTypography[ 'breadcrumb-bg-color' ].desktop }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
@@ -182,19 +193,22 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items a',
 			property: 'color',
-		} ).cssValueToBe( `${ breadcrumbTypography[ 'breadcrumb-text-color-responsive' ].desktop }`,
+		} ).cssValueToBe(
+			`${ breadcrumbTypography[ 'breadcrumb-text-color-responsive' ].desktop }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items a',
 			property: 'color',
-		} ).cssValueToBe( `${ breadcrumbTypography[ 'breadcrumb-text-color-responsive' ].tablet }`,
+		} ).cssValueToBe(
+			`${ breadcrumbTypography[ 'breadcrumb-text-color-responsive' ].tablet }`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items a',
 			property: 'color',
-		} ).cssValueToBe( `${ breadcrumbTypography[ 'breadcrumb-text-color-responsive' ].mobile }`,
+		} ).cssValueToBe(
+			`${ breadcrumbTypography[ 'breadcrumb-text-color-responsive' ].mobile }`,
 		);
 
 		// GitHub action E2E fail case

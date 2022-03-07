@@ -2345,6 +2345,12 @@ p.demo_store,
 	.select2-results__option {
 		padding: 6px 0.75em;
 	}
+
+	.variations {
+		th {
+			text-align: left;
+		}
+	}
 }
 
 .woocommerce,
@@ -3914,3 +3920,4 @@ button.pswp__button--zoom:hover {
 		width: 60%
 	}
 }
+

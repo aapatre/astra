@@ -1,5 +1,10 @@
-import { createNewPost, createURL, publishPost, setBrowserViewport } from '@wordpress/e2e-test-utils';
+import {
+	createNewPost,
+	createURL,
+	setBrowserViewport,
+} from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
+import { publishPost } from '../../../../utils/publish-post';
 describe( 'transparent header enable setting in the customizer', () => {
 	it( 'transparent header should be enabled on desktop', async () => {
 		const transparentHeaderEnable = {
@@ -7,14 +12,20 @@ describe( 'transparent header enable setting in the customizer', () => {
 			'transparent-header-on-devices': 'desktop',
 		};
 		await setCustomize( transparentHeaderEnable );
-		await createNewPost( { postType: 'page', title: 'transparent page' } );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'transparent page',
+			} );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/transparent page' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector(
-			'.ast-theme-transparent-header #masthead',
-		);
+		await page.waitForSelector( '.ast-theme-transparent-header #masthead' );
 		await expect( {
 			selector: '.ast-theme-transparent-header #masthead',
 			property: 'position',
@@ -30,9 +41,7 @@ describe( 'transparent header enable setting in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await setBrowserViewport( 'medium' );
-		await page.waitForSelector(
-			'.ast-theme-transparent-header #masthead',
-		);
+		await page.waitForSelector( '.ast-theme-transparent-header #masthead' );
 		await expect( {
 			selector: '.ast-theme-transparent-header #masthead',
 			property: 'position',
@@ -48,9 +57,7 @@ describe( 'transparent header enable setting in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await setBrowserViewport( 'small' );
-		await page.waitForSelector(
-			'.ast-theme-transparent-header #masthead',
-		);
+		await page.waitForSelector( '.ast-theme-transparent-header #masthead' );
 		await expect( {
 			selector: '.ast-theme-transparent-header #masthead',
 			property: 'position',

@@ -1,7 +1,8 @@
-import { createURL, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../utils/publish-post';
 import { openAstraMetaSettings } from '../../utils/open-astra-meta-setting';
 import { setCustomize } from '../../utils/customize';
-describe( 'Astra meta setting', () => {
+describe( 'astra meta setting', () => {
 	it( 'sidebar, content layout and breadcrumb disable setting', async () => {
 		const breadcrumbSetting = {
 			'breadcrumb-position': 'astra_header_after',
@@ -15,7 +16,15 @@ describe( 'Astra meta setting', () => {
 		await openAstraMetaSettings();
 		//breadcrumb disabled
 		await page.evaluate( () => {
-			[ ...document.querySelectorAll( '.ast-sidebar-layout-meta-wrap .components-toggle-control__label' ) ].find( ( element ) => element.textContent === 'Disable Breadcrumb' ).click();
+			[
+				...document.querySelectorAll(
+					'.ast-sidebar-layout-meta-wrap .components-toggle-control__label',
+				),
+			]
+				.find(
+					( element ) => element.textContent === 'Disable Breadcrumb',
+				)
+				.click();
 		} );
 		await publishPost();
 		await page.goto( createURL( 'meta' ), {
@@ -26,8 +35,8 @@ describe( 'Astra meta setting', () => {
 			return !! document.querySelector( '.ast-breadcrumbs-wrapper' );
 		} );
 		if ( breadcrumb ) {
-			result = ' ';
+			result = null;
 		}
-		await expect( result ).toBeNull( );
+		await expect( result ).toBeNull();
 	} );
 } );
