@@ -4,12 +4,13 @@ import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Primary footer inner column spacing setting in customizer', () => {
 	it( 'spacing should apply correctly', async () => {
-		const innercolumnSpacing = {
+		const innerColumnSpacing = {
+			'hb-footer-column': 2,
 			'hb-inner-spacing':
 			{
-				desktop: '50',
-				tablet: '50',
-				mobile: '50',
+				desktop: '74',
+				tablet: '54',
+				mobile: '24',
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
@@ -19,38 +20,36 @@ describe( 'Primary footer inner column spacing setting in customizer', () => {
 					primary_1: {
 						0: 'social-icons-1',
 					},
+					primary_2: {
+						0: 'copyright',
+					},
 				},
 			},
 		};
-
-		await setCustomize( innercolumnSpacing );
+		await setCustomize( innerColumnSpacing );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.site-primary-footer-wrap[data-section="section-primary-footer-builder"] .ast-builder-grid-row' );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
-
+		await page.waitForSelector( '.site-primary-footer-wrap[data-section="section-primary-footer-builder"] .ast-builder-grid-row' );
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"] .ast-builder-grid-row',
 			property: 'grid-column-gap',
-		} ).cssValueToBe( `${ innercolumnSpacing[ 'hb-inner-spacing' ].desktop }${ innercolumnSpacing[ 'hb-inner-spacing' ][ 'desktop-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ innerColumnSpacing[ 'hb-inner-spacing' ].desktop }${ innerColumnSpacing[ 'hb-inner-spacing' ][ 'desktop-unit' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"] .ast-builder-grid-row',
 			property: 'grid-column-gap',
-		} ).cssValueToBe( `${ innercolumnSpacing[ 'hb-inner-spacing' ].tablet }${ innercolumnSpacing[ 'hb-inner-spacing' ][ 'tablet-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ innerColumnSpacing[ 'hb-inner-spacing' ].tablet }${ innerColumnSpacing[ 'hb-inner-spacing' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"] .ast-builder-grid-row',
 			property: 'grid-column-gap',
-		} ).cssValueToBe( `${ innercolumnSpacing[ 'hb-inner-spacing' ].mobile }${ innercolumnSpacing[ 'hb-inner-spacing' ][ 'mobile-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ innerColumnSpacing[ 'hb-inner-spacing' ].mobile }${ innerColumnSpacing[ 'hb-inner-spacing' ][ 'mobile-unit' ] }` );
 	} );
 } );
