@@ -169,6 +169,7 @@ p.demo_store a,
   padding-right: 0;
   margin-bottom: 0;
   order: 1;
+  cursor: pointer;
   /* Cart container in header. */
 }
 
@@ -4136,7 +4137,9 @@ button.pswp__button--zoom:hover {
 
 .woocommerce .woocommerce ul.cart_list li a,
 .woocommerce .woocommerce ul.product_list_widget li a {
-  font-weight: normal;
+  font-weight: 500;
+  margin-bottom: 0.33em;
+  color: var(--ast-global-color-2);
 }
 
 .woocommerce .widget_shopping_cart .cart_list li,
@@ -4221,7 +4224,7 @@ button.pswp__button--zoom:hover {
 
 .woocommerce .widget .amount,
 .woocommerce .widget ins {
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .woocommerce .widget .star-rating {

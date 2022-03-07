@@ -82,6 +82,7 @@ p.demo_store,
     padding-left: 0;
     margin-bottom: 0;
     order: 1;
+	cursor: pointer;
 
     	&:focus,
     	&:hover {
@@ -3455,7 +3456,9 @@ button.pswp__button--zoom:hover {
 	.woocommerce ul.cart_list,
 	.woocommerce ul.product_list_widget {
 		li a {
-			font-weight: normal;
+			font-weight: 500;
+			margin-bottom: 0.33em;
+			color: var(--ast-global-color-2);
 		}
 	}
 
@@ -3547,7 +3550,7 @@ button.pswp__button--zoom:hover {
 
 		.amount,
 		ins {
-			font-weight: 700;
+			font-weight: 400;
 		}
 
 		.star-rating {
