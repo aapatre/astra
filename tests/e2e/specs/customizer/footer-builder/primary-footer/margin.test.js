@@ -2,27 +2,27 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Below footer margin setting in customizer', () => {
+describe( 'Primary footer margin setting in customizer', () => {
 	it( 'margin should apply correctly', async () => {
-		const primaryfooterMargin = {
+		const primaryFooterMargin = {
 			'section-primary-footer-builder-margin': {
 				desktop: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '80',
+					right: '80',
+					bottom: '80',
+					left: '80',
 				},
 				tablet: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '60',
+					right: '60',
+					bottom: '60',
+					left: '60',
 				},
 				mobile: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '40',
+					right: '40',
+					bottom: '40',
+					left: '40',
 				},
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
@@ -36,7 +36,7 @@ describe( 'Below footer margin setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( primaryfooterMargin );
+		await setCustomize( primaryFooterMargin );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -46,22 +46,22 @@ describe( 'Below footer margin setting in customizer', () => {
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].desktop.top }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].desktop.top }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].desktop.right }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].desktop.right }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].desktop.bottom }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].desktop.bottom }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].desktop.left }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].desktop.left }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'desktop-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'medium' );
@@ -69,22 +69,22 @@ describe( 'Below footer margin setting in customizer', () => {
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].tablet.top }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].tablet.top }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].tablet.right }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].tablet.right }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].tablet.bottom }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].tablet.bottom }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].tablet.left }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].tablet.left }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'tablet-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'small' );
@@ -92,22 +92,22 @@ describe( 'Below footer margin setting in customizer', () => {
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].mobile.top }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].mobile.top }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].mobile.right }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].mobile.right }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].mobile.bottom }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].mobile.bottom }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ].mobile.left }${ primaryfooterMargin[ 'section-primary-footer-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe( `${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ].mobile.left }${ primaryFooterMargin[ 'section-primary-footer-builder-margin' ][ 'mobile-unit' ] }`,
 		);
 	} );
 } );
