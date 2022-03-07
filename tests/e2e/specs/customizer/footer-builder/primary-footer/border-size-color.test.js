@@ -5,8 +5,8 @@ import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Primary footer border size setting in customizer', () => {
 	it( 'border size should apply correctly', async () => {
 		const borderSizeColor = {
-			'hb-footer-main-sep': '50',
-			'hb-footer-main-sep-color': 'rgb(255, 79, 88)',
+			'hb-footer-main-sep': '75',
+			'hb-footer-main-sep-color': 'rgb(155, 235, 212)',
 			'footer-desktop-items': {
 				primary: {
 					primary_1: {
@@ -25,13 +25,10 @@ describe( 'Primary footer border size setting in customizer', () => {
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'border-top-width',
-		} ).cssValueToBe( `${ borderSizeColor[ 'hb-footer-main-sep' ] + 'px' }`,
-		);
+		} ).cssValueToBe( `${ borderSizeColor[ 'hb-footer-main-sep' ] + 'px' }` );
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'border-top-color',
-		} ).cssValueToBe( `${ borderSizeColor[ 'hb-footer-main-sep-color' ] }`,
-
-		);
+		} ).cssValueToBe( `${ borderSizeColor[ 'hb-footer-main-sep-color' ] }` );
 	} );
 } );
