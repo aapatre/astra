@@ -555,7 +555,14 @@ p.demo_store,
     		margin: 0 0 0.8em;
 
 			> span {
-				display: block;
+				display: inline-block;
+				margin-right: 15px;
+				align-items: center;
+				font-weight: 500;
+
+				& > * {
+					font-weight: 400;
+				}
 			}
 		}
 
@@ -912,6 +919,12 @@ p.demo_store,
 			@include clearfix();
 		}
 
+		.woocommerce-variation-add-to-cart,
+		&.product-type-simple form.cart {
+			display: flex;
+			align-items: flex-start;
+		}
+
 		form.cart {
 			margin: 0 0 1.2em;
 
@@ -963,6 +976,11 @@ p.demo_store,
 					display: block;
 				}
 
+				th {
+					margin: 0.5em 0;
+					padding-left: 0;
+				}
+
 				label {
 					font-weight: 700;
 				}
@@ -1008,7 +1026,7 @@ p.demo_store,
 				float: left;
 
 				&.single_add_to_cart_button {
-					padding: 10px 40px;
+					padding: 10px;
 				}
 			}
 
@@ -1280,18 +1298,20 @@ p.demo_store,
 
 		&.loading {
 			opacity: 0.25;
-			padding-right: 2.618em;
 
 			&::after {
-				font-family: 'WooCommerce';
-				content: '\e01c';
-				vertical-align: top;
-				-webkit-font-smoothing: antialiased;
-				font-weight: 400;
-				position: absolute;
-				top: auto;
-				right: 1em;
-				animation: spin 2s linear infinite;
+				display: inline-block;
+				content: "";
+				position: relative;
+				top: 0;
+				right: -0.5em;
+				left: auto;
+				width: .8em;
+				height: .8em;
+				background-color: var(--ast-global-color-5);
+				background-image: none;
+				border-radius: 100%;
+				animation: dotPulse .65s 0s infinite cubic-bezier(.21,.53,.56,.8);
 			}
 		}
 
@@ -1351,8 +1371,7 @@ p.demo_store,
 	}
 
 	a.added_to_cart {
-		padding: .4em .4em 0;
-		display: inline-block;
+		display: none;
 	}
 
 	/**
