@@ -219,7 +219,7 @@ beforeAll( async () => {
 	enablePageDialogAccept();
 	observeConsoleLogging();
 	await setupBrowser();
-	//await deactivatePlugin( 'gutenberg' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
+	await deactivatePlugin( 'gutenberg' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
 	await trashAllPosts();
 	await trashAllPosts( 'page' );
 	await siteReset();
