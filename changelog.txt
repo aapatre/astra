@@ -1,24 +1,28 @@
-v3.7.8(Unreleased)
+v3.7.9
+- Fix: Added correct version number for background updater.
+
+v3.7.8
 - Improvement: Added a new filter 'astra_settings_metabox_register' to prevent loading of block based Astra Settings metabox. ( https://wpastra.com/docs/hide-astra-settings-for-user-roles/ )
-- Improvement: Predefined breadcrumb separator added in the breadcrumb customizer section.
-- Fix: W3 validation - Removed an element with the attribute tabindex for dropdown menu toggle.
-- Improvement: Site Background will be applied as background CSS for Full-Width Contained/Stretched layouts instead of Content Background.
-- Fix: W3 validation - legend HTML tag missing as fieldset tag is being used for comment section.
+- Improvement: Introducing new breadcrumb separators.
+- Improvement: Site Background color will be applied as the background color for Full-Width - Contained/Stretched layouts instead of Content Background color. ( https://wpastra.com/docs/applying-content-background-to-full-width-layouts/ )
+- Fix: W3 validation - Removed an attribute tabindex for dropdown menu toggle.
+- Fix: W3 validation - legend HTML tag missing for comment section.
 - Fix: Related Posts - Post Query - Order by Random option not working as expected.
-- Fix: W3 validation - aria-label attribute is missing for cart offcanvas drawer.
-- Fix: Off-canvas - Dropdown menu displayed when flyout/fullscreen header type is selected in mobile/tablet customizer.
+- Fix: W3 validation - aria-label attribute is missing for cart off-canvas drawer.
+- Fix: Dropdown menu appearing when flyout/fullscreen header type is selected for mobile/tablet in the customizer preview.
 - Fix: W3 validation - Builder - Account - Duplicate IDs for account icons.
 - Fix: Elementor Pro - WooCommerce Grid layout support in WooCommerce Products Archive widget.
-- Fix: Accessibility - Tab navigation does not highlight slider search Icon.
-- Fix: JS Error - Uncaught ReferenceError: bodyElement is not defined.
+- Fix: Accessibility - Tab navigation does not highlight slider search icon.
+- Fix: Console error on mobile devices for Safari browsers.
 - Fix: WooCommerce - Blank Flyout shopping cart appearing on checkout & cart page for mobile/tablet devices.
-- Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
-- Fix: Fixed Astra meta settings are not getting saved for the Classic editor.
+- Fix: Gutenberg editor - Gutenberg Blocks jerk when users edit any blocks.
 - Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
-- Fix: The Menu get disappear on the Android mobile device when you select Header Type is set as Dropdown.
+- Fix: Astra meta settings are not getting saved when Classic editor is enabled.
+- Fix: Menu disappears on the Android mobile devices when Header Type is set as Dropdown.
 - Fix: Elementor Popup – Youtube video fullscreen not working when the cart element is added.
-- Fix: Submenus are misaligned with old Astra header menu for specific cases.
-- Fix: WooCommerce - Product Categories widget's hierarchy layout is inappropriate on the Frontend.
+- Fix: Submenus are misaligned with the old Astra header menu for specific cases.
+- Fix: WooCommerce - Product Categories widget's hierarchy layout is missing on the Frontend.
+- Fix: Column Block - Layout options missing when nested inside Group/Cover Blocks.
 
 v3.7.7
 - Improvement: Compatibility with WordPress 5.9.

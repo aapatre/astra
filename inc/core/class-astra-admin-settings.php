@@ -415,6 +415,15 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						#side-sortables #astra_settings_meta_box select { min-width: 100%; }
 						#normal-sortables #astra_settings_meta_box select { min-width: 200px; }
 					</style>';
+
+					/**
+					 * Register admin script for missing Layout option from nested Column Blocks inside Group/Cover blocks.
+					 *
+					 * @see https://github.com/WordPress/gutenberg/issues/33374 & https://gist.github.com/Luehrsen/c4aad3b33435058c19ea80f5f1c268e8 - Remove this once the issue is fixed.
+					 *
+					 * @since 3.7.9
+					 */
+					wp_enqueue_script( 'astra-column-block-comp-js', ASTRA_THEME_URI . 'inc/assets/js/column-block-compatibility.js', array( 'wp-util', 'wp-hooks' ), ASTRA_THEME_VERSION, false );
 				}
 			}
 			/* Add CSS for the Submenu for BSF plugins added in Appearance Menu */
