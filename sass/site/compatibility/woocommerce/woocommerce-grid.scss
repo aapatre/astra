@@ -2316,6 +2316,12 @@ p.demo_store,
 	#reviews {
 		display: flex;
 	}
+
+	.variations {
+		th {
+			text-align: left;
+		}
+	}
 }
 
 .woocommerce,
@@ -3883,5 +3889,15 @@ button.pswp__button--zoom:hover {
 @supports (-moz-appearance:none) {
 	.sidebar-main .widget_product_search .search-field {
 		width: 60%
+	}
+}
+
+/**
+ * Product categories - Hierarchy CSS.
+ */
+
+ .wc-block-product-categories-list {
+	li {
+		padding-left: 15px;
 	}
 }
