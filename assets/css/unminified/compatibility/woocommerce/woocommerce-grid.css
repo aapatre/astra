@@ -2627,6 +2627,10 @@ p.demo_store a,
   display: flex;
 }
 
+.woocommerce .variations th {
+  text-align: left;
+}
+
 .woocommerce,
 .woocommerce-page {
   /**
@@ -4535,4 +4539,11 @@ button.pswp__button--zoom:hover {
   .sidebar-main .widget_product_search .search-field {
     width: 60%;
   }
+}
+
+/**
+ * Product categories - Hierarchy CSS.
+ */
+.wc-block-product-categories-list li {
+  padding-left: 15px;
 }
