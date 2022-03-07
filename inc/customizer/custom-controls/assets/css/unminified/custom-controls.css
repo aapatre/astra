@@ -952,6 +952,28 @@
 	border-radius: 4px;
 }
 
+.astra-popover-color .components-h-stack.ast-color-palette {
+    padding: 14px;
+}
+
+.astra-popover-color .components-h-stack .components-button {
+    flex: inherit;
+}
+
+.astra-popover-color .components-circular-option-picker__option:focus::after{
+    width: auto;
+    height: auto;
+}
+
+.astra-popover-color .components-h-stack .components-circular-option-picker__option-wrapper{
+    margin-right: 0;
+}
+
+.astra-popover-color .components-color-picker .react-colorful__hue,
+.astra-popover-color .components-color-picker .react-colorful__alpha {
+    width: 90%;
+}
+
 .ast-field-settings-modal .astra-popover-color {
     margin-left: 0px;
 	border: 1px solid #dedede;
@@ -977,6 +999,12 @@
     bottom: 0;
 	display: none;
 }
+
+.astra-color-picker-wrap .astra-popover-color .components-color-picker,
+.astra-color-picker-wrap .astra-popover-color .react-colorful {
+    width: 100%;
+} 
+
 .astra-color-picker-wrap.picker-open{
 	display: block;
 }
@@ -1079,6 +1107,31 @@
 .astra-color-picker-wrap .components-popover__content {
     width: max-content;
 }
+
+.astra-color-picker-wrap .astra-popover-color .ast-gradient-ui .components-color-picker,
+.astra-color-picker-wrap .astra-popover-color .ast-gradient-ui .react-colorful {
+    width: 216px;
+}
+
+.astra-color-picker-wrap .ast-gradient-ui .components-select-control.components-custom-gradient-picker__type-picker {
+    flex-direction: column;
+    align-items: start;
+}
+
+.astra-color-picker-wrap .ast-gradient-ui .components-angle-picker-control {
+    margin-bottom: 0;
+}
+
+.astra-color-picker-wrap .ast-gradient-ui .components-custom-gradient-picker__remove-control-point {
+    padding: 0 16px 16px 16px;
+    border: 0; 
+}
+
+.astra-color-picker-wrap .ast-gradient-ui .components-custom-gradient-picker__remove-control-point:focus {
+    box-shadow: none;
+    outline: none;
+}
+
 /** Gradient Color Picker -> RGBA & HSLA range fields */
 .customize-control .ast-gradient-color-picker .is-alpha-enabled .components-base-control__field [type="number"] {
     width: 100%;
@@ -1404,9 +1457,12 @@ input[type="text"].select2-search__field {
 }
 
 /* Customizer - builder widget area's block gets round shapes in more-settings tab */
-.customize-widgets-layout__inspector .components-circular-option-picker__option::after {
-  box-shadow: none;
-  position: unset;
+.components-circular-option-picker__option-wrapper::before {
+  background: unset;
+}
+
+.block-editor-panel-color-gradient-settings .components-circular-option-picker__option-wrapper {
+  position: relative;
 }
 
 .customize-control-ast-description .ast-description {
@@ -1636,6 +1692,10 @@ input[type="text"].select2-search__field {
   margin-right: 12px;
 }
 
+.ast-divide-four label {
+	margin-right: 0;
+}
+
 .customize-control-ast-radio-image input {
   display: none;
 }
@@ -1644,6 +1704,11 @@ input[type="text"].select2-search__field {
   background: #ffffff;
   border-radius: 3px;
   box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
+}
+
+.ast-divide-four input:checked + label svg {
+	box-shadow: none;
+	color: var(--wp-admin-theme-color);
 }
 
 .customize-control-ast-radio-image input + label .image-clickable {
@@ -1663,9 +1728,21 @@ input[type="text"].select2-search__field {
   grid-row-gap: 5px;
 }
 
+.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .ast-divide-four {
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 20px;
+	grid-row-gap: 10px;
+}
+
 .customize-control-ast-radio-image .ast-radio-img-svg svg {
   width: 75px;
   height: 50px;
+}
+
+.ast-divide-four .ast-radio-img-svg svg {
+	color: #A0AEC0;
+	width: 100%;
+	height: 93%;
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,

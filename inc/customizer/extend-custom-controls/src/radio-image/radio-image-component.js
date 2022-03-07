@@ -28,6 +28,10 @@ const RadioImageComponent = props => {
 		htmlRadio,
 		inp_array = [];
 
+
+	// Checks if unicode input is active which belongs in the breadcrumb customizer section.
+	const hasUnicode =  Object.keys( choices ).includes( 'unicode' ) ? 'ast-divide-four' : '';
+
 	if (label) {
 		htmlLabel = <span className="customize-control-title">{label}</span>;
 	}
@@ -75,7 +79,7 @@ const RadioImageComponent = props => {
 			{htmlLabel}
 			{htmlDescription}
 		</label>
-		<div id={`input_${id}`} className="image">
+		<div id={`input_${id}`} className={`image ${ hasUnicode }`}>
 			{htmlRadio}
 		</div>
 	</Fragment>;
