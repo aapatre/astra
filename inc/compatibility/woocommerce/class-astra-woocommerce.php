@@ -1280,28 +1280,28 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$archive_tablet_grid = $this->get_grid_column_count( 'archive', 'tablet' );
 
-					$css_global_button_tablet[ '.ast-container .woocommerce ul.products:not(.elementor-grid), .woocommerce-page ul.products:not(.elementor-grid), .woocommerce.tablet-columns-' . $archive_tablet_grid . ' ul.products:not(.elementor-grid)' ]                                 = array(
+					$css_global_button_tablet[ '.ast-container .woocommerce ul.products:not(.elementor-grid), .woocommerce-page ul.products:not(.elementor-grid), .woocommerce.tablet-columns-' . $archive_tablet_grid . ' ul.products:not(.elementor-grid)' ] = array(
 						'grid-template-columns' => 'repeat(' . $archive_tablet_grid . ', minmax(0, 1fr))',
 					);
 
-				if ( is_shop() || is_product_taxonomy() || is_single()  ) {
+					if ( is_shop() || is_product_taxonomy() || is_single() ) {
 
-					$css_global_button_tablet['.woocommerce[class*="tablet-columns-"] .site-main div.product .related.products ul.products li.product'] = array(
-						'width' => '100%',
-					);
-				}
+						$css_global_button_tablet['.woocommerce[class*="tablet-columns-"] .site-main div.product .related.products ul.products li.product'] = array(
+							'width' => '100%',
+						);
+					}
 
-				if ( is_product() ) {
+					if ( is_product() ) {
 
-					$single_tablet_grid = $this->get_grid_column_count( 'single', 'tablet' );
+						$single_tablet_grid = $this->get_grid_column_count( 'single', 'tablet' );
 
-					$css_global_button_tablet[ '.woocommerce.tablet-rel-up-columns-' . $single_tablet_grid . ' ul.products' ]                                  = array(
-						'grid-template-columns' => 'repeat(' . $single_tablet_grid . ', minmax(0, 1fr))',
-					);
-					$css_global_button_tablet['.woocommerce[class*="tablet-rel-up-columns-"] .site-main div.product .related.products ul.products li.product'] = array(
-						'width' => '100%',
-					);
-				}
+						$css_global_button_tablet[ '.woocommerce.tablet-rel-up-columns-' . $single_tablet_grid . ' ul.products' ]                                  = array(
+							'grid-template-columns' => 'repeat(' . $single_tablet_grid . ', minmax(0, 1fr))',
+						);
+						$css_global_button_tablet['.woocommerce[class*="tablet-rel-up-columns-"] .site-main div.product .related.products ul.products li.product'] = array(
+							'width' => '100%',
+						);
+					}
 			}
 
 			$css_output .= astra_parse_css( $css_global_button_tablet, '', astra_get_tablet_breakpoint() );
