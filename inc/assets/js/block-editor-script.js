@@ -85,11 +85,11 @@ function astra_onload_function() {
 			if( null === titleVisibility ) {
 				var titleVisibilityTrigger = '';
 				if( 'disabled' === wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-post-title'] ) {
-					titleVisibilityTrigger = '<span class="dashicons dashicons-visibility title-visibility"></span>';
+					titleVisibilityTrigger = '<span class="dashicons dashicons-hidden title-visibility"></span>';
 					var titleBlock = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
 					titleBlock.classList.toggle( 'invisible' );
 				} else {
-					titleVisibilityTrigger = '<span class="dashicons dashicons-hidden title-visibility"></span>';
+					titleVisibilityTrigger = '<span class="dashicons dashicons-visibility title-visibility"></span>';
 				}
 
 				document.querySelector( '.edit-post-visual-editor__post-title-wrapper' ).insertAdjacentHTML( 'beforeend', titleVisibilityTrigger );
@@ -98,22 +98,22 @@ function astra_onload_function() {
 					var titleBlock = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
 					titleBlock.classList.toggle( 'invisible' );
 
-					if( this.classList.contains( 'dashicons-visibility' ) ) {
-						this.classList.add( 'dashicons-hidden' );
-						this.classList.remove( 'dashicons-visibility' );
+					if( this.classList.contains( 'dashicons-hidden' ) ) {
+						this.classList.add( 'dashicons-visibility' );
+						this.classList.remove( 'dashicons-hidden' );
 						wp.data.dispatch( 'core/editor' ).editPost(
 							{
 								meta: {
 									'site-post-title': '',
 								}
 							}
-							);
-						} else {
-							this.classList.add( 'dashicons-visibility' );
-							this.classList.remove( 'dashicons-hidden' );
-							wp.data.dispatch( 'core/editor' ).editPost(
-								{
-									meta: {
+						);
+					} else {
+						this.classList.add( 'dashicons-hidden' );
+						this.classList.remove( 'dashicons-visibility' );
+						wp.data.dispatch( 'core/editor' ).editPost(
+							{
+								meta: {
 									'site-post-title': 'disabled',
 								}
 							}
