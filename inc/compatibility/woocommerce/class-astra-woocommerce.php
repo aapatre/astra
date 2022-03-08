@@ -1037,7 +1037,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 				),
 				'.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before' => array(
-					'color' => $link_color,
+					'color' => '#777',
 				),
 				'.woocommerce div.product .woocommerce-tabs ul.tabs li.active:before' => array(
 					'background' => $link_color,
@@ -1283,15 +1283,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			 */
 			if ( $is_site_rtl ) {
 				$min_tablet_css = array(
-					'.woocommerce #reviews #comments'   => array(
-						'width' => '55%',
-						'float' => 'right',
-					),
-					'.woocommerce #reviews #review_form_wrapper' => array(
-						'width'         => '45%',
-						'float'         => 'left',
-						'padding-right' => '2em',
-					),
 					'.woocommerce form.checkout_coupon' => array(
 						'width' => '50%',
 					),
@@ -1302,13 +1293,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 			} else {
 				$min_tablet_css = array(
-					'.woocommerce #reviews #comments'   => array(
-						'width' => '55%',
-					),
-					'.woocommerce #reviews #review_form_wrapper' => array(
-						'width'        => '45%',
-						'padding-left' => '2em',
-					),
 					'.woocommerce form.checkout_coupon' => array(
 						'width' => '50%',
 					),
