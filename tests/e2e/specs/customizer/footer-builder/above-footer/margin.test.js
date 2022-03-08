@@ -4,25 +4,25 @@ import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Above footer margin setting in customizer', () => {
 	it( 'margin should apply correctly', async () => {
-		const abovefooterMargin = {
+		const aboveFooterMargin = {
 			'section-above-footer-builder-margin': {
 				desktop: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '80',
+					right: '80',
+					bottom: '80',
+					left: '80',
 				},
 				tablet: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '60',
+					right: '60',
+					bottom: '60',
+					left: '60',
 				},
 				mobile: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '40',
+					right: '40',
+					bottom: '40',
+					left: '40',
 				},
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
@@ -36,78 +36,66 @@ describe( 'Above footer margin setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( abovefooterMargin );
+		await setCustomize( aboveFooterMargin );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.site-above-footer-wrap[data-section="section-above-footer-builder"]' );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
+		await page.waitForSelector( '.site-above-footer-wrap[data-section="section-above-footer-builder"]' );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].desktop.top }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'desktop-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].desktop.top }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'desktop-unit' ] }` );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].desktop.right }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'desktop-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].desktop.right }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'desktop-unit' ] }` );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].desktop.bottom }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'desktop-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].desktop.bottom }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'desktop-unit' ] }` );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].desktop.left }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'desktop-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].desktop.left }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'desktop-unit' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].tablet.top }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'tablet-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].tablet.top }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].tablet.right }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'tablet-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].tablet.right }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].tablet.bottom }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'tablet-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].tablet.bottom }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].tablet.left }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'tablet-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].tablet.left }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].mobile.top }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'mobile-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].mobile.top }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].mobile.right }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'mobile-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].mobile.right }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].mobile.bottom }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'mobile-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].mobile.bottom }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ abovefooterMargin[ 'section-above-footer-builder-margin' ].mobile.left }${ abovefooterMargin[ 'section-above-footer-builder-margin' ][ 'mobile-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ aboveFooterMargin[ 'section-above-footer-builder-margin' ].mobile.left }${ aboveFooterMargin[ 'section-above-footer-builder-margin' ][ 'mobile-unit' ] }` );
 	} );
 } );
