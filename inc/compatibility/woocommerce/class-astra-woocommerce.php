@@ -1284,7 +1284,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'grid-template-columns' => 'repeat(' . $archive_tablet_grid . ', minmax(0, 1fr))',
 					);
 
-					if ( is_shop() || is_product_taxonomy() || is_single() ) {
+					if ( is_shop() || is_product_taxonomy() ) {
 
 						$css_global_button_tablet['.woocommerce[class*="tablet-columns-"] .site-main div.product .related.products ul.products li.product'] = array(
 							'width' => '100%',
