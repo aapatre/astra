@@ -1741,6 +1741,14 @@ namespace {
         {
         }
         /**
+         * Add Font Family Callback
+         *
+         * @return void
+         */
+        public function add_fonts()
+        {
+        }
+        /**
          * Customizer Preview
          *
          * @since 3.0.0
@@ -2136,6 +2144,14 @@ namespace {
          * @since 3.0.0
          */
         public function __construct()
+        {
+        }
+        /**
+         * Add Font Family Callback
+         *
+         * @return void
+         */
+        public function add_fonts()
         {
         }
         /**
@@ -3943,6 +3959,17 @@ namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport {
          * @since 1.2.7
          */
         public function __construct()
+        {
+        }
+        /**
+         * Compatibility CSS for Elementor Pro's WooCommerce widgets releasing in their v3.6.0
+         *
+         * @param  string $css_output CSS stylesheet.
+         * @return string $css_output CSS stylesheet.
+         *
+         * @since  3.7.5
+         */
+        public function elementor_wc_widgets_compatibility_styles($css_output)
         {
         }
         /**
@@ -7485,7 +7512,7 @@ namespace {
         /**
          * Sanitize checkbox
          *
-         * @param  number $input setting input.
+         * @param  mixed $input setting input.
          * @return number        setting input value.
          */
         public static function sanitize_checkbox($input)
@@ -9630,7 +9657,7 @@ namespace {
          * @var array Notices.
          * @since 1.0.0
          */
-        private static $version = '1.1.8';
+        private static $version = '1.1.9';
         /**
          * Notices
          *
@@ -10572,6 +10599,16 @@ namespace {
         {
         }
         /**
+         * Register Post Meta options support.
+         *
+         * @since 3.7.6
+         * @param array|mixed $args the post type args.
+         * @param string      $post_type the post type.
+         */
+        public function custom_fields_support($args, $post_type)
+        {
+        }
+        /**
          * Check if layout is bb themer's layout
          */
         public static function is_bb_themer_layout()
@@ -10619,62 +10656,70 @@ namespace {
         public function save_meta_box($post_id)
         {
         }
-    }
-    /*!
-     * ISC License
-     * 
-     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
-     *
-     * Permission to use, copy, modify, and/or distribute this software for any
-     * purpose with or without fee is hereby granted, provided that the above
-     * copyright notice and this permission notice appear in all copies.
-     *
-     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
-     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-     * PERFORMANCE OF THIS SOFTWARE.
-     */
-    class FlattedString
-    {
-        public function __construct($value)
+        /**
+         * Register Script for Meta options
+         */
+        public function register_script()
         {
         }
-    }
-    class Flatted
-    {
-        // public utilities
-        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
+        /**
+         * Enqueue Script for Meta settings.
+         *
+         * @return void
+         */
+        public function load_scripts()
         {
         }
-        public static function stringify($value, $options = 0, $depth = 512)
+        /**
+         * Get all Sidebar Options.
+         */
+        public function get_sidebar_options()
         {
         }
-        // private helpers
-        private static function asString($value)
+        /**
+         * Get Contenr Layout Options.
+         */
+        public function get_content_layout_options()
         {
         }
-        private static function index(&$known, &$input, &$value)
+        /**
+         * Get disable section fields.
+         */
+        public function get_disable_section_fields()
         {
         }
-        private static function keys(&$value)
+        /**
+         * Get sticky header options.
+         */
+        public function get_sticky_header_options()
         {
         }
-        private static function loop($obj, $keys, &$input, &$set, &$output)
+        /**
+         * Get all transparet and sticky header options.
+         */
+        public function get_header_enabled_options()
         {
         }
-        private static function relate(&$known, &$input, &$value)
+        /**
+         * Get page header Options.
+         */
+        public function get_page_header_options()
         {
         }
-        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
+        /**
+         * Register Post Meta options for react based fields.
+         *
+         * @since 3.7.4
+         */
+        public function register_meta_settings()
         {
         }
-        private static function transform(&$known, &$input, &$value)
-        {
-        }
-        private static function wrap($value)
+        /**
+         * Setup meta options for Astra meta settings.
+         *
+         * @since 3.7.8
+         */
+        public static function post_meta_options()
         {
         }
     }
@@ -11496,7 +11541,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.3' => array('astra_improve_gutenberg_editor_ui'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'));
         /**
          *  Constructor
          */
@@ -11908,6 +11953,18 @@ namespace {
 }
 namespace {
     /**
+     * Define Constants
+     */
+    \define('ASTRA_THEME_VERSION', '3.7.9');
+    \define('ASTRA_THEME_SETTINGS', 'astra-settings');
+    \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
+    \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
+    /**
+     * Minimum Version requirement of the Astra Pro addon.
+     * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
+     */
+    \define('ASTRA_EXT_MIN_VER', '3.6.3');
+    /**
      * Astra Get Breadcrumb
      *
      * Gets the basic Breadcrumb wrapper div & content
@@ -11956,6 +12013,8 @@ namespace {
     function astra_get_breadcrumb_trail($echo = \true)
     {
     }
+    \define('ASTRA_THEME_BREADCRUMBS_DIR', \ASTRA_THEME_DIR . 'inc/addons/breadcrumbs/');
+    \define('ASTRA_THEME_BREADCRUMBS_URI', \ASTRA_THEME_URI . 'inc/addons/breadcrumbs/');
     /**
      * Dynamic CSS
      *
@@ -11968,6 +12027,8 @@ namespace {
     function astra_breadcrumb_section_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_THEME_HEADING_COLORS_DIR', \ASTRA_THEME_DIR . 'inc/addons/heading-colors/');
+    \define('ASTRA_THEME_HEADING_COLORS_URI', \ASTRA_THEME_URI . 'inc/addons/heading-colors/');
     /**
      * Dynamic CSS
      *
@@ -11980,6 +12041,8 @@ namespace {
     function astra_heading_colors_section_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_THEME_TRANSPARENT_HEADER_DIR', \ASTRA_THEME_DIR . 'inc/addons/transparent-header/');
+    \define('ASTRA_THEME_TRANSPARENT_HEADER_URI', \ASTRA_THEME_URI . 'inc/addons/transparent-header/');
     /**
      * Dynamic CSS
      *
@@ -12260,6 +12323,8 @@ namespace {
     function astra_builder()
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_ABOVE_FOOTER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/above-footer');
+    \define('ASTRA_BUILDER_FOOTER_ABOVE_FOOTER_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/above-footer');
     /**
      * Dynamic CSS
      *
@@ -12272,6 +12337,8 @@ namespace {
     function astra_fb_above_footer_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_BELOW_FOOTER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/below-footer');
+    \define('ASTRA_BUILDER_FOOTER_BELOW_FOOTER_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/below-footer');
     /**
      * Dynamic CSS
      *
@@ -12284,6 +12351,8 @@ namespace {
     function astra_fb_below_footer_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_FOOTER_BUTTON_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/button');
+    \define('ASTRA_FOOTER_BUTTON_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/button');
     /**
      * Dynamic CSS
      *
@@ -12296,6 +12365,8 @@ namespace {
     function astra_fb_button_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_COPYRIGHT_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/copyright');
+    \define('ASTRA_BUILDER_FOOTER_COPYRIGHT_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/copyright');
     /**
      * Dynamic CSS
      *
@@ -12308,6 +12379,8 @@ namespace {
     function astra_fb_copyright_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_HTML_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/html');
+    \define('ASTRA_BUILDER_FOOTER_HTML_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/html');
     /**
      * Dynamic CSS
      *
@@ -12320,6 +12393,8 @@ namespace {
     function astra_fb_html_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_MENU_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/menu');
+    \define('ASTRA_BUILDER_FOOTER_MENU_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/menu');
     /**
      * Dynamic CSS
      *
@@ -12341,6 +12416,8 @@ namespace {
     function astra_footer_menu_static_css()
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_PRIMARY_FOOTER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/primary-footer');
+    \define('ASTRA_BUILDER_FOOTER_PRIMARY_FOOTER_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/primary-footer');
     /**
      * Dynamic CSS
      *
@@ -12353,6 +12430,8 @@ namespace {
     function astra_fb_primary_footer_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/social-icon');
+    \define('ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/social-icon');
     /**
      * Dynamic CSS
      *
@@ -12365,6 +12444,8 @@ namespace {
     function astra_fb_social_icon_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_WIDGET_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/widget');
+    \define('ASTRA_BUILDER_FOOTER_WIDGET_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/widget');
     /**
      * Whether to fix the footer right-margin space not working case or not.
      *
@@ -12388,6 +12469,8 @@ namespace {
     function astra_fb_widget_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_ABOVE_HEADER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/above-header');
+    \define('ASTRA_ABOVE_HEADER_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/above-header');
     /**
      * Above Header Row - Dynamic CSS
      *
@@ -12400,6 +12483,8 @@ namespace {
     function astra_above_header_row_setting($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_ACCOUNT_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/account');
+    \define('ASTRA_HEADER_ACCOUNT_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/account');
     /**
      * Dynamic CSS
      *
@@ -12412,6 +12497,8 @@ namespace {
     function astra_hb_account_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BELOW_HEADER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/below-header');
+    \define('ASTRA_BELOW_HEADER_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/below-header');
     /**
      * Below Header Row - Dynamic CSS
      *
@@ -12424,6 +12511,8 @@ namespace {
     function astra_below_header_row_setting($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_BUTTON_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/button');
+    \define('ASTRA_HEADER_BUTTON_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/button');
     /**
      * Dynamic CSS
      *
@@ -12436,6 +12525,8 @@ namespace {
     function astra_hb_button_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_EDD_CART_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/edd-cart');
+    \define('ASTRA_HEADER_EDD_CART_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/edd-cart');
     /**
      * Dynamic CSS
      *
@@ -12448,6 +12539,8 @@ namespace {
     function astra_hb_edd_cart_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_HTML_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/html');
+    \define('ASTRA_HEADER_HTML_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/html');
     /**
      * Dynamic CSS
      *
@@ -12460,6 +12553,8 @@ namespace {
     function astra_hb_html_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_MENU_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/menu');
+    \define('ASTRA_HEADER_MENU_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/menu');
     /**
      * Dynamic CSS
      *
@@ -12481,6 +12576,8 @@ namespace {
     function astra_menu_hover_style_css()
     {
     }
+    \define('ASTRA_BUILDER_MOBILE_MENU_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/mobile-menu');
+    \define('ASTRA_BUILDER_MOBILE_MENU_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/mobile-menu');
     /**
      * Dynamic CSS
      *
@@ -12493,6 +12590,8 @@ namespace {
     function astra_hb_mobile_menu_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_MOBILE_TRIGGER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/mobile-trigger');
+    \define('ASTRA_MOBILE_TRIGGER_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/mobile-trigger');
     /**
      * Mobile Trigger - Dynamic CSS
      *
@@ -12505,6 +12604,8 @@ namespace {
     function astra_mobile_trigger_row_setting($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_OFF_CANVAS_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/off-canvas');
+    \define('ASTRA_OFF_CANVAS_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/off-canvas');
     /**
      * Off Canvas Row - Dynamic CSS
      *
@@ -12535,6 +12636,8 @@ namespace {
     function astra_dropdown_type_static_css()
     {
     }
+    \define('ASTRA_PRIMARY_HEADER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/primary-header');
+    \define('ASTRA_PRIMARY_HEADER_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/primary-header');
     /**
      * Dynamic CSS
      *
@@ -12547,6 +12650,8 @@ namespace {
     function astra_primary_header_breakpoint_style($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_SEARCH_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/search');
+    \define('ASTRA_HEADER_SEARCH_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/search');
     /**
      * Dynamic CSS
      *
@@ -12568,6 +12673,8 @@ namespace {
     function astra_search_static_css()
     {
     }
+    \define('ASTRA_HEADER_SITE_IDENTITY_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/site-identity');
+    \define('ASTRA_HEADER_SITE_IDENTITY_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/site-identity');
     /**
      * Dynamic CSS
      *
@@ -12580,6 +12687,8 @@ namespace {
     function astra_hb_site_identity_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_SOCIAL_ICON_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/social-icon');
+    \define('ASTRA_HEADER_SOCIAL_ICON_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/social-icon');
     /**
      * Dynamic CSS
      *
@@ -12592,6 +12701,8 @@ namespace {
     function astra_hb_social_icon_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_HEADER_WIDGET_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/widget');
+    \define('ASTRA_BUILDER_HEADER_WIDGET_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/widget');
     /**
      * Dynamic CSS
      *
@@ -12604,6 +12715,8 @@ namespace {
     function astra_hb_widget_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_WOO_CART_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/woo-cart');
+    \define('ASTRA_HEADER_WOO_CART_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/woo-cart');
     /**
      * Dynamic CSS
      *
@@ -13388,7 +13501,7 @@ namespace {
     /**
      * Display footer builder markup.
      *
-     * @since x.x.x
+     * @since 3.7.4
      * @param boolean $display_footer true | false.
      * @return boolean true for enabled | false for disable.
      */
@@ -13398,7 +13511,7 @@ namespace {
     /**
      * Display header builder markup.
      *
-     * @since x.x.x
+     * @since 3.7.4
      * @param boolean $display_header true | false.
      * @return boolean true for enabled | false for disable.
      */
@@ -13408,7 +13521,7 @@ namespace {
     /**
      * Border class to secondary submenu
      *
-     * @since x.x.x
+     * @since 3.7.4
      * @param string $class_selector custom class assigned to secondary submenu.
      * @return string  $class_selector updated class selector.
      */
@@ -13418,7 +13531,7 @@ namespace {
     /**
      * Image, group compatibility support released in v2.4.4.
      *
-     * @since x.x.x
+     * @since 3.7.4
      * @param boolean $block_support true | false.
      * @return boolean true for enabled | false for disable.
      */
@@ -13428,7 +13541,7 @@ namespace {
     /**
      * Footer bar meta setting option.
      *
-     * @since x.x.x
+     * @since 3.7.4
      * @param boolean $display_footer_bar true | false.
      * @return boolean true for enabled | false for disable.
      */
@@ -13438,7 +13551,7 @@ namespace {
     /**
      * Border class to primary submenu
      *
-     * @since x.x.x
+     * @since 3.7.4
      * @param string $class_selector custom class assigned to primary submenu.
      * @return string  $class_selector updated class selector.
      */
@@ -13538,8 +13651,8 @@ namespace {
      *
      * Footer menu specific static CSS function.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_footer_menu_static_css()
+     * @since 3.7.4
+     * @deprecated footer_menu_static_css() Use astra_footer_menu_static_css()
      * @see astra_footer_menu_static_css()
      *
      * @return string Parsed CSS
@@ -13552,8 +13665,8 @@ namespace {
      *
      * Backward managing function based on flag - 'support-footer-widget-right-margin' which fixes right margin issue in builder widgets.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_support_footer_widget_right_margin()
+     * @since 3.7.4
+     * @deprecated is_support_footer_widget_right_margin() Use astra_support_footer_widget_right_margin()
      * @see astra_support_footer_widget_right_margin()
      *
      * @return bool true|false
@@ -13566,8 +13679,8 @@ namespace {
      *
      * Checking if Astra Addon is of v3.5.0 or on higher version.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_addon_has_3_5_0_version()
+     * @since 3.7.4
+     * @deprecated is_astra_addon_3_5_0_version() Use astra_addon_has_3_5_0_version()
      * @see astra_addon_has_3_5_0_version()
      *
      * @return bool true|false based on version_compare of ASTRA_EXT_VER
@@ -13580,8 +13693,8 @@ namespace {
      *
      * Default configurations for builder button components.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_prepare_button_defaults()
+     * @since 3.7.4
+     * @deprecated prepare_button_defaults() Use astra_prepare_button_defaults()
      * @param array  $defaults Button default configs.
      * @param string $index builder button component index.
      * @see astra_prepare_button_defaults()
@@ -13596,8 +13709,8 @@ namespace {
      *
      * Default configurations for builder HTML components.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_prepare_html_defaults()
+     * @since 3.7.4
+     * @deprecated prepare_html_defaults() Use astra_prepare_html_defaults()
      * @param array  $defaults HTML default configs.
      * @param string $index builder HTML component index.
      * @see astra_prepare_html_defaults()
@@ -13612,8 +13725,8 @@ namespace {
      *
      * Default configurations for builder Social Icon components.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_prepare_social_icon_defaults()
+     * @since 3.7.4
+     * @deprecated prepare_social_icon_defaults() Use astra_prepare_social_icon_defaults()
      * @param array  $defaults Social Icon default configs.
      * @param string $index builder Social Icon component index.
      * @see astra_prepare_social_icon_defaults()
@@ -13628,8 +13741,8 @@ namespace {
      *
      * Default configurations for builder Widget components.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_prepare_widget_defaults()
+     * @since 3.7.4
+     * @deprecated prepare_widget_defaults() Use astra_prepare_widget_defaults()
      * @param array  $defaults Widget default configs.
      * @param string $index builder Widget component index.
      * @see astra_prepare_widget_defaults()
@@ -13644,8 +13757,8 @@ namespace {
      *
      * Default configurations for builder Menu components.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_prepare_menu_defaults()
+     * @since 3.7.4
+     * @deprecated prepare_menu_defaults() Use astra_prepare_menu_defaults()
      * @param array  $defaults Menu default configs.
      * @param string $index builder Menu component index.
      * @see astra_prepare_menu_defaults()
@@ -13660,8 +13773,8 @@ namespace {
      *
      * Default configurations for builder Divider components.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_prepare_divider_defaults()
+     * @since 3.7.4
+     * @deprecated prepare_divider_defaults() Use astra_prepare_divider_defaults()
      * @param array  $defaults Divider default configs.
      * @param string $index builder Divider component index.
      * @see astra_prepare_divider_defaults()
@@ -13676,8 +13789,8 @@ namespace {
      *
      * Checking if Astra's pagination enabled.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_check_pagination_enabled()
+     * @since 3.7.4
+     * @deprecated is_astra_pagination_enabled() Use astra_check_pagination_enabled()
      * @see astra_check_pagination_enabled()
      *
      * @return bool true|false
@@ -13690,8 +13803,8 @@ namespace {
      *
      * Checking if current post's comment enabled and comment section is open.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_check_current_post_comment_enabled()
+     * @since 3.7.4
+     * @deprecated is_current_post_comment_enabled() Use astra_check_current_post_comment_enabled()
      * @see astra_check_current_post_comment_enabled()
      *
      * @return bool true|false
@@ -13704,8 +13817,8 @@ namespace {
      *
      * Preload Google Fonts - Feature of self-hosting font.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_load_preload_local_fonts()
+     * @since 3.7.4
+     * @deprecated ast_load_preload_local_fonts() Use astra_load_preload_local_fonts()
      * @param string $google_font_url Google Font URL generated by customizer config.
      * @see astra_load_preload_local_fonts()
      *
@@ -13719,8 +13832,8 @@ namespace {
      *
      * Getting webfont based Google font URL.
      *
-     * @since x.x.x
-     * @deprecated x.x.x Use astra_get_webfont_url()
+     * @since 3.7.4
+     * @deprecated ast_get_webfont_url() Use astra_get_webfont_url()
      * @param string $google_font_url Google Font URL generated by customizer config.
      * @see astra_get_webfont_url()
      *
@@ -13751,7 +13864,7 @@ namespace {
      * @param string   $page_menu_slug     The slug name to refer to this menu by (should be unique for this menu).
      * @param callable $page_menu_func     The function to be called to output the content for this page.
      *
-     * @since x.x.x
+     * @since 3.7.4
      */
     function astra_deprecated_asta_register_admin_menu_hook($parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func)
     {
@@ -14259,7 +14372,7 @@ namespace {
      * Return current content layout
      *
      * @since 1.0.0
-     * @return boolean  content layout.
+     * @return mixed content layout.
      */
     function astra_get_content_layout()
     {
@@ -14565,10 +14678,33 @@ namespace {
     /**
      * Check if Theme Global Colors need to be disable in Elementor global color settings.
      *
-     * @since x.x.x
+     * @since 3.7.4
      * @return bool
      */
     function astra_maybe_disable_global_color_in_elementor()
+    {
+    }
+    /**
+     * Check is Elementor Pro version is greater than or equal to beta 3.5 version.
+     *
+     * @since 3.7.5
+     * @return boolean
+     */
+    function astra_check_elementor_pro_3_5_version()
+    {
+    }
+    /**
+     * Should Content BG settings apply to Fullwidth Contained/Stretched layout or not?
+     *
+     * Do not apply content background to fullwidth layouts in following cases -
+     * 1. For backward compatibility.
+     * 2. When site layout is Max-width.
+     * 3. When site layout is Padded.
+     *
+     * @since 3.7.8
+     * @return boolean
+     */
+    function astra_apply_content_background_fullwidth_layouts()
     {
     }
     /**
@@ -14968,6 +15104,7 @@ namespace {
     function astra_post_navigation_template()
     {
     }
+    \define('ASTRA_RELATED_POSTS_DIR', \ASTRA_THEME_DIR . 'inc/modules/related-posts/');
     /**
      * Related Posts - Dynamic CSS
      *
@@ -15597,10 +15734,30 @@ namespace {
     /**
      * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
      *
-     * @since x.x.x
+     * @since 3.7.4
      * @return void
      */
     function astra_improve_gutenberg_editor_ui()
+    {
+    }
+    /**
+     * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+     *
+     * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
+     *
+     * @since 3.7.8
+     * @return void
+     */
+    function astra_fullwidth_layouts_apply_content_background()
+    {
+    }
+    /**
+     * Sets the default breadcrumb separator selector value if the current user is an exsisting user
+     *
+     * @since 3.7.8
+     * @return void
+     */
+    function astra_set_default_breadcrumb_separator_option()
     {
     }
     /**
