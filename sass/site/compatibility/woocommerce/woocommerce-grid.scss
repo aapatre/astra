@@ -1209,7 +1209,7 @@ p.demo_store,
 		ul {
 			flex-wrap: wrap;
   			justify-content: center;
-			white-space: nowrap;
+			white-space: normal;
 			padding: 0;
 			border: 0;
 			margin: 1px;
@@ -2315,6 +2315,12 @@ p.demo_store,
 	}
 	#reviews {
 		display: flex;
+	}
+
+	.variations {
+		th {
+			text-align: left;
+		}
 	}
 }
 
@@ -3883,5 +3889,15 @@ button.pswp__button--zoom:hover {
 @supports (-moz-appearance:none) {
 	.sidebar-main .widget_product_search .search-field {
 		width: 60%
+	}
+}
+
+/**
+ * Product categories - Hierarchy CSS.
+ */
+
+ .wc-block-product-categories-list {
+	li {
+		padding-left: 15px;
 	}
 }
