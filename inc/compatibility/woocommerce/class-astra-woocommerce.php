@@ -1111,7 +1111,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$archive_tablet_grid = $this->get_grid_column_count( 'archive', 'tablet' );
 
 				$tablet_css_shop_page_grid = array(
-					'.woocommerce.tablet-columns-' . $archive_tablet_grid . ' ul.products li.product:not(.elementor-grid), .woocommerce-page.tablet-columns-' . $archive_tablet_grid . ' ul.products:not(.elementor-grid)' => array(
+					'.woocommerce.tablet-columns-' . $archive_tablet_grid . ' ul.products li.product, .woocommerce-page.tablet-columns-' . $archive_tablet_grid . ' ul.products:not(.elementor-grid)' => array(
 						'grid-template-columns' => 'repeat(' . $archive_tablet_grid . ', minmax(0, 1fr))',
 					),
 				);
