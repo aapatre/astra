@@ -225,8 +225,9 @@ class Astra_WP_Editor_CSS {
 
 		// check the selection color in-case of empty/no theme color.
 		$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
+		$ast_content_width = apply_filters( 'astra_block_content_width', '910px' );
 
-		$css         = ':root{ --ast-content-width-size: 910px }';
+		$css         = ':root{ --ast-content-width-size: ' . $ast_content_width . ' }';
 		$desktop_css = array(
 			':root'                            => Astra_Global_Palette::generate_global_palette_style(),
 			'html'                             => array(

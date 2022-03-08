@@ -2809,23 +2809,18 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   padding: 0;
 }
 
-.entry-content > [CLASS*="wp-block"] {
-  max-width: 910px;
+.entry-content[ast-blocks-layout] > * {
+  max-width: var(--ast-content-width-size);
   margin-left: auto;
   margin-right: auto;
 }
 
-.entry-content [CLASS*="wp-block"] ul, .entry-content [CLASS*="wp-block"] ol {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.entry-content > .alignwide {
+.entry-content[ast-blocks-layout] > .alignwide {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.entry-content .alignfull {
+.entry-content[ast-blocks-layout] .alignfull {
   max-width: none;
 }
 

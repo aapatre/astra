@@ -253,7 +253,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$improve_gb_ui = astra_get_option( 'improve-gb-editor-ui', true );
 			/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
-			$content_width_size = ( true === $improve_gb_ui ) ? '910px' : '1200px';
+			$ast_content_width = apply_filters( 'astra_block_content_width', '910px' );
+
+			$content_width_size = ( true === $improve_gb_ui ) ? $ast_content_width : '1200px';
 			$css                = ':root{ --ast-content-width-size: ' . $content_width_size . ' }';
 
 			$astra_apply_content_background = astra_apply_content_background_fullwidth_layouts();

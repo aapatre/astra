@@ -20,6 +20,38 @@ class Astra_Gutenberg {
 		if ( false === astra_get_option( 'enable-brand-new-editor-experience', true ) ) {
 			add_filter( 'render_block', array( $this, 'restore_group_inner_container' ), 10, 2 );
 		}
+
+		add_action( 'wp', array( $this, 'is_layout_with_blocks' ), 1 );
+	}
+
+	/**
+	 * Check if blocks has been used on the layout. Adding it for making moder compatibility CSS target specific.
+	 *
+	 * @since x.x.x
+	 * @return void.
+	 */
+	public function is_layout_with_blocks() {
+		$post_id = astra_get_post_id();
+		if( $post_id ) {
+			$current_post = get_post( $post_id, OBJECT );
+			if ( has_blocks( $current_post ) ) {
+				add_filter( 'astra_attr_article-entry-content-single-layout', array( $this, 'add_ast_block_container' ) );
+				add_filter( 'astra_attr_article-entry-content', array( $this, 'add_ast_block_container' ) );
+				add_filter( 'astra_attr_article-entry-content-page', array( $this, 'add_ast_block_container' ) );
+			}
+		}
+	}
+
+	/**
+	 * Update Schema markup attribute.
+	 *
+	 * @param  array $attr An array of attributes.
+	 *
+	 * @return array       Updated embed markup.
+	 */
+	public function add_ast_block_container( $attr ) {
+		$attr['ast-blocks-layout'] = 'true';
+		return $attr;
 	}
 
 	/**

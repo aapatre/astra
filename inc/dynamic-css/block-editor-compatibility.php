@@ -166,7 +166,12 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
  */
 function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	$dynamic_css .= astra_get_block_editor_required_css();
-	$dynamic_css .= '.wp-block-search {
+	$ast_content_width = apply_filters( 'astra_block_content_width', '910px' );
+	$dynamic_css .= '
+	:root {
+		--ast-content-width-size: ' . $ast_content_width . ';
+	}
+	.wp-block-search {
 		margin-bottom: 20px;
 	}
 	.wp-block-site-tagline {

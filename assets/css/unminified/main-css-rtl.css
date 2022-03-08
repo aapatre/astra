@@ -1602,23 +1602,18 @@ body {
   padding: 0;
 }
 
-.entry-content > [CLASS*="wp-block"] {
-  max-width: 910px;
+.entry-content[ast-blocks-layout] > * {
+  max-width: var(--ast-content-width-size);
   margin-right: auto;
   margin-left: auto;
 }
 
-.entry-content [CLASS*="wp-block"] ul, .entry-content [CLASS*="wp-block"] ol {
-  margin-right: 20px;
-  margin-left: 20px;
-}
-
-.entry-content > .alignwide {
+.entry-content[ast-blocks-layout] > .alignwide {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.entry-content .alignfull {
+.entry-content[ast-blocks-layout] .alignfull {
   max-width: none;
 }
 

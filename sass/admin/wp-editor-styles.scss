@@ -25,7 +25,7 @@ html {
  */
 .edit-post-visual-editor__post-title-wrapper {
 	position: relative;
-    max-width: var(--ast-content-width-size);
+    max-width: 1200px;
     margin-left: auto !important;
     margin-right: auto !important;
 	&.invisible {
@@ -42,6 +42,9 @@ html {
 		position: absolute;
 		right: 0;
 		top: 0;
+	}
+	> .wp-block-post-title {
+		max-width: 100% !important;
 	}
 }
 .editor-post-title__input {
@@ -190,16 +193,6 @@ blockquote {
 }
 .ast-theme-block-color-name {
 	mix-blend-mode: difference;
-}
-.wp-block .wp-block-categories__list {
-	padding: 0;
-}
-.wp-block ol, .wp-block ul {
-	margin-left: 20px;
-	margin-right: 20px;
-}
-.wp-block-latest-comments .wp-block-latest-comments {
-	margin-left: 0;
 }
 .wp-block-quote.is-style-large cite {
 	text-align: left;
