@@ -2,10 +2,9 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-
 describe( 'Above footer height setting in customizer', () => {
 	it( 'height should apply correctly', async () => {
-		const AbovefooterHeight = {
+		const AboveFooterHeight = {
 			'hba-footer-height': '200',
 			'footer-desktop-items': {
 				above: {
@@ -15,18 +14,16 @@ describe( 'Above footer height setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( AbovefooterHeight );
-
+		await setCustomize( AboveFooterHeight );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.site-above-footer-wrap[data-section="section-above-footer-builder"]' );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
+		await page.waitForSelector( '.site-above-footer-wrap[data-section="section-above-footer-builder"]' );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'min-height',
-		} ).cssValueToBe( `${ AbovefooterHeight[ 'hba-footer-height' ] + 'px' }`,
-		);
+		} ).cssValueToBe( `${ AboveFooterHeight[ 'hba-footer-height' ] + 'px' }` );
 	} );
 } );
