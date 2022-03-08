@@ -1393,7 +1393,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_global_button_mobile[ '.ast-container .woocommerce ul.products:not(.elementor-grid), .woocommerce-page ul.products:not(.elementor-grid), .woocommerce.mobile-columns-' . $archive_mobile_grid . ' ul.products:not(.elementor-grid), .woocommerce-page.mobile-columns-' . $archive_mobile_grid . ' ul.products:not(.elementor-grid)' ] = array(
 					'grid-template-columns' => 'repeat(' . $archive_mobile_grid . ', minmax(0, 1fr))',
 				);
-				$css_global_button_mobile[ '.ast-container .woocommerce.mobile-rel-up-columns-' . $single_mobile_grid . ' ul.products::not(.elementor-grid)' ] = array(
+				$css_global_button_mobile[ '.woocommerce.mobile-rel-up-columns-' . $single_mobile_grid . ' ul.products::not(.elementor-grid)' ] = array(
 					'grid-template-columns' => 'repeat(' . $single_mobile_grid . ', minmax(0, 1fr))',
 				);
 			}
