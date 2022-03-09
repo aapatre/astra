@@ -52,7 +52,7 @@
 		margin-right: auto;
 	}
 	> .alignwide {
-		max-width: 1200px;
+		max-width: var( --ast-wide-width-size );
 	}
 	.alignfull {
 		max-width: none;

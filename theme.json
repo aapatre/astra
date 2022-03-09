@@ -52,7 +52,7 @@
     },
     "layout": {
       "contentSize": "var(--ast-content-width-size)",
-      "wideSize": "1200px",
+      "wideSize": "var(--ast-wide-width-size)",
       "fullSize": "none"
     }
   }

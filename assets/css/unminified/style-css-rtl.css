@@ -2816,7 +2816,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .entry-content[ast-blocks-layout] > .alignwide {
-  max-width: 1200px;
+  max-width: var(--ast-wide-width-size);
 }
 
 .entry-content[ast-blocks-layout] .alignfull {
