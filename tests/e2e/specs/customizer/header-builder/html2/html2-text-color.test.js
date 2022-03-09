@@ -1,12 +1,14 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'html2 block settings in the customizer', () => {
+describe( 'hTML 2 block settings in the customizer', () => {
 	it( 'html2 text color for desktop should apply correctly', async () => {
-		const htmlColor = {
+		const htmlTextColor = {
 			'header-html-2': 'Testing HTML2 text color',
 			'header-html-2color': {
-				desktop: 'rgb(120, 31, 158)',
+				desktop: 'rgb(166, 12, 190)',
+				tablet: 'rgb(14, 136, 49)',
+				mobile: 'rgb(213, 19, 81)'
 			},
 			'header-desktop-items': {
 				primary: {
@@ -16,27 +18,6 @@ describe( 'html2 block settings in the customizer', () => {
 					},
 				},
 			},
-		};
-		await setCustomize( htmlColor );
-
-		await page.goto( createURL( '/' ), {
-			waitUntil: 'networkidle0',
-		} );
-
-		await page.waitForSelector( '.ast-header-html-2 .ast-builder-html-element' );
-		await expect( {
-			selector: '.ast-header-html-2 .ast-builder-html-element',
-			property: 'color',
-		} ).cssValueToBe( `${ htmlColor[ 'header-html-2color' ].desktop }`,
-		);
-	} );
-
-	it( 'html2 text color for tablet should apply correctly', async () => {
-		const htmlColor = {
-			'header-html-2': 'Testing HTML2 text color',
-			'header-html-2color': {
-				tablet: 'rgb(19, 122, 23)',
-			},
 			'header-mobile-items': {
 				primary: {
 					primary_center: {
@@ -46,46 +27,26 @@ describe( 'html2 block settings in the customizer', () => {
 				},
 			},
 		};
-		await setCustomize( htmlColor );
-
+		await setCustomize( htmlTextColor );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
+		await page.waitForSelector( '.ast-header-html-2 .ast-builder-html-element' );
+		await expect( {
+			selector: '.ast-header-html-2 .ast-builder-html-element',
+			property: 'color',
+		} ).cssValueToBe( `${ htmlTextColor[ 'header-html-2color' ].desktop }` );
+
 		await setBrowserViewport( 'medium' );
-		await page.waitForSelector( '.ast-header-html-2 .ast-builder-html-element' );
 		await expect( {
 			selector: '.ast-header-html-2 .ast-builder-html-element',
 			property: 'color',
-		} ).cssValueToBe( `${ htmlColor[ 'header-html-2color' ].tablet }`,
-		);
-	} );
+		} ).cssValueToBe( `${ htmlTextColor[ 'header-html-2color' ].tablet }` );
 
-	it( 'html2 text color for mobile should apply correctly', async () => {
-		const htmlColor = {
-			'header-html-2': 'Testing HTML2 text color',
-			'header-html-2color': {
-				mobile: 'rgb(39, 36, 200)',
-			},
-			'header-mobile-items': {
-				primary: {
-					primary_center: {
-						0: 'html-2',
-
-					},
-				},
-			},
-		};
-		await setCustomize( htmlColor );
-
-		await page.goto( createURL( '/' ), {
-			waitUntil: 'networkidle0',
-		} );
 		await setBrowserViewport( 'small' );
-		await page.waitForSelector( '.ast-header-html-2 .ast-builder-html-element' );
 		await expect( {
 			selector: '.ast-header-html-2 .ast-builder-html-element',
 			property: 'color',
-		} ).cssValueToBe( `${ htmlColor[ 'header-html-2color' ].mobile }`,
-		);
+		} ).cssValueToBe( `${ htmlTextColor[ 'header-html-2color' ].mobile }` );
 	} );
 } );
