@@ -2813,7 +2813,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   max-width: 100px;
 }
 
-.wp-block-separator.is-style-wide {
+.wp-block-separator.is-style-wide, .wp-block-separator.is-style-dots {
   max-width: none;
 }
 
@@ -4002,4 +4002,8 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-flex-grow-1 {
   flex-grow: 1;
+}
+
+.ast-icon.icon-search {
+  z-index: 4;
 }
