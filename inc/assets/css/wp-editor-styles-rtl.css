@@ -333,7 +333,7 @@ html {
   padding: 6em 4em;
 }
 
-blockquote {
+blockquote, .wp-block-freeform.block-library-rich-text__tinymce blockquote {
   border-right: 5px solid rgba(0, 0, 0, 0.05);
   padding: 0 1.2em 1.2em;
   font-style: italic;
