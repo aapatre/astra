@@ -8,13 +8,12 @@ describe( 'hTML 2 block settings in the customizer', () => {
 			'header-html-2color': {
 				desktop: 'rgb(166, 12, 190)',
 				tablet: 'rgb(14, 136, 49)',
-				mobile: 'rgb(213, 19, 81)'
+				mobile: 'rgb(213, 19, 81)',
 			},
 			'header-desktop-items': {
 				primary: {
 					primary_center: {
 						0: 'html-2',
-
 					},
 				},
 			},
