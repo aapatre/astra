@@ -277,15 +277,15 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'visibility' => 'hidden',
 		);
 		$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right'] = array(
-			'width' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+			'width' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
 		);
 		if ( 'left' === $desktop_flyout_cart_direction ) {
 			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right']        = array(
-				'width' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
-				'left'  => '-' . astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+				'width' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
+				'left'  => '-' . astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
 			);
 			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right.active'] = array(
-				'left' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+				'left' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
 			);
 		}
 	} else {
