@@ -544,7 +544,7 @@ p.demo_store,
 		}
 
 		.product_meta {
-			border-top: 1px solid #ebebeb;
+			border-top: 1px solid var(--ast-global-color-6);
     		padding-top: 1em;
     		font-size: .9em;
     		margin: 0 0 0.8em;
@@ -755,7 +755,7 @@ p.demo_store,
 				margin: 0 0 1em;
 				overflow: hidden;
 				position: relative;
-				border-top: 1px solid rgba(0,0,0,.05);
+				border-top: 1px solid var(--ast-global-color-6);
 
 				li {
 					border: 0;
@@ -847,13 +847,18 @@ p.demo_store,
 				p {
 					padding: 0;
 				}
+
+				td, th {
+					padding: 0.67em 1.34em;
+					border-color: var(--ast-global-color-6);
+				}
+
 				th {
 					border-left-width: 1px;
 					border-style: solid;
 					padding-left: .9em;
 				}
 				td {
-					padding: .5em .5em .5em .9em;
 					font-style: normal;
 					border-style: solid;
 				}
@@ -861,43 +866,42 @@ p.demo_store,
 		}
 
 		/* No Review for single product */
-		&.ast-woo-product-no-review{
-			#reviews {
-				#comments {
-					width: 100%;
+		#reviews {
+			#comments {
+				width: 100%;
+			}
+			#review_form_wrapper {
+				width: 100%;
+				padding-left: 0;
+			}
+
+			#respond{
+				p{
+					&.comment-form-author,
+					&.comment-form-email{
+						margin-bottom: 1em;
+					}
 				}
-				#review_form_wrapper {
-					width: 100%;
-					padding-left: 0;
+			}
+
+			@media (min-width: $col-xl) {
+				.comment-form-author,
+				.comment-form-email {
+					width: 49%;
+					display: inline-block;
+					input {
+						width: 100%;
+					}
 				}
-				#review_form {
-					padding: 1.5em 2em;
+				.comment-form-author{
+					float: left;
+				}
+				.comment-form-email{
+					float: right;
 				}
 
-				#respond{
-					p{
-						&.comment-form-author,
-						&.comment-form-email{
-							margin-bottom: 1em;
-						}
-					}
-				}
-
-				@media (min-width: $col-xl) {
-					.comment-form-author,
-					.comment-form-email {
-						width: 49%;
-						display: inline-block;
-						input {
-							width: 100%;
-						}
-					}
-					.comment-form-author{
-						float: left;
-					}
-					.comment-form-email{
-						float: right;
-					}
+				.comment-form-cookies-consent {
+					clear: both;
 				}
 			}
 		}
@@ -942,7 +946,7 @@ p.demo_store,
 			}
 
 			.variations {
-				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				border-bottom: 1px solid var(--ast-global-color-6);
 				position: relative;
 				margin-bottom: 1em;
 				width: 100%;
@@ -1369,6 +1373,11 @@ p.demo_store,
 	 * Reviews
 	 */
 	#reviews {
+
+		.woocommerce-Reviews-title {
+			display: none;
+		}
+
 		h2 {
 			font-weight: normal;
 
@@ -1417,7 +1426,7 @@ p.demo_store,
 
 				li {
 					padding: 0;
-					margin: 0 0 1em;
+					margin: 0 0 2em;
 					border: 0;
 					position: relative;
 					background: 0;
@@ -1467,19 +1476,32 @@ p.demo_store,
 						meta{
 							order: 1;
 							width: 100%;
-							font-size: 1em;
-							margin-bottom: .2em;
+							font-size: 1.2em;
+							margin-bottom: .4em;
+
+							.woocommerce-review__author {
+								font-weight: 500;
+							}
+
+							.woocommerce-review__dash {
+								display: none;
+							}
+
+							.woocommerce-review__published-date {
+								padding-left: 0.5em;
+								font-size: .73em;
+							}
 						}
 
 						.description{
-							font-style: italic;
+							font-style: normal;
 							order: 3;
 							width: 100%;
 						}
 
 						.star-rating{
 							order: 2;
-							margin-bottom: .5em;
+							margin-bottom: 1em;
 						}
 					}
 				}
@@ -1507,8 +1529,8 @@ p.demo_store,
 		}
 
 		#review_form {
-			border: 2px solid #efefef;
-			padding: 1em 1.9em 2.3em;
+			border: 1px solid var(--ast-global-color-6);
+			padding: 1.67em;
 
 			#respond{
 				p{
@@ -1525,10 +1547,18 @@ p.demo_store,
 							display: inline-block;
 							min-width: 100px;
 						}
+
+						input {
+							width: 100%;
+						}
 					}
 				}
 				#comment {
 					height: 90px;
+				}
+
+				.stars {
+					margin: 0;
 				}
 			}
 
@@ -1536,8 +1566,37 @@ p.demo_store,
 				max-width: 100%;
 			}
 
-			.comment-form-cookies-consent {
-				display: inline-block;
+		}
+
+		.comment-form-rating {
+			display: flex;
+			vertical-align: middle;
+			margin: 15px 0;
+
+			.stars {
+				margin-bottom: 0;
+				a {
+					position: relative;
+					top: 8px;
+					height: 1.2em;
+					width: 1.2em;
+
+					&:before {
+						width: 1.2em;
+						height: 1.2em;
+						font-size: 1.2em;
+					}
+
+				}
+			}
+		}
+
+		.comment-form-comment, 
+		.comment-form-rating {
+			label {
+				font-size: 1.2em;
+				font-weight: 500;
+				padding-right: .5em;
 			}
 		}
 	}
@@ -1672,14 +1731,13 @@ p.demo_store,
 	 */
 	table.shop_attributes {
 		border: 0;
-		border-top: 1px dotted rgba(0, 0, 0, 0.1);
+		border-top: 1px solid var(--ast-global-color-6);
 		margin-bottom: 1.618em;
 		width: 100%;
 
 		th {
 			width: 150px;
-			font-weight: 700;
-			padding: 8px;
+			font-weight: 500;
 			border-top: 0;
 			border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
 			margin: 0;
@@ -1693,6 +1751,7 @@ p.demo_store,
 			border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
 			margin: 0;
 			line-height: 1.5;
+			text-align: left;
 
 			p {
 				margin: 0;
@@ -1700,10 +1759,6 @@ p.demo_store,
 			}
 		}
 
-		tr:nth-child(even) td,
-		tr:nth-child(even) th {
-			background: rgba(0, 0, 0, 0.025);
-		}
 	}
 
 	table.shop_table {
@@ -2313,8 +2368,9 @@ p.demo_store,
 	}
 
 	.comment-reply-title {
-		font-size: 1.5rem;
+		font-size: 1.34rem;
 		line-height: 1.3;
+		font-weight: 500;
 	}
 
 	/**
@@ -2602,19 +2658,19 @@ p.demo_store,
  .woocommerce,
 .woocommerce-page{
 	input[type=text], input[type=email], input[type=url], input[type=password], input[type=number], input[type=search], input[type=reset], input[type=tel], textarea, form .form-row textarea {
-		border-color: #dddddd;
-		background: #fff;
+		border-color: var(--ast-global-color-6);
+		background: var(--ast-global-color-5);
 		box-shadow: none;
 		border-radius: 0px;
 
 		&:focus{
 			box-shadow: none;
-			border-color: #dddddd;
+			border-color: var(--ast-global-color-6);
 		}
 	}
 	select, .select2-container .select2-selection--single{
 		padding: .75em;
-		border: 1px solid #dddddd;
+		border: 1px solid var(--ast-global-color-6);
 		border-radius: 0px;
 		box-shadow: none;
 		&:focus{

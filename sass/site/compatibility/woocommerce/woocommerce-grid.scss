@@ -549,7 +549,7 @@ p.demo_store,
 		}
 
 		.product_meta {
-			border-top: 1px solid #ebebeb;
+			border-top: 1px solid var(--ast-global-color-6);
     		padding-top: 1em;
     		font-size: .9em;
     		margin: 0 0 0.8em;
@@ -760,7 +760,7 @@ p.demo_store,
 				margin: 0 0 1em;
 				overflow: hidden;
 				position: relative;
-				border-top: 1px solid rgba(0,0,0,.05);
+				border-top: 1px solid var(--ast-global-color-6);
 
 				li {
 					border: 0;
@@ -855,6 +855,7 @@ p.demo_store,
 
 				td, th {
 					padding: 0.67em 1.34em;
+					border-color: var(--ast-global-color-6);
 				}
 
 				th {
@@ -950,7 +951,7 @@ p.demo_store,
 			}
 
 			.variations {
-				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				border-bottom: 1px solid var(--ast-global-color-6);
 				position: relative;
 				margin-bottom: 1em;
 				width: 100%;
@@ -1509,7 +1510,7 @@ p.demo_store,
 		}
 
 		#review_form {
-			border: 1px solid #ddd;
+			border: 1px solid var(--ast-global-color-6);
 			padding: 1.67em;
 
 			#respond{
@@ -1712,7 +1713,7 @@ p.demo_store,
 	 */
 	table.shop_attributes {
 		border: 0;
-		border-top: 1px dotted rgba(0, 0, 0, 0.1);
+		border-top: 1px solid var(--ast-global-color-6);
 		margin-bottom: 1.618em;
 		width: 100%;
 
@@ -2639,19 +2640,19 @@ p.demo_store,
  .woocommerce,
 .woocommerce-page{
 	input[type=text], input[type=email], input[type=url], input[type=password], input[type=number], input[type=search], input[type=reset], input[type=tel], textarea, form .form-row textarea {
-		border-color: #dddddd;
-		background: #fff;
+		border-color: var(--ast-global-color-6);
+		background: var(--ast-global-color-5);
 		box-shadow: none;
 		border-radius: 0px;
 
 		&:focus{
 			box-shadow: none;
-			border-color: #dddddd;
+			border-color: var(--ast-global-color-6);
 		}
 	}
 	select, .select2-container .select2-selection--single{
 		padding: .75em;
-		border: 1px solid #dddddd;
+		border: 1px solid var(--ast-global-color-6);
 		border-radius: 0px;
 		box-shadow: none;
 		&:focus{
