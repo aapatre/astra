@@ -1406,7 +1406,7 @@ p.demo_store,
 
 				li {
 					padding: 0;
-					margin: 0 0 1.7em;
+					margin: 0 0 2em;
 					border: 0;
 					position: relative;
 					background: 0;
@@ -1456,19 +1456,32 @@ p.demo_store,
 						meta{
 							order: 1;
 							width: 100%;
-							font-size: 1em;
-							margin-bottom: .2em;
+							font-size: 1.2em;
+							margin-bottom: .4em;
+
+							.woocommerce-review__author {
+								font-weight: 500;
+							}
+
+							.woocommerce-review__dash {
+								display: none;
+							}
+
+							.woocommerce-review__published-date {
+								padding-left: 0.5em;
+								font-size: .73em;
+							}
 						}
 
 						.description{
-							font-style: italic;
+							font-style: normal;
 							order: 3;
 							width: 100%;
 						}
 
 						.star-rating{
 							order: 2;
-							margin-bottom: .5em;
+							margin-bottom: 1em;
 						}
 					}
 				}

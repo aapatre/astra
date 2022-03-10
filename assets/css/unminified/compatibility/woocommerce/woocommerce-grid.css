@@ -1618,7 +1618,7 @@ p.demo_store a,
 
 .woocommerce #reviews #comments ol.commentlist li {
   padding: 0;
-  margin: 0 0 1.7em;
+  margin: 0 0 2em;
   border: 0;
   position: relative;
   background: 0;
@@ -1677,19 +1677,35 @@ p.demo_store a,
 .woocommerce #reviews #comments ol.commentlist li .comment-text meta {
   order: 1;
   width: 100%;
-  font-size: 1em;
-  margin-bottom: .2em;
+  font-size: 1.2em;
+  margin-bottom: .4em;
+}
+
+.woocommerce #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author,
+.woocommerce #reviews #comments ol.commentlist li .comment-text meta .woocommerce-review__author {
+  font-weight: 500;
+}
+
+.woocommerce #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__dash,
+.woocommerce #reviews #comments ol.commentlist li .comment-text meta .woocommerce-review__dash {
+  display: none;
+}
+
+.woocommerce #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__published-date,
+.woocommerce #reviews #comments ol.commentlist li .comment-text meta .woocommerce-review__published-date {
+  padding-left: 0.5em;
+  font-size: .73em;
 }
 
 .woocommerce #reviews #comments ol.commentlist li .comment-text .description {
-  font-style: italic;
+  font-style: normal;
   order: 3;
   width: 100%;
 }
 
 .woocommerce #reviews #comments ol.commentlist li .comment-text .star-rating {
   order: 2;
-  margin-bottom: .5em;
+  margin-bottom: 1em;
 }
 
 .woocommerce #reviews #comments ol.commentlist ul.children {
