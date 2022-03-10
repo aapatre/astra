@@ -82,7 +82,7 @@ p.demo_store,
     padding-left: 0;
     margin-bottom: 0;
     order: 1;
-
+	cursor: pointer;
     	&:focus,
     	&:hover {
 	        .widget_shopping_cart {
@@ -196,6 +196,25 @@ p.demo_store,
 					width: 100%;
 					margin-left: 0;
 				}
+
+				&:not(.checkout) {
+					border: 2px solid var(--ast-global-color-0);
+					background-color: transparent;
+					color: var(--ast-global-color-0);
+
+					&:hover {
+						border-color: var(--ast-global-color-1);
+						color: var(--ast-global-color-1);
+					}
+				}
+
+				&.checkout {
+					border: 2px solid var(--ast-global-color-0);
+
+					&:hover {
+						border-color: var(--ast-global-color-1);
+					}
+				}
 			}
 		}
 
@@ -205,12 +224,31 @@ p.demo_store,
 
 		.cart_list{
 			a {
-				font-weight: normal;
 				padding:0;
 				border-width: 0;
 				&.remove{
 					border-width: 1px;
 				}
+			}
+		}
+
+		.woocommerce-mini-cart__total {
+			display: flex;
+			justify-content: space-between;
+
+			strong {
+				width: 40%;
+				text-align: left;
+				font-weight: 500;
+			}
+
+			.amount {
+				width: 60%;
+				text-align: right;
+			}
+
+			.amount {
+				padding-left: .5em;
 			}
 		}
     }
@@ -1864,7 +1902,7 @@ p.demo_store,
 				}
 
 				dt {
-					font-weight: 700;
+					font-weight: 500;
 					padding: 0 0 0.25em;
 					margin: 0 4px 0 0;
 					clear: left;
@@ -3474,8 +3512,10 @@ button.pswp__button--zoom:hover {
 
 	.woocommerce ul.cart_list,
 	.woocommerce ul.product_list_widget {
-		li a {
-			font-weight: normal;
+		li > a {
+			font-weight: 500;
+			margin-bottom: 0.33em;
+			color: var(--ast-global-color-2);
 		}
 	}
 
@@ -3486,7 +3526,7 @@ button.pswp__button--zoom:hover {
 			padding: .6em 0 .6em 5em;
 			min-height: 5em;
 			position: relative;
-			border-bottom: 1px solid #e2e2e2;
+			border-bottom: 1px solid var(--ast-global-color-6);
 			margin: 0;
 			line-height: 1.5;
 
@@ -3533,8 +3573,8 @@ button.pswp__button--zoom:hover {
 	.widget_shopping_cart .total,
 	&.widget_shopping_cart .total {
 		padding: 5px 0;
-		border-top: 1px solid #e2e2e2;
-		border-bottom: 1px solid #e2e2e2;
+		border-top: 1px solid var(--ast-global-color-6);
+		border-bottom: 1px solid var(--ast-global-color-6);
 		margin-bottom: 1.3em;
 	}
 
@@ -3574,7 +3614,7 @@ button.pswp__button--zoom:hover {
 
 		.amount,
 		ins {
-			font-weight: 700;
+			font-weight: 400;
 		}
 
 		.star-rating {
@@ -3643,7 +3683,7 @@ button.pswp__button--zoom:hover {
 .woocommerce .widget_shopping_cart .cart_list li,
 .woocommerce.widget_shopping_cart .cart_list li {
 
-	padding: .5em 1.8em .5em 5em;
+	padding: .5em 1.8em 1em 5em;
 	a.remove {
 		position: absolute;
 		left: auto;
