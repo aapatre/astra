@@ -746,7 +746,14 @@ p.demo_store a,
 }
 
 .woocommerce div.product .product_meta > span {
-  display: block;
+  display: inline-block;
+  margin-left: 15px;
+  align-items: center;
+  font-weight: 500;
+}
+
+.woocommerce div.product .product_meta > span > * {
+  font-weight: 400;
 }
 
 .woocommerce div.product .woocommerce-product-rating {
@@ -1095,6 +1102,12 @@ p.demo_store a,
   clear: both;
 }
 
+.woocommerce div.product .woocommerce-variation-add-to-cart,
+.woocommerce div.product.product-type-simple form.cart {
+  display: flex;
+  align-items: flex-start;
+}
+
 .woocommerce div.product form.cart {
   margin: 0 0 1.2em;
   zoom: 1;
@@ -1157,6 +1170,11 @@ p.demo_store a,
   display: block;
 }
 
+.woocommerce div.product form.cart .variations th {
+  margin: 0.5em 0;
+  padding-right: 0;
+}
+
 .woocommerce div.product form.cart .variations label {
   font-weight: 700;
 }
@@ -1202,7 +1220,7 @@ p.demo_store a,
 }
 
 .woocommerce div.product form.cart .button.single_add_to_cart_button {
-  padding: 10px 40px;
+  padding: 10px;
 }
 
 .woocommerce div.product form.cart .group_table tr:last-child td {
@@ -1495,22 +1513,24 @@ p.demo_store a,
 .woocommerce input.button.loading,
 .woocommerce #respond input#submit.loading {
   opacity: 0.25;
-  padding-left: 2.618em;
 }
 
 .woocommerce a.button.loading::after,
 .woocommerce button.button.loading::after,
 .woocommerce input.button.loading::after,
 .woocommerce #respond input#submit.loading::after {
-  font-family: 'WooCommerce';
-  content: '\e01c';
-  vertical-align: top;
-  -webkit-font-smoothing: antialiased;
-  font-weight: 400;
-  position: absolute;
-  top: auto;
-  left: 1em;
-  animation: spin 2s linear infinite;
+  display: inline-block;
+  content: "";
+  position: relative;
+  top: 0;
+  left: -0.5em;
+  right: auto;
+  width: .8em;
+  height: .8em;
+  background-color: var(--ast-global-color-5);
+  background-image: none;
+  border-radius: 100%;
+  animation: dotPulse 0.65s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
 }
 
 .woocommerce a.button.added::after,
@@ -1609,8 +1629,7 @@ p.demo_store a,
 }
 
 .woocommerce a.added_to_cart {
-  padding: .4em .4em 0;
-  display: inline-block;
+  display: none;
 }
 
 .woocommerce #reviews h2 {
