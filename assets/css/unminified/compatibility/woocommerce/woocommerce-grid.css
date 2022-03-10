@@ -2967,7 +2967,6 @@ p.demo_store a,
   background-size: .5em auto, 100%;
   background-position: right .8em top 50%, 0 0;
   appearance: none;
-  appearance: none;
   background-color: var(--ast-global-color-5);
   border-radius: 3px;
   box-shadow: none;
