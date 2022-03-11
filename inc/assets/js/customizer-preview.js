@@ -38,6 +38,15 @@
             }
         );
 
+        /**
+         * Ajax quantity input show.
+         */
+        wp.customize( 'astra-settings[woo-header-cart-click-action]', function( setting ) {
+            setting.bind( function( action ) {
+                $( document.body ).trigger( 'wc_fragment_refresh' );
+            } );
+        } );
+
 		/**
 		 * Register partial refresh events at once asynchronously.
 		 */

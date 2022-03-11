@@ -161,12 +161,12 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				'title'       => __( 'Flyout Width', 'astra' ),
 				'control'     => 'ast-slider',
-				'suffix'      => '%',
+				'suffix'      => 'px',
 				'priority'    => 70,
 				'input_attrs' => array(
 					'min'  => 0,
 					'step' => 1,
-					'max'  => 100,
+					'max'  => 1920,
 				),
 			),
 
