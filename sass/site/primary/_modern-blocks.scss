@@ -34,18 +34,18 @@
 		}
 	}
 }
-.entry-content .wp-block-separator {
-	&:not(.is-style-wide) {
-		max-width: 100px;
+[ast-blocks-layout] {
+	.wp-block-separator {
+		&:not(.is-style-wide) {
+			max-width: 100px;
+		}
+		&.is-style-wide, &.is-style-dots {
+			max-width: none;
+		}
+		.has-background {
+			padding: 0;
+		}
 	}
-	&.is-style-wide, &.is-style-dots {
-		max-width: none;
-	}
-	.has-background {
-		padding: 0;
-	}
-}
-.entry-content[ast-blocks-layout] {
 	> * {
 		max-width: var( --ast-content-width-size );
 		margin-left: auto;
