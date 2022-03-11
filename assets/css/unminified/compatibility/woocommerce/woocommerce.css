@@ -4128,21 +4128,21 @@ button.pswp__button--zoom:hover {
 /**
  * My Account Style
  */
-.woocommerce-MyAccount-navigation-link {
+:not(.ast-modern-woo-account-page) .woocommerce-MyAccount-navigation-link {
   list-style: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom-width: 0;
 }
 
-.woocommerce-MyAccount-navigation-link:last-child {
+:not(.ast-modern-woo-account-page) .woocommerce-MyAccount-navigation-link:last-child {
   border-bottom-width: 1px;
 }
 
-.woocommerce-MyAccount-navigation-link.is-active a {
+:not(.ast-modern-woo-account-page) .woocommerce-MyAccount-navigation-link.is-active a {
   background-color: #fbfbfb;
 }
 
-.woocommerce-MyAccount-navigation-link a {
+:not(.ast-modern-woo-account-page) .woocommerce-MyAccount-navigation-link a {
   display: block;
   padding: .5em 1em;
 }

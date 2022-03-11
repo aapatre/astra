@@ -3402,8 +3402,7 @@ button.pswp__button--zoom:hover {
 /**
  * My Account Style
  */
-.woocommerce-MyAccount-navigation-link {
-
+:not(.ast-modern-woo-account-page) .woocommerce-MyAccount-navigation-link {
 	list-style: none;
 	border: 1px solid rgba(0,0,0,.1);
 	border-bottom-width: 0;
@@ -3419,8 +3418,6 @@ button.pswp__button--zoom:hover {
 		display: block;
 		padding: .5em 1em;
 	}
-
-
 }
 
 .woocommerce-MyAccount-navigation > ul {
