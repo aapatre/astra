@@ -298,7 +298,7 @@
 .astra-color-picker-wrap .astra-popover-color .components-color-picker,
 .astra-color-picker-wrap .astra-popover-color .react-colorful {
     width: 100%;
-} 
+}
 
 .astra-color-picker-wrap.picker-open{
 	display: block;
@@ -419,7 +419,7 @@
 
 .astra-color-picker-wrap .ast-gradient-ui .components-custom-gradient-picker__remove-control-point {
     padding: 0 16px 16px 16px;
-    border: 0; 
+    border: 0;
 }
 
 .astra-color-picker-wrap .ast-gradient-ui .components-custom-gradient-picker__remove-control-point:focus {
@@ -565,8 +565,4 @@
 }
 .ast-color-palette.components-circular-option-picker .components-circular-option-picker__swatches{
     width: 100%;
-}
-.components-circular-option-picker__option-wrapper:hover,
-.components-circular-option-picker__option-wrapper{
-    transform: none;
 }
