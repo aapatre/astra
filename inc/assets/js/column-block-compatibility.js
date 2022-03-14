@@ -20,7 +20,7 @@ wp.hooks.addFilter(
 				},
 				__experimentalLayout: {
 					...(settings.supports.__experimentalLayout || {}),
-					allowEditing: false,
+					allowEditing: true,
 					allowSwitching: false,
 					allowInheriting: true,
 				},
