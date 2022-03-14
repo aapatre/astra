@@ -54,6 +54,9 @@
       "contentSize": "var(--ast-content-width-size)",
       "wideSize": "1200px",
       "fullSize": "none"
+    },
+    "spacing": {
+      "blockGap": true
     }
   }
 }
