@@ -174,6 +174,23 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		--ast-content-width-size: ' . $ast_content_width . ';
 		--ast-wide-width-size: ' . $ast_wide_width . ';
 	}
+	[ast-blocks-layout] .wp-block-separator:not(.is-style-wide) {
+		max-width: 100px;
+	}
+	[ast-blocks-layout] .wp-block-separator.is-style-wide, [ast-blocks-layout] .wp-block-separator.is-style-dots, [ast-blocks-layout] .alignfull {
+		max-width: none;
+	}
+	[ast-blocks-layout] .wp-block-separator .has-background {
+		padding: 0;
+	}
+	[ast-blocks-layout] > * {
+		max-width: var(--ast-content-width-size);
+		margin-left: auto;
+		margin-right: auto;
+	}
+	[ast-blocks-layout] > .alignwide {
+		max-width: var(--ast-wide-width-size);
+	}
 	.wp-block-search {
 		margin-bottom: 20px;
 	}

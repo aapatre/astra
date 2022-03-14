@@ -225,25 +225,16 @@ class Astra_WP_Editor_CSS {
 
 		// check the selection color in-case of empty/no theme color.
 		$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
-		$ast_content_width = apply_filters( 'astra_block_content_width', '910px' );
-		$ast_wide_width = apply_filters( 'astra_block_wide_width', '1200px' );
+		$ast_content_width = apply_filters( 'astra_block_content_width', 'var(--wp--custom--ast-content-width-size)' );
+		$ast_wide_width = apply_filters( 'astra_block_wide_width', 'var(--wp--custom--ast-wide-width-size)' );
 
-		$css         = ':root{ --ast-content-width-size: ' . $ast_content_width . ';
-		--ast-wide-width-size: ' . $ast_wide_width . '; }';
+		$css         = ':root{ --wp--custom--ast-content-width-size: ' . $ast_content_width . ';
+		--wp--custom--ast-wide-width-size: ' . $ast_wide_width . '; }';
 
 		$desktop_css = array(
 			':root'                            => Astra_Global_Palette::generate_global_palette_style(),
 			'html'                             => array(
 				'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
-			),
-
-			/* Wide-width block width */
-			'.wp-block[data-align="wide"]'     => array(
-				'max-width' => astra_get_css_value( $site_content_width, 'px' ),
-			),
-			/* Full-width block width */
-			'.wp-block[data-align="full"]'     => array(
-				'max-width' => 'none',
 			),
 
 			'.editor-styles-wrapper a'         => array(

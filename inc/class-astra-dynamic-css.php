@@ -763,8 +763,68 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
+			$parse_css = '';
+			if( false === $load_new_block_editor_compatibility ) {
+				$parse_css .= '
+					.ast-no-sidebar .entry-content .alignwide {
+						margin-left: calc(-41vw + 50%);
+						margin-right: calc(-41vw + 50%);
+						max-width: unset;
+						width: unset;
+					}
+					.wp-block-gallery,
+						.blocks-gallery-grid {
+						margin: 0;
+					}
+					.wp-block-separator {
+						max-width: 100px;
+					}
+					.wp-block-separator.is-style-wide, .wp-block-separator.is-style-dots {
+						max-width: none;
+					}
+					.entry-content .has-2-columns .wp-block-column:first-child {
+						padding-right: 10px;
+					}
+					.entry-content .has-2-columns .wp-block-column:last-child {
+						padding-left: 10px;
+					}
+					@media (max-width: 782px) {
+						.entry-content .wp-block-columns .wp-block-column {
+							flex-basis: 100%;
+						}
+						.entry-content .has-2-columns .wp-block-column:first-child {
+							padding-right: 0;
+						}
+						.entry-content .has-2-columns .wp-block-column:last-child {
+							padding-left: 0;
+						}
+					}
+					body .entry-content .wp-block-latest-posts {
+						margin-left: 0;
+					}
+					body .entry-content .wp-block-latest-posts li {
+						list-style: none;
+					}
+					.ast-no-sidebar .ast-container .entry-content .wp-block-latest-posts {
+						margin-left: 0;
+					}
+					.ast-header-break-point .entry-content .alignwide {
+						margin-left: auto;
+						margin-right: auto;
+					}
+					.entry-content .blocks-gallery-item img {
+						margin-bottom: auto;
+					}
+					.wp-block-pullquote {
+						border-top: 4px solid #555d66;
+						border-bottom: 4px solid #555d66;
+						color: #40464d;
+					}
+				';
+			}
+
 			/* Parse CSS from array() */
-			$parse_css = astra_parse_css( $css_output );
+			$parse_css .= astra_parse_css( $css_output );
 
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 

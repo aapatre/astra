@@ -50,9 +50,13 @@
         }
       ]
     },
+    "custom": {
+      "astContentWidthSize": "910px",
+      "astWideWidthSize": "1200px"
+    },
     "layout": {
-      "contentSize": "var(--ast-content-width-size)",
-      "wideSize": "var(--ast-wide-width-size)",
+      "contentSize": "var(--wp--custom--ast-content-width-size)",
+      "wideSize": "var(--wp--custom--ast-wide-width-size)",
       "fullSize": "none"
     }
   }
