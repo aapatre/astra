@@ -14,10 +14,12 @@ const SelectComponent = props => {
 	const {
 		label,
 		name,
+		description,
 		choices
 	} = props.control.params;
 
-	let htmlLabel = null;
+	let htmlLabel 		= null;
+	let descriptionHtml = null;
 
 	if (label) {
 		htmlLabel = <span className="customize-control-title">{label}</span>;
@@ -28,8 +30,14 @@ const SelectComponent = props => {
 		return html;
 	});
 
+
+	if (description) {
+		descriptionHtml = <span className="description customize-control-description">{description}</span>;
+	}
+
 	return <>
 		{htmlLabel}
+		{descriptionHtml}
 		<div className="customize-control-content">
 			<select className="ast-select-input" data-name={name} data-value={props_value} value={props_value}
 					onChange={() => {

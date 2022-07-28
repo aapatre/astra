@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 
 import {__} from '@wordpress/i18n';
 import {Fragment} from '@wordpress/element';
-import {TextControl, ToggleControl} from '@wordpress/components';
+import {TextControl} from '@wordpress/components';
+import ToggleControl from '../ast-toggle/toggle-control';
 import {useEffect, useState} from "react";
 
 const LinkComponent = props => {

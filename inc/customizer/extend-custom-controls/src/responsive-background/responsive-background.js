@@ -3,6 +3,8 @@ import {Dashicon} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 import {__} from '@wordpress/i18n';
 import {useEffect, useState} from 'react';
+import parse from 'html-react-parser';
+import svgIcons from '../../../../../assets/svg/svgs.json';
 
 const ResponsiveBackground = props => {
 
@@ -184,30 +186,36 @@ const ResponsiveBackground = props => {
 	let responsiveHtml = null;
 	let inputHtml = null;
 
+	const responsiveDesktop = parse( svgIcons['desktop-responsive'] );
+	const responsiveTablet = parse( svgIcons['tablet-responsive'] );
+	const responsiveMobile = parse( svgIcons['mobile-responsive'] );
+
 	if (label && '' !== label && undefined !== label) {
-		labelHtml = <span className="customize-control-title">{label}</span>;
+		labelHtml = <span>{label}</span>;
 	} else {
-		labelHtml = <span className="customize-control-title">{__('Background', 'astra')}</span>;
+		labelHtml = <span>{__('Background', 'astra')}</span>;
 	}
 
 	if (description) {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
+	const skipResponsiveTriggers = ( undefined !== props.control.params.input_attrs && undefined !== props.control.params.input_attrs.ignore_responsive_btns && props.control.params.input_attrs.ignore_responsive_btns ) ? true : false;
+
 	responsiveHtml = <ul className="ast-responsive-btns">
 		<li className="desktop active">
 			<button type="button" className="preview-desktop" data-device="desktop">
-				<i className="dashicons dashicons-desktop"></i>
+				{responsiveDesktop}
 			</button>
 		</li>
 		<li className="tablet">
 			<button type="button" className="preview-tablet" data-device="tablet">
-				<i className="dashicons dashicons-tablet"></i>
+				{responsiveTablet}
 			</button>
 		</li>
 		<li className="mobile">
 			<button type="button" className="preview-mobile" data-device="mobile">
-				<i className="dashicons dashicons-smartphone"></i>
+				{responsiveMobile}
 			</button>
 		</li>
 	</ul>;
@@ -229,7 +237,9 @@ const ResponsiveBackground = props => {
 			{labelHtml}
 			{descriptionHtml}
 		</label>
-		{responsiveHtml}
+		{ ( ! skipResponsiveTriggers ) &&
+			responsiveHtml
+		}
 		{renderReset()}
 		<div className="customize-control-content">
 			{inputHtml}

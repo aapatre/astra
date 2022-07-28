@@ -71,7 +71,7 @@ const ColorComponent = props => {
 	} = props.control.params;
 
 	if (label) {
-		labelHtml = <span className="customize-control-title">{label}</span>;
+		labelHtml = <span>{label}</span>;
 	}
 
 	return <div className="ast-control-wrap">

@@ -68,7 +68,7 @@ const BoxShadowComponent = props => {
 	let inputHtml = null;
 
 	if (label) {
-		htmlLabel = <span className="customize-control-title">{label}</span>;
+		htmlLabel = <span>{label}</span>;
 	}
 
 	if (description) {

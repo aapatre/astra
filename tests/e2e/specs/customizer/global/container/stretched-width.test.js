@@ -1,8 +1,4 @@
-import {
-	createURL,
-	createNewPost,
-	insertBlock,
-} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, insertBlock } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { publishPost } from '../../../../utils/publish-post';
 describe( 'to test content box container width in the customizer', () => {

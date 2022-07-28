@@ -173,7 +173,7 @@
 					border: 0;
 					border-bottom-width: 1px;
 					border-style: solid;
-					border-color: #eaeaea;
+					border-color: var(--ast-border-color);
 					.icon-arrow {
 						&:first-of-type {
 							margin-right: 5px;
@@ -208,7 +208,7 @@
 		background-color: $color-background-nav-mobile;
 		border-top-width: 1px;
 		border-style: solid;
-		border-color: #eaeaea;
+		border-color: var(--ast-border-color);
 	}
 
 	.main-header-menu {

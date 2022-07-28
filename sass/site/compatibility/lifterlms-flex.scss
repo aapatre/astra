@@ -25,7 +25,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 
 .widget {
 	.llms-widget-syllabus {
-		
+
 		.llms-collapse-caret,
 		.section-title,
 		.lesson-title,
@@ -33,7 +33,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 			display: inline-block;
 		}
 		.llms-section {
-			border-bottom: 1px solid #e5e5e5;
+			border-bottom: 1px solid var(--ast-border-color);
 			margin-bottom: 0.5em;
 			padding-bottom: 0.5em;
 
@@ -136,25 +136,25 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 	}
 
 	.llms-checkout  {
-		display: flex;	
+		display: flex;
 	}
 }
 .llms-student-dashboard,
 .ast-container,
 .ast-lifterlms-container {
 	.llms-loop-item-content{
-		.llms-author, 
-		.llms-loop-title, 
+		.llms-author,
+		.llms-loop-title,
 		.llms-meta {
 			padding: 0 15px;
 		}
-		
+
 		.llms-loop-title {
 			font-weight: 600;
 			margin-top: 10px;
 		}
 
-		.llms-author, 
+		.llms-author,
 		.llms-meta {
 			margin-bottom: 0;
 		}
@@ -184,7 +184,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		.llms-loop-item-footer {
 			margin-top: 10px;
 		}
-		
+
 		padding-bottom: 15px;
 	}
 }
@@ -196,7 +196,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 	}
 
 	.llms-instructor-info {
-		
+
 		&,
 		.llms-meta-info {
 			margin-top: 1.5em;
@@ -265,7 +265,7 @@ body {
 	#old_reviews {
 		margin: 0;
 		padding: 2em 0 0;
-		border-top: 1px solid #eeeeee;
+		border-top: 1px solid var(--ast-border-color);
 	}
 
 	#old_reviews {
@@ -296,14 +296,14 @@ body {
 			}
 		}
 	}
-	
+
 	#review_box {
 
 		#review_text,
 		#review_title {
 			margin-bottom: 1em;
 			width: 100%;
-			border-color: #dddddd;
+			border-color: var(--ast-border-color);
 			background: #fff;
 			border-radius: 0;
 		}
@@ -344,9 +344,9 @@ body {
 	.is-enrolled {
 
 		.llms-syllabus-wrapper {
-			
+
 			.llms-lesson-preview {
-				
+
 				.llms-lesson-complete {
 					margin-bottom: 0;
 					position: absolute;
@@ -419,7 +419,7 @@ body {
 
 			.progress-bar-complete {
 				border-radius: inherit;
-				
+
 				&:after {
 					display: inline-block;
 					line-height: 2;
@@ -432,7 +432,7 @@ body {
 	}
 	.widget_course_progress .llms-progress,
 	.llms-progress {
-		
+
 		/**
 		 * Progress Widget
 		 */
@@ -476,10 +476,10 @@ body {
 .llms_membership{
 	.llms-featured-image {
 		margin-bottom: 0;
-	}	
+	}
 }
 .llms-access-plan {
-		
+
 	.llms-access-plan-footer {
 		padding: 15px;
 	}
@@ -529,7 +529,7 @@ body {
 
 		li {
 			margin: 0 5px 5px 0;
-			border: 1px solid #d3ced2;
+			border: 1px solid var(--ast-border-color);
 			padding: 0;
 			float: left;
 			display: inline;
@@ -618,19 +618,19 @@ body {
 			margin-bottom: 0;
 			vertical-align: middle;
 		}
-	} 
+	}
 
 	.llms-checkout-col.llms-col-2,
 	.llms-login {
 		padding: 20px;
 	}
-	
+
 	.llms-checkout-col.llms-col-2 {
 		border: 2px solid #ebebeb;
 	}
 
 	.llms-login {
-		border: 1px solid #d3ced2;
+		border: 1px solid var(--ast-border-color);
 		margin-bottom: 2em;
 		border-radius: 5px;
 
@@ -665,7 +665,7 @@ body {
 	.flush .llms-form-field {
 		padding: 0;
 	}
-	
+
 	.llms-checkout-section-content {
 		.llms-order-summary .llms-label {
 			font-variant: normal;
@@ -791,7 +791,7 @@ body {
 				a {
 					vertical-align: middle;
 				}
-				
+
 				@media( min-width: $col-md ) {
 					width: 20%;
 				}
@@ -822,7 +822,7 @@ body {
 			padding: 1px 5px;
 		}
 	}
-	
+
 	.llms-person-login-form-wrapper {
 
 		.llms-form-field {
@@ -890,7 +890,7 @@ body {
 
 			display: inline-block;
 			margin-bottom: 0;
-			
+
 			& ~ button {
 				line-height: 1.5;
 
@@ -909,7 +909,7 @@ body {
 
 // Notices
 .ast-container {
-	
+
 	.lifterlms .llms-notice {
 		margin: 0 0 2em;
 	}
@@ -978,7 +978,7 @@ body {
     	color: #b81c23;
 	    margin-bottom: .5em;
 	}
-	
+
 	.llms-question-count {
 		p {
 		    font-weight: 600;
@@ -1067,10 +1067,10 @@ body {
 		}
 
 		.llms-quiz-counter {
-			font-size: inherit;	
+			font-size: inherit;
 		}
 
-		
+
 		.llms-button-action,
 		.llms-button-secondary {
 			margin: 5px;
@@ -1083,7 +1083,7 @@ body {
 // Grid.
 .llms-loop {
 	@media(max-width: $mx-col-md) {
-		
+
 		.llms-tablet-cols-1 .llms-loop-item {
 			width:100%;
 		}
@@ -1110,7 +1110,7 @@ body {
 	}
 
 	@media(max-width: $mx-col-sm) {
-		
+
 		.llms-mobile-cols-1 .llms-loop-item {
 			width:100%;
 		}
@@ -1134,8 +1134,8 @@ body {
 		.llms-mobile-cols-6 .llms-loop-item {
 			width: 16.66667%;
 		}
-	
-	}	
+
+	}
 }
 
 .ast-woocommerce-cart-menu {

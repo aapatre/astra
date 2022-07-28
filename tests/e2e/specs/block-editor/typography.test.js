@@ -48,17 +48,17 @@ describe( 'typography in the block editor', () => {
 
 		// Test typography for h1.
 		await expect( {
-			selector: '.block-editor-writing-flow h1',
+			selector: '.is-root-container h1',
 			property: 'font-family',
 		} ).cssValueToBe( `${ headingTypography[ 'font-family-h1' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h1',
+			selector: '.is-root-container h1',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ headingTypography[ 'font-weight-h1' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h1',
+			selector: '.is-root-container h1',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ headingTypography[ 'font-size-h1' ].desktop }${ headingTypography[ 'font-size-h1' ][ 'desktop-unit' ] }`,
@@ -66,17 +66,17 @@ describe( 'typography in the block editor', () => {
 
 		// Test typography for h2.
 		await expect( {
-			selector: '.block-editor-writing-flow h2',
+			selector: '.is-root-container h2',
 			property: 'font-family',
 		} ).cssValueToBe( `${ headingTypography[ 'font-family-h2' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h2',
+			selector: '.is-root-container h2',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ headingTypography[ 'font-weight-h2' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h2',
+			selector: '.is-root-container h2',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ headingTypography[ 'font-size-h2' ].desktop }${ headingTypography[ 'font-size-h2' ][ 'desktop-unit' ] }`,
@@ -84,17 +84,17 @@ describe( 'typography in the block editor', () => {
 
 		// Test typography for h3.
 		await expect( {
-			selector: '.block-editor-writing-flow h3',
+			selector: '.is-root-container h3',
 			property: 'font-family',
 		} ).cssValueToBe( `${ headingTypography[ 'font-family-h3' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h3',
+			selector: '.is-root-container h3',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ headingTypography[ 'font-weight-h3' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h3',
+			selector: '.is-root-container h3',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ headingTypography[ 'font-size-h3' ].desktop }${ headingTypography[ 'font-size-h3' ][ 'desktop-unit' ] }`,
@@ -102,17 +102,17 @@ describe( 'typography in the block editor', () => {
 
 		// Test typography for h4.
 		await expect( {
-			selector: '.block-editor-writing-flow h4',
+			selector: '.is-root-container h4',
 			property: 'font-family',
 		} ).cssValueToBe( `${ headingTypography[ 'headings-font-family' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h4',
+			selector: '.is-root-container h4',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ headingTypography[ 'headings-font-weight' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h4',
+			selector: '.is-root-container h4',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ headingTypography[ 'font-size-h4' ].desktop }${ headingTypography[ 'font-size-h4' ][ 'desktop-unit' ] }`,
@@ -120,17 +120,17 @@ describe( 'typography in the block editor', () => {
 
 		// Test typography for h5.
 		await expect( {
-			selector: '.block-editor-writing-flow h5',
+			selector: '.is-root-container h5',
 			property: 'font-family',
 		} ).cssValueToBe( `${ headingTypography[ 'headings-font-family' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h5',
+			selector: '.is-root-container h5',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ headingTypography[ 'headings-font-weight' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h5',
+			selector: '.is-root-container h5',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ headingTypography[ 'font-size-h5' ].desktop }${ headingTypography[ 'font-size-h5' ][ 'desktop-unit' ] }`,
@@ -138,17 +138,17 @@ describe( 'typography in the block editor', () => {
 
 		// Test typography for h6.
 		await expect( {
-			selector: '.block-editor-writing-flow h6',
+			selector: '.is-root-container h6',
 			property: 'font-family',
 		} ).cssValueToBe( `${ headingTypography[ 'headings-font-family' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h6',
+			selector: '.is-root-container h6',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ headingTypography[ 'headings-font-weight' ] }` );
 
 		await expect( {
-			selector: '.block-editor-writing-flow h6',
+			selector: '.is-root-container h6',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ headingTypography[ 'font-size-h6' ].desktop }${ headingTypography[ 'font-size-h6' ][ 'desktop-unit' ] }`,

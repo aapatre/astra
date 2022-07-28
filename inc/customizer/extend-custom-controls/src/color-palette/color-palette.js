@@ -8,7 +8,7 @@ const ColorPaletteComponent = (props) => {
 	const value = props.control.setting.get();
 	const defaultValue = props.control.params.default;
 	let labelHtml = null;
-	const { label } = props.control.params;
+	const { label, name } = props.control.params;
 	let UpdatePaletteEvent;
 
 	const [state, setState] = value ? useState(value) : useState(defaultValue);
@@ -131,22 +131,20 @@ const ColorPaletteComponent = (props) => {
 						}
 						key={index}
 					>
-						<label onClick={() => onPaletteChange(paletteKey)}>
+						<section onClick={() => onPaletteChange(paletteKey)}>
 							{state.palettes[paletteKey].map((color, index) => {
-								return (
-									<>
-										<div
-											className="ast-single-color-container"
-											style={{ backgroundColor: color }}
-											key={index}
-										></div>
-									</>
-								);
+								if( index < 4 ) {
+									return (
+										<div className="ast-single-color-container" style={{ backgroundColor: color }} key={index}></div>
+									)
+								} else {
+									return ('')
+								}
 							})}
 							<span className="ast-palette-label-wrap">
-								{__("Palette", "astra") + " " + (index + 1)}
+								{__("Style", "astra") + " " + (index + 1)}
 							</span>
-						</label>
+						</section>
 					</div>
 				);
 			})}
@@ -172,11 +170,21 @@ const ColorPaletteComponent = (props) => {
 
 	return (
 		<>
-			<label className="customizer-text">{labelHtml}</label>
-			<div className="ast-palette-selection-wrapper">
-				{paletteOptions}
+			<div className="ast-toggle-desc-wrap">
+				<label className="customizer-text">{labelHtml}</label>
+				<span className="ast-adv-toggle-icon dashicons" data-control={name}></span>
+
 			</div>
+
 			<div className="ast-color-palette-wrapper">{paletteColors}</div>
+
+			<div className="ast-field-settings-wrap">
+				<div className="ast-field-settings-modal">
+					<div className="ast-color-palette-container">
+						{paletteOptions}
+					</div>
+				</div>
+			</div>
 		</>
 	);
 };
@@ -185,4 +193,4 @@ ColorPaletteComponent.propTypes = {
 	control: PropTypes.object.isRequired,
 };
 
-export default React.memo(ColorPaletteComponent);
+export default ColorPaletteComponent;

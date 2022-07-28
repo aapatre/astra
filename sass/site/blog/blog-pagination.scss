@@ -5,7 +5,7 @@ $color-background-pagination :	transparent;
 $col-lg: 993px;
 $mx-col-xs: 420px;
 $col-md: 769px;
-$color-border-pagination  :  #eaeaea;
+$color-border-pagination: var(--ast-border-color);
 $mx-col-md: 768px;
 
 
@@ -88,7 +88,7 @@ $mx-col-md: 768px;
             }
         }
     }
-    
+
     .prev_next {
         @media( max-width: $mx-col-md) {
             display: inline-block;

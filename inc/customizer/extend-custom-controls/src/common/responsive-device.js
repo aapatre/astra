@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 const {__} = wp.i18n;
 const {Fragment} = wp.element;
 import {useEffect, useState} from 'react';
+import parse from 'html-react-parser';
+import svgIcons from '../../../../../assets/svg/svgs.json';
 
 const ResponsiveDeviceControl = props => {
 
@@ -62,6 +64,10 @@ const ResponsiveDeviceControl = props => {
 		linkResponsiveButtons();
 	}, [] );
 
+	const responsiveDesktop = parse( svgIcons['desktop-responsive'] );
+	const responsiveTablet = parse( svgIcons['tablet-responsive'] );
+	const responsiveMobile = parse( svgIcons['mobile-responsive'] );
+
 	return <Fragment>
 		<div className={'ahfb-responsive-control-bar'}>
 			{props.controlLabel && <span className="customize-control-title">{props.controlLabel}</span>}
@@ -78,8 +84,9 @@ const ResponsiveDeviceControl = props => {
 										});
 										document.dispatchEvent(event);
 									}}>
-								<i className={`dashicons dashicons-${device === 'mobile' ? 'smartphone' : device}`}>
-								</i>
+									{( device === 'desktop' ) ? responsiveDesktop  : ''}
+									{( device === 'tablet' ) ? responsiveTablet  : ''}
+									{( device === 'mobile' ) ? responsiveMobile  : ''}
 							</button>
 						</li>;
 					})}

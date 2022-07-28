@@ -8,13 +8,15 @@ const DividerComponent = props => {
 		caption,
 		separator,
 		label,
-		description
+		description,
+		suffix,
 	} = props.control.params;
 
 	let separatorHtml = null;
 	let captionHtml = null;
 	let labelHtml = null;
 	let descriptionHtml = null;
+	let suffixHtml = null;
 
 	if (false !== separator) {
 		separatorHtml = <hr/>;
@@ -33,11 +35,16 @@ const DividerComponent = props => {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
+	if(suffix) {
+		suffixHtml = <span className="suffix customize-control-suffix">{suffix}</span>
+	}
+
 	return <Fragment>
 		{captionHtml}
 		{separatorHtml}
-		<label className="customizer-text">
+		<label className="customizer-text sadsad">
 			{labelHtml}
+			{suffixHtml}
 			{descriptionHtml}
 		</label>
 	</Fragment>;

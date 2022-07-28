@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import {Component} from '@wordpress/element';
+import parse from 'html-react-parser';
+import svgIcons from '../../../../../assets/svg/svgs.json';
 
 class ResponsiveSelectComponent extends Component {
 
@@ -56,21 +58,25 @@ class ResponsiveSelectComponent extends Component {
 			htmlLabel = <span className="customize-control-title">{ label }</span>;
 		}
 
+		const responsiveDesktop = parse( svgIcons['desktop-responsive'] );
+		const responsiveTablet = parse( svgIcons['tablet-responsive'] );
+		const responsiveMobile = parse( svgIcons['mobile-responsive'] );
+
 		const responsiveHtml = (
 			<ul key={ 'ast-resp-ul' } className="ast-responsive-btns">
 				<li key={ 'desktop' } className="desktop active">
 					<button type="button" className="preview-desktop" data-device="desktop">
-						<i className="dashicons dashicons-desktop"></i>
+						{responsiveDesktop}
 					</button>
 				</li>
 				<li key={ 'tablet' } className="tablet">
 					<button type="button" className="preview-tablet" data-device="tablet">
-						<i className="dashicons dashicons-tablet"></i>
+						{responsiveTablet}
 					</button>
 				</li>
 				<li key={ 'mobile' } className="mobile">
 					<button type="button" className="preview-mobile" data-device="mobile">
-						<i className="dashicons dashicons-smartphone"></i>
+						{responsiveMobile}
 					</button>
 				</li>
 			</ul>

@@ -82,19 +82,21 @@ const SliderComponent = props => {
 	}
 
 	return <div className="ast-slider-wrap">
+
+
 		{labelHtml}
 		{descriptionHtml}
+		{ suffixHtml }
 		{ renderOperationButtons() }
 		<div className="wrapper">
 			<RangeControl
 				value={ savedValue }
 				onChange={ ( value ) => updateValues( value ) }
 				resetFallbackValue={ defaultVal }
-				min={ min < 0 ? min : 0 }
+				min={ min > 0 ? min : 0 }
 				max={ max || 500 }
 				step={ step || 1 }
 			/>
-			{ suffixHtml }
 		</div>
 	</div>;
 };

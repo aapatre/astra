@@ -175,7 +175,7 @@ export function astraGetResponsiveSliderJs ( control ) {
         jQuery( '.customize-control-ast-responsive-slider .input-field-wrapper.' + device + ', .customize-control .ast-responsive-slider-btns > li.' + device ).addClass( 'active' );
     });
 
-    control.container.find( '.ast-responsive-slider-btns button i' ).on( 'click', function( event ) {
+    control.container.find( '.ast-responsive-slider-btns button svg' ).on( 'click', function( event ) {
         event.preventDefault();
         let device = jQuery(this).parent('button').attr('data-device');
         if( 'desktop' == device ) {
@@ -333,7 +333,7 @@ export function astraGetResponsiveToggleControlJs ( control ) {
         jQuery( '.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control.' + device + ', .customize-control .ast-responsive-toggle-btns > li.' + device ).addClass( 'active' );
     });
 
-    control.container.find( '.ast-responsive-toggle-btns button i' ).on( 'click', function( event ) {
+    control.container.find( '.ast-responsive-toggle-btns button svg' ).on( 'click', function( event ) {
         event.preventDefault();
         let device = jQuery(this).parent('button').attr('data-device');
         if( 'desktop' == device ) {

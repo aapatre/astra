@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import {__} from '@wordpress/i18n';
 import {useState,useEffect} from 'react';
+import parse from 'html-react-parser';
+import svgIcons from '../../../../../assets/svg/svgs.json';
 
 const BorderComponent = props => {
 
@@ -74,7 +76,8 @@ const BorderComponent = props => {
 		id,
 		choices,
 		inputAttrs,
-		name
+		name,
+		suffix
 	} = props.control.params;
 
 	let htmlLabel = <span className="customize-control-title">{label ? label : __('Background', 'astra')}</span>;
@@ -82,18 +85,30 @@ const BorderComponent = props => {
 		<span className="description customize-control-description">{description}</span> : null;
 	let htmlLinkedChoices = null;
 	let htmlChoices = null;
+	let suffixHtml = null;
 
 	let itemLinkDesc = __('Link Values Together', 'astra');
 
+	if (suffix) {
+		suffixHtml = <span className="ast-range-unit">{suffix}</span>;
+	}
+
 	if (linked_choices) {
+		const linkActive = parse( svgIcons['hyper-link-enable'] );
+		const linkDeactivated = parse( svgIcons['hyper-link-disable'] );
+
 		htmlLinkedChoices = <li key={id} className="ast-border-input-item-link disconnected">
-					<span className="dashicons dashicons-admin-links ast-border-connected wp-ui-highlight"
+					<span className="ast-border-connected wp-ui-highlight"
 						  onClick={() => {
 							  onConnectedClick();
-						  }} data-element-connect={id} title={itemLinkDesc}></span>
-			<span className="dashicons dashicons-editor-unlink ast-border-disconnected" onClick={() => {
+						  }} data-element-connect={id} title={itemLinkDesc}>
+							  {linkActive}
+						  </span>
+			<span className="ast-border-disconnected" onClick={() => {
 				onDisconnectedClick();
-			}} data-element-connect={id} title={itemLinkDesc}></span>
+			}} data-element-connect={id} title={itemLinkDesc}>
+				{linkDeactivated}
+			</span>
 		</li>;
 	}
 
@@ -112,6 +127,7 @@ const BorderComponent = props => {
 	return <>
 		{htmlLabel}
 		{htmlDescription}
+		{ suffixHtml }
 		<div className="ast-border-outer-wrapper">
 			<div className="input-wrapper ast-border-wrapper">
 				<ul className="ast-border-wrapper desktop active">

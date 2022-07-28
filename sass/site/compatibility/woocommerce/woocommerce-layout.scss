@@ -264,13 +264,6 @@
 		}
 	}
 
-	.woocommerce-result-count {
-		float: left;
-	}
-	.woocommerce-ordering {
-		float: right;
-	}
-
 	.woocommerce-pagination {
 		ul.page-numbers {
 			@include menu();
@@ -478,7 +471,7 @@
 
 			legend {
 				padding: 3px 0;
-				border-bottom: 1px solid #e5e5e5;
+				border-bottom: 1px solid var(--ast-border-color);
 				width: 100%;
 				margin: 10px 0;
 			}

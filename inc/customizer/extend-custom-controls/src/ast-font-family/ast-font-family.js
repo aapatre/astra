@@ -12,13 +12,11 @@ const FontFamilyComponent = props => {
 		link
 	} = props.control.params;
 
-
 	const [state, setState] = useState({
 		value: props.control.setting.get(),
 	});
 
 	const linkRemoteUpdate = () => {
-
 		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
 			if ( e.detail === 'typography' ) {
 				setState({ value : props.control.setting.get() });

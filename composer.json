@@ -35,5 +35,11 @@
     "psalm": "./vendor/bin/psalm",
     "gen-stubs": "vendor/bin/generate-stubs astra/ --out=tests/php/static-analysis-stubs/astra-stubs.php",
     "update-stubs": "rm -f tests/php/static-analysis-stubs/astra-stubs.php && grunt release-no-clean && composer gen-stubs"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }

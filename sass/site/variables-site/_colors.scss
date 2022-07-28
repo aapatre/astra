@@ -34,21 +34,21 @@ $color-title-bar-divider          : #A9A9A9;				// Title Bar divider color
 $color-widget-active              :	#414042;				// Widget active link color
 $color-widget-calendar-months     :	#AEAEAE;				// Calender Widget months color
 
-$color-border-submenu             : #eaeaea;				// Submenu border color
-$color-border-button              : #eaeaea;				// Button border color
-$color-border-button-hover        : #eaeaea;				// Button border color for hover event
-$color-border-button-focus        : #eaeaea;				// Button border color for focus & active event
-$color-border-input               : #eaeaea;				// Input box, textarea border color
+$color-border-submenu             : var(--ast-border-color);				// Submenu border color
+$color-border-button              : var(--ast-border-color);				// Button border color
+$color-border-button-hover        : var(--ast-border-color);				// Button border color for hover event
+$color-border-button-focus        : var(--ast-border-color);				// Button border color for focus & active event
+$color-border-input               : var(--ast-border-color); // Input box, textarea border color
 $color-border-abbr                : #666;					// Abbreviation tag bottom border color
 $color-border-toggle-menu         :	#4C4A4A;				// Toggle menu border color
-$color-border-widget              :	#eaeaea;				// Widget border color
-$color-border-dotted-widget       :	#e2e2e2;				// Widget dotted border color
-$color-border-pagination          :	#eaeaea;				// Pagination background hover color
-$color-border-gallery             :	#eaeaea;				// Pagination background hover color
-$color-border-content      		  :	#eeeeee;				// Content boder bottom color
+$color-border-widget              :	var(--ast-border-color);				// Widget border color
+$color-border-dotted-widget       :	var(--ast-border-color);				// Widget dotted border color
+$color-border-pagination          :	var(--ast-border-color);				// Pagination background hover color
+$color-border-gallery             :	var(--ast-border-color);				// Pagination background hover color
+$color-border-content      		  :	var(--ast-border-color);				// Content boder bottom color
 
 $footer-background-color          : #3a3a3a;
 $footer-text-color                : #fff;
-$footer-link-color                : #eaeaea;
+$footer-link-color                : var(--ast-border-color);
 $footer-link-hover-color          : #fff;
 $footer-widget-title-color        : #fff;

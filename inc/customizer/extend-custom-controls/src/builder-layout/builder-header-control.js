@@ -48,12 +48,16 @@ const BuilderHeader = (props) => {
 					<a href="#"
 					   className={"nav-tab ahfb-general-tab ahfb-compontent-tabs-button " + (('general' === props.tab) ? "nav-tab-active" : "")}
 					   data-tab="general">
-						<span>{__('General', 'astra')}</span>
+						<span>
+							{ 'section-header-builder-layout' === props.control.params.section || 'section-footer-builder-layout' === props.control.params.section ? __('Elements', 'astra') : __('General', 'astra') }
+						</span>
 					</a>
 					<a href="#"
 					   className={"nav-tab ahfb-design-tab ahfb-compontent-tabs-button " + (('design' === props.tab) ? "nav-tab-active" : "")}
 					   data-tab="design">
-						<span>{__('Design', 'astra')}</span>
+						<span>
+							{ __('Design', 'astra') }
+						</span>
 					</a>
 				</div>
 			</React.Fragment>

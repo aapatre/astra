@@ -29,7 +29,7 @@
 
 .main-header-bar {
     background-color: #fff;
-    border-bottom-color: #eaeaea;
+    border-bottom-color: var(--ast-border-color);
     border-bottom-style: solid;
 }
 
@@ -42,7 +42,7 @@
         border: 0;
     }
     .main-header-bar {
-        border-bottom-color: #eaeaea;
+        border-bottom-color: var(--ast-border-color);
         border-bottom-style: solid;
     }
 }

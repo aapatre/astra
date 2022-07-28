@@ -15,10 +15,10 @@ $color-link-visited: 				purple;			// Link Visited Color
 $color-link-hover: 					midnightblue;	// Link Hover Color
 $color-text-main: 					#808285;		// Text color
 
-$color-border-button: 				#eaeaea;		// Button border color
-$color-border-button-hover: 		#eaeaea;		// Button border color for hover event
-$color-border-button-focus: 		#eaeaea;		// Button border color for focus & active event
-$color-border-input: 				#ccc;			// Input box, textarea border color
+$color-border-button: 				var(--ast-border-color);		// Button border color
+$color-border-button-hover: 		var(--ast-border-color);		// Button border color for hover event
+$color-border-button-focus: 		var(--ast-border-color);		// Button border color for focus & active event
+$color-border-input: 				var(--ast-border-color);			// Input box, textarea border color
 $color-border-abbr: 				#666;			// Abbreviation tag bottom border color
 
 

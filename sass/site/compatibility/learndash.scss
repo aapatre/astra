@@ -9,8 +9,8 @@
 @import "../../grid/variables";
 @import "../variables-site/structure";
 @import "../variables-site/colors";
- 
- 
+
+
 .ast-page-builder-template,
 .ast-page-builder-template.single{
 	.sfwd-courses,
@@ -33,7 +33,7 @@
 			margin-bottom: .5em;
 			.ast-single-post-order + .post-thumb img {
 				margin-top: 1em;
-				margin-bottom: 1em;	
+				margin-bottom: 1em;
 			}
 		}
 	}
@@ -45,7 +45,7 @@
 		}
 	}
 }
- 
+
 .ld-course-list-content {
 	.ld-entry-content {
 		margin-bottom: 1.5em;
@@ -54,7 +54,7 @@
 		}
 	}
 }
- 
+
 .learndash {
 	.learndash_join_button{
 		margin-bottom: 1em;
@@ -67,13 +67,13 @@
 	}
 
 }
- 
+
 #learndash_course_certificate {
 	.btn-blue {
 		display: inline-block;
 	}
 }
- 
+
 .wpProQuiz_modal_window {
 	#wpProQuiz_overlay_close {
 		padding: 5px 15px;
@@ -98,8 +98,8 @@
 		}
 	}
 }
- 
- 
+
+
 body {
 	.learndash,
 	#ld_topic_categorydropdown,
@@ -131,10 +131,10 @@ body {
 			}
 		}
 	}
-	
+
 	// Course List.
 	#ld_course_list {
-		
+
 		.ld_course_grid {
 			.caption {
 				padding: 15px;
@@ -229,9 +229,9 @@ body {
 
 	.list_arrow {
 
-		&.collapse, 
+		&.collapse,
 		&.expand {
-			
+
 			&,
 			&.lesson_incomplete,
 			&.lesson_completed {
@@ -244,14 +244,14 @@ body {
 			&:before {
 				content: "\e901";
 				font-weight: bold;
-			}	
+			}
 		}
 		&.lesson_incomplete{
 			&:before {
 				color: rgba(0,0,0,0.5);
 				content: "\e903";
 				font-weight: normal;
-			}	
+			}
 		}
 		&:before {
 			display: inline-block;
@@ -292,12 +292,12 @@ body {
 			}
 		}
 	}
- 
+
 	#learndash_course_content {
 		.learndash_topic_dots {
 
 			ul > li {
-		
+
 				&,
 				&:hover,
 				&.nth-of-type-odd {
@@ -326,7 +326,7 @@ body {
 
 		#quiz_list, // class issue “quiz_list”, one this got release replace id with class.
 		.lessons_list {
-			border: 1px solid #e2e2e2;
+			border: 1px solid var(--ast-border-color);
 			border-top: none;
 			overflow: hidden;
 		}
@@ -362,7 +362,7 @@ body {
 				display: inline-block;
 				float: left;
 			}
-			
+
 			h2.ld-entry-title {
 				font-size: 1em;
 				width: calc(70% - .5em);
@@ -382,7 +382,7 @@ body {
 			margin-bottom: 1em;
 			padding: 1em;
 			background: #fbfbfb;
-			border-color: #e2e2e2;
+			border-color: var(--ast-border-color);
 
 			&[data-type="single"],
 			&[data-type="multiple"] {
@@ -446,7 +446,7 @@ body {
 					padding: 5px 10px;
 					background: #fbfbfb;
 					box-shadow: none;
-					border-color: #e2e2e2;
+					border-color: var(--ast-border-color);
 					display: inline-block;
 					width: 100%;
 					position: relative;
@@ -473,12 +473,12 @@ body {
 				}
 			}
 		}
- 
+
 		.wpProQuiz_listItem,
 		.wpProQuiz_questionList {
-		
+
 			&[data-type="matrix_sort_answer"] {
-				
+
 				.wpProQuiz_questionListItem,
 				.wpProQuiz_questionListItem:last-child {
 					padding: 0;
@@ -486,14 +486,14 @@ body {
 				}
 				.wpProQuiz_matrixSortString {
 					background: #fff;
-					border-color: #e2e2e2;
+					border-color: var(--ast-border-color);
 					padding: 5px 15px 15px;
 
 					.wpProQuiz_header {
 						margin-bottom: 10px;
 					}
 				}
-				
+
 
 				ul.wpProQuiz_sortStringList {
 					padding: 0;
@@ -549,13 +549,13 @@ body {
 				left: 0;
 				bottom: 12px;
 				background: #fff;
-				border: 1px solid #ccc;
+				border: 1px solid var(--ast-border-color);
 				box-shadow: 0px 0px 4px 0px #ccc;
 				max-width: 500px;
 
 				.wpProQuiz_header {
 					font-weight: 600;
-					border-bottom: 1px solid #e2e2e2;
+					border-bottom: 1px solid var(--ast-border-color);
 					padding-bottom: 5px;
 				}
 
@@ -573,9 +573,8 @@ body {
 				&:before {
 					bottom: 0px;
 					border-left: 8px solid transparent;
-					border-top: 8px solid #eee;
+					border-top: 8px solid var(--ast-border-color);
 					border-right: 8px solid transparent;
-					border-top-color: rgba(0, 0, 0, 0.2);
 					left: 15px;
 				}
 
@@ -638,7 +637,7 @@ body {
 
 		.wpProQuiz_box,
 		.wpProQuiz_reviewQuestion {
-			border-color: #e2e2e2;
+			border-color: var(--ast-border-color);
 			background-color: #fbfbfb;
 
 			li {
@@ -646,7 +645,7 @@ body {
 				height: 2.5em;
 				line-height: 2.5;
 				padding: 0;
-				border-color: #e2e2e2;
+				border-color: var(--ast-border-color);
 				box-shadow: none;
 				font-weight: 600;
 			}
@@ -694,10 +693,10 @@ body {
 			}
 		}
 	}
- 
+
 }
- 
-// 
+
+//
 /**
  * LearnDash Shortcode
  */

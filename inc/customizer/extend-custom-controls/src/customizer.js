@@ -204,7 +204,7 @@
 			// Change description to tooltip.
 			change_description_as_tooltip(api.control(id));
 
-			if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type']) {
+			if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type'] || 'ast-sortable' === data['type']) {
 				this.addSubControl(id);
 			}
 		},
@@ -637,6 +637,16 @@
 		}
 	}
 
+	/**
+	 * Set active tab class to section.
+	 */
+	const setContextActiveTab = function ( sectionID ) {
+		if( sectionID.length > 0 ) {
+			var activeContextTab = api.state('astra-customizer-tab').get();
+			sectionID.removeClass( 'ast-active-general-tab' ).removeClass( 'ast-active-design-tab' ).addClass( 'ast-active-' + activeContextTab + '-tab' );
+		}
+	}
+
 	const astra_builder_clear_operation_session = function () {
 		sessionStorage.removeItem('astra-builder-clone-in-progress');
 		sessionStorage.removeItem('astra-builder-eradicate-in-progress');
@@ -682,6 +692,8 @@
 		$('#customize-theme-controls').on('click', '.ahfb-compontent-tabs-button:not(.ahfb-nav-tabs-button)', function (e) {
 			e.preventDefault();
 			api.state('astra-customizer-tab').set($(this).attr('data-tab'));
+
+			setContextActiveTab( $(this).closest("ul.control-section.open") );
 		});
 
 		const setCustomTabElementsDisplay = function () {
@@ -712,6 +724,10 @@
 						if (!isExpanded) {
 							// Setting general context when collapsed.
 							api.state('astra-customizer-tab').set('general');
+						}
+
+						if( section.id ) {
+							setContextActiveTab( $( '#sub-accordion-section-' + section.id ) );
 						}
 
 						$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();

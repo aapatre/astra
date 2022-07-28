@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import {__} from '@wordpress/i18n';
 import {useEffect, useState} from 'react';
+import parse from 'html-react-parser';
+import svgIcons from '../../../../../assets/svg/svgs.json';
 
 const ResponsiveSpacingComponent = props => {
 
@@ -97,16 +99,23 @@ const ResponsiveSpacingComponent = props => {
 		let respHtml = null;
 
 		if (linked_choices) {
+			const linkActive = parse( svgIcons['hyper-link-enable'] );
+			const linkDeactivated = parse( svgIcons['hyper-link-disable'] );
+
 			linkHtml = <li key={'connect-disconnect' + device} className={ `ast-spacing-input-item-link ${disconnectedClass}` }>
 					<span key={'connect' + device}
-						  className="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight"
+						  className="ast-spacing-connected wp-ui-highlight"
 						  onClick={() => {
 							  onConnectedClick();
-						  }} data-element-connect={id} title={itemLinkDesc}></span>
-				<span key={'disconnect' + device} className="dashicons dashicons-editor-unlink ast-spacing-disconnected"
+						  }} data-element-connect={id} title={itemLinkDesc}>
+							{linkActive}
+						  </span>
+				<span key={'disconnect' + device} className="ast-spacing-disconnected"
 					  onClick={() => {
 						  onDisconnectedClick();
-					  }} data-element-connect={id} title={itemLinkDesc}></span>
+					  }} data-element-connect={id} title={itemLinkDesc}>
+					{linkDeactivated}
+				</span>
 			</li>;
 		}
 
@@ -171,6 +180,11 @@ const ResponsiveSpacingComponent = props => {
 		{renderInputHtml('tablet')}
 		{renderInputHtml('mobile')}
 	</>;
+
+	const responsiveDesktop = parse( svgIcons['desktop-responsive'] );
+	const responsiveTablet = parse( svgIcons['tablet-responsive'] );
+	const responsiveMobile = parse( svgIcons['mobile-responsive'] );
+
 	responsiveHtml = <>
 		<div className="unit-input-wrapper ast-spacing-unit-wrapper">
 			{renderResponsiveInput('desktop')}
@@ -180,17 +194,17 @@ const ResponsiveSpacingComponent = props => {
 		<ul key={'ast-spacing-responsive-btns'} className="ast-spacing-responsive-btns">
 			<li key={'desktop'} className="desktop active">
 				<button type="button" className="preview-desktop active" data-device="desktop">
-					<i className="dashicons dashicons-desktop"></i>
+					{responsiveDesktop}
 				</button>
 			</li>
 			<li key={'tablet'} className="tablet">
 				<button type="button" className="preview-tablet" data-device="tablet">
-					<i className="dashicons dashicons-tablet"></i>
+					{responsiveTablet}
 				</button>
 			</li>
 			<li key={'mobile'} className="mobile">
 				<button type="button" className="preview-mobile" data-device="mobile">
-					<i className="dashicons dashicons-smartphone"></i>
+					{responsiveMobile}
 				</button>
 			</li>
 		</ul>
@@ -199,12 +213,12 @@ const ResponsiveSpacingComponent = props => {
 	return <label key={'ast-spacing-responsive'} className='ast-spacing-responsive' htmlFor="ast-spacing">
 		{htmlLabel}
 		{htmlDescription}
+		<div className="ast-spacing-responsive-units-screen-wrap">
+			{responsiveHtml}
+		</div>
 		<div className="ast-spacing-responsive-outer-wrapper">
 			<div className="input-wrapper ast-spacing-responsive-wrapper">
 				{inputHtml}
-			</div>
-			<div className="ast-spacing-responsive-units-screen-wrap">
-				{responsiveHtml}
 			</div>
 		</div>
 	</label>;

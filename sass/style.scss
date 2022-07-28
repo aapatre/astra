@@ -76,3 +76,17 @@
 # Content
 --------------------------------------------------------------*/
 @import "site/site";
+
+.ahfb-svg-iconset {
+	display: -webkit-inline-box;
+	display: inline-flex;
+	align-self: center;
+	svg {
+		width: 17px;
+		height: 17px;
+		transition: none;
+		>* {
+			transition: none;
+		}
+	}
+}

@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import {Fragment} from '@wordpress/element';
 import {useState} from 'react';
-import {ToggleControl} from '@wordpress/components';
+import ToggleControl from '../ast-toggle/toggle-control';
+import parse from 'html-react-parser';
+import svgIcons from '../../../../../assets/svg/svgs.json';
 
 const AstResponsiveToggleControl = props => {
 
@@ -11,21 +13,26 @@ const AstResponsiveToggleControl = props => {
     const [propsValue, setPropsValue] = useState(props.control.setting.get());
   
     if (props.control.params.title) {
-      htmlTitle = <span className="toggle-control-label">{props.control.params.title}</span>;
-      responsiveHtml = <ul className="ast-responsive-toggle-btns">
+
+    const responsiveDesktop = parse( svgIcons['desktop-responsive'] );
+    const responsiveTablet = parse( svgIcons['tablet-responsive'] );
+    const responsiveMobile = parse( svgIcons['mobile-responsive'] );
+
+    htmlTitle = <span className="toggle-control-label">{props.control.params.title}</span>;
+    responsiveHtml = <ul className="ast-responsive-toggle-btns">
             <li className="desktop active">
                 <button type="button" className="preview-desktop active" data-device="desktop">
-                    <i className="dashicons dashicons-desktop"></i>
+                    {responsiveDesktop}
                 </button>
             </li>
             <li className="tablet">
                 <button type="button" className="preview-tablet" data-device="tablet">
-                    <i className="dashicons dashicons-tablet"></i>
+                    {responsiveTablet}
                 </button>
             </li>
             <li className="mobile">
                 <button type="button" className="preview-mobile" data-device="mobile">
-                    <i className="dashicons dashicons-smartphone"></i>
+                    {responsiveMobile}
                 </button>
             </li>
         </ul>;

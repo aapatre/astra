@@ -3,6 +3,8 @@ import { __ } from '@wordpress/i18n';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 import {Dashicon, Tooltip} from '@wordpress/components';
 import {useState, useEffect} from 'react';
+import parse from 'html-react-parser';
+import svgIcons from '../../../../../assets/svg/svgs.json';
 
 const ColorGroupComponent = props => {
 
@@ -216,24 +218,29 @@ const ColorGroupComponent = props => {
 	})
 
 	if (label) {
-		htmlLabel = <span className="customize-control-title">{label}</span>;
+		htmlLabel = <span>{label}</span>;
 		let multipleGroup = Object.entries( colorGroupState ).length > 2 ? 'ast-multiple-colors-group' :'';
 
 		if (responsive) {
+
+			const responsiveDesktop = parse( svgIcons['desktop-responsive'] );
+			const responsiveTablet = parse( svgIcons['tablet-responsive'] );
+			const responsiveMobile = parse( svgIcons['mobile-responsive'] );
+
 			responsiveHtml = <ul key={'ast-resp-ul'} className={`ast-responsive-btns ${ multipleGroup } `}>
 				<li key={'desktop'} className="desktop active">
 					<button type="button" className="preview-desktop" data-device="desktop">
-						<i className="dashicons dashicons-desktop"></i>
+						{responsiveDesktop}
 					</button>
 				</li>
 				<li key={'tablet'} className="tablet">
 					<button type="button" className="preview-tablet" data-device="tablet">
-						<i className="dashicons dashicons-tablet"></i>
+						{responsiveTablet}
 					</button>
 				</li>
 				<li key={'mobile'} className="mobile">
 					<button type="button" className="preview-mobile" data-device="mobile">
-						<i className="dashicons dashicons-smartphone"></i>
+						{responsiveMobile}
 					</button>
 				</li>
 			</ul>;
@@ -379,8 +386,8 @@ const ColorGroupComponent = props => {
 				{htmlLabel}
 				{htmlHelp}
 			</label>
-		</div>
 			{ responsiveHtml }
+		</div>
 			{ renderResetButton() }
 		<div className="ast-field-color-group-wrap">
 			{optionsHtml}

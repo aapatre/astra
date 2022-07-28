@@ -57,8 +57,13 @@ const TypoPresetControl = ( props ) => {
 				optionVal = options[ presetKey ][ option ];
 			}
 
+			let fontOption = 'astra-settings[' + option + ']';
+			if( 'body-font-family' === option || 'headings-font-family' === option || 'body-font-variant' === option || 'headings-font-variant' === option ) {
+				fontOption = option;
+			}
+
 			AstTypography.setOption(
-				'astra-settings[' + option + ']',
+				fontOption,
 				optionVal,
 				true
 			);
@@ -99,12 +104,12 @@ const TypoPresetControl = ( props ) => {
 		document.dispatchEvent(updateTypoEvent);
 
 		AstTypography.setOption(
-			"astra-settings[body-font-weight]",
+			"body-font-weight",
 			bodyFontWeight,
 			false
 		);
 		AstTypography.setOption(
-			"astra-settings[headings-font-weight]",
+			"headings-font-weight",
 			headingFontWeight,
 			false
 		);
@@ -131,17 +136,22 @@ const TypoPresetControl = ( props ) => {
 	const SingleList = ( props ) => {
 		return (
 			<Tooltip
+				position="top center"
+				noArrow={ false }
 				key={props.uniqueKey}
 				text={ generateToolTipText(props.preset ) }
 			>
-			<li
-				className={
-					"ast-typo-preset-item " +
-					(propsValue === props.preset ? "active" : "")
-				}
-				key={props.preset}
-				onClick={() => onPresetClick(props.preset)}
-			>{parse(window.svgIcons[props.preset])}</li></Tooltip>
+				<li
+					className={
+						"ast-typo-preset-item " +
+						(propsValue === props.preset ? "active" : "")
+					}
+					key={props.preset}
+					onClick={() => onPresetClick(props.preset)}
+				>
+					{parse(window.svgIcons[props.preset])}
+				</li>
+			</Tooltip>
 		);
 	};
 

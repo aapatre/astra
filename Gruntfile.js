@@ -104,6 +104,16 @@ module.exports = function (grunt) {
                         dest: 'inc/customizer/custom-controls/assets/css/unminified',
                         ext: '-rtl.css'
                     },
+					{
+                        expand: true,
+                        cwd: 'inc/metabox/extend-metabox/css/unminified',
+                        src: [
+                            '*.css',
+                            '!*-rtl.css',
+                        ],
+                        dest: 'inc/metabox/extend-metabox/css/unminified',
+                        ext: '-rtl.css'
+                    },
                 ]
             }
         },
@@ -129,8 +139,8 @@ module.exports = function (grunt) {
                     /* Editor Style */
                     {
                         'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
-                        // 'inc/customizer/custom-controls/assets/unminified/custom-controls.css': 'inc/customizer/custom-controls/custom-controls.scss',
                         'inc/assets/css/block-editor-styles.css': 'sass/admin/block-editor-styles.scss',
+                        'inc/assets/css/wp-editor-styles.css': 'sass/admin/wp-editor-styles.scss',
                     },
 
                     /* Common Style */
@@ -560,6 +570,10 @@ module.exports = function (grunt) {
                     {
                         src: 'inc/metabox/extend-metabox/css/unminified/metabox.css',
                         dest: 'inc/metabox/extend-metabox/css/minified/metabox.min.css',
+                    },
+					{
+                        src: 'inc/metabox/extend-metabox/css/unminified/metabox-rtl.css',
+                        dest: 'inc/metabox/extend-metabox/css/minified/metabox-rtl.min.css',
                     },
                 ]
             }

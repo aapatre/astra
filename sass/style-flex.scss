@@ -78,5 +78,18 @@
 @import "site/site-flex";
 
 .ast-icon.icon-search {
-	z-index: 4;	
-  }
+	z-index: 4;
+}
+.ahfb-svg-iconset {
+	display: -webkit-inline-box;
+	display: inline-flex;
+	align-self: center;
+	svg {
+		width: 17px;
+		height: 17px;
+		transition: none;
+		>* {
+			transition: none;
+		}
+	}
+}

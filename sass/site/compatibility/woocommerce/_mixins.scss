@@ -3,7 +3,7 @@
  * Fallback for bourbon equivalent
  */
 @mixin clearfix() {
-	*zoom: 1;
+	zoom: 1;
 
 	&::before,
 	&::after {

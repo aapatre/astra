@@ -11,7 +11,7 @@ const SettingsGroupComponent = props => {
 	} = props.control.params;
 
 	if (label) {
-		htmlLabel = <span className="customize-control-title">{label}</span>;
+		htmlLabel = <span>{label}</span>;
 	}
 
 	if (help) {

@@ -58,6 +58,39 @@
 			});
 		});
 
+		/**
+		 * Trigger on Global body font change.
+		 */
+		api('astra-settings[body-font-family]', function (value) {
+			value.bind(function (font) {
+				let event = new CustomEvent(
+					'AstraGlobalFontChangedastra_settings_body-font-variant', {
+						'detail': {
+							'font': font,
+							'control': 'body-font-family',
+							'variant': 'body-font-variant'
+						}
+					});
+				document.dispatchEvent(event);
+			});
+		});
+
+		/**
+		 * Trigger on Global headings font change.
+		 */
+		api('astra-settings[headings-font-family]', function (value) {
+			value.bind(function (font) {
+				let event = new CustomEvent(
+					'AstraGlobalFontChangedastra_settings_headings-font-variant', {
+						'detail': {
+							'font': font,
+							'control': 'headings-font-family',
+							'variant': 'headings-font-variant'
+						}
+					});
+				document.dispatchEvent(event);
+			});
+		});
 
 		/**
 		 * Trigger on different-mobile-logo change.
@@ -116,7 +149,7 @@
 				const customizer_preview_container =  document.getElementById('customize-preview');
 				let iframe 						 = customizer_preview_container.getElementsByTagName('iframe')[0];
 				let htmlContent 				 = iframe.contentDocument || iframe.contentWindow.document;
-				
+
 				setTimeout(function () {
 					if( null !== htmlContent.querySelector('.transparent-custom-logo .astra-logo-svg') ) {
 						let existingValues 	    = api('astra-settings[transparent-header-logo-width]').get();
@@ -138,7 +171,7 @@
 						}
 						api('astra-settings[transparent-header-logo-width]').set( existingValues );
 					}
-				}, 250);	
+				}, 250);
 			});
 		});
 
